@@ -1,0 +1,39 @@
+{
+    "index": {
+        "title": "Introduction",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": true,
+            "pagination": true
+        }
+    },
+    "about": {
+       "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": true,
+            "pagination": true
+        }
+    },
+    "another": {
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": true,
+            "pagination": true
+        }
+    },
+    "advanced": {
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": true,
+            "pagination": true
+        }
+    }
+  }
