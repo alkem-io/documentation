@@ -5,7 +5,7 @@
   "author": "Alkemio Foundation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alkem-io/"
+    "url": "https://github.com/alkem-io/documentation"
   },
   "license": "EUPL-1.2",
   "scripts": {
@@ -20,5 +20,12 @@
     "nextra-theme-docs": "^2.13.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10"
+  },
+  "volta": {
+    "node": "20.13.1"
   }
 }

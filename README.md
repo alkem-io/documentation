@@ -2,9 +2,16 @@
 
 #### to run the project
 
-1. npm i
-2. npm run dev
+`npm i`
+`npm run dev`
 
+###### prerequisits
+
+It's recommended to use [volta](https://docs.volta.sh/guide/getting-started)
+```
+"node": ">=20.9.0"
+"npm": ">=10"
+```
 #### to build the project
 
 1. npm run build
