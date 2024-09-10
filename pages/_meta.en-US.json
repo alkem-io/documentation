@@ -5,7 +5,7 @@
             "breadcrumb": true,
             "footer": false,
             "sidebar": true,
-            "toc": true,
+            "toc": false,
             "pagination": true
         }
     },
@@ -14,7 +14,7 @@
             "breadcrumb": true,
             "footer": false,
             "sidebar": true,
-            "toc": true,
+            "toc": false,
             "pagination": true
         }
     },
@@ -23,7 +23,7 @@
             "breadcrumb": true,
             "footer": false,
             "sidebar": true,
-            "toc": true,
+            "toc": false,
             "pagination": true
         }
     },
@@ -32,7 +32,7 @@
             "breadcrumb": true,
             "footer": false,
             "sidebar": true,
-            "toc": true,
+            "toc": false,
             "pagination": true
         }
     }
