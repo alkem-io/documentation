@@ -12,4 +12,6 @@ module.exports = withNextra({
     images: {
     unoptimized: true,
     },
+    basePath: '/documentation',   
+    assetPrefix: '/documentation/',
 });
