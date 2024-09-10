@@ -26,7 +26,11 @@ RUN npm install -g serve
 WORKDIR /app
 
 # Copy the build output from the previous stage
-COPY --from=build /app/out ./out
+COPY --from=build /app/.next ./next
+# COPY --from=build /app/next.config.js ./next.config.js
+# COPY --from=build /app/middleware.js ./middleware.js
+# COPY --from=build /app/theme.config.jsx ./theme.config.jsx
+# COPY --from=build /app/public ./public
 
 # Expose port 3010 to access the site
 EXPOSE 3010
