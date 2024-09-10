@@ -43,7 +43,7 @@ jobs:
       - name: Create Image Pull Secret
         run: |
           kubectl create secret docker-registry alkemio-documentation-secret \
-            --docker-documentation=${{ secrets.REGISTRY_LOGIN_SERVER }} \
+            --docker-server=${{ secrets.REGISTRY_LOGIN_SERVER }} \
             --docker-username=${{ secrets.REGISTRY_USERNAME }} \
             --docker-password=${{ secrets.REGISTRY_PASSWORD }} \
             --dry-run=client -o yaml | kubectl apply -f -
