@@ -9,7 +9,7 @@
   },
   "license": "EUPL-1.2",
   "scripts": {
-  "dev": "next",
+  "dev": "next -p 3010",
   "build": "next build",
   "start": "next start -p 3010",
   "export": "next export"
