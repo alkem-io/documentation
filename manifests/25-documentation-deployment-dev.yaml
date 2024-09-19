@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: default
+  name: alkemio-documentation-deployment
+  labels:
+    app: alkemio-documentation
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alkemio-documentation
+  template:
+    metadata:
+      labels:
+        app: alkemio-documentation
+    spec:
+      containers:
+        - name: alkemio-documentation
+          image: alkemio.azurecr.io/alkemio-documentation:latest
+          envFrom:
+            - secretRef:
+                name: alkemio-secrets
+            - configMapRef:
+                name: alkemio-config
+          ports:
+            - name: documentation
+              containerPort: 3010
+
+
