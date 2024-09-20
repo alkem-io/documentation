@@ -9,16 +9,8 @@
             "pagination": true
         }
     },
-    "about": {
-       "theme": {
-            "breadcrumb": true,
-            "footer": false,
-            "sidebar": true,
-            "toc": false,
-            "pagination": true
-        }
-    },
-    "another": {
+    "getting-started": {
+        "title": "Getting Started",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -27,7 +19,38 @@
             "pagination": true
         }
     },
-    "advanced": {
+    "functionality": {
+        "title": "Functionality",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "into-practice": {
+        "title": "Into Practice",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "faq": {
+        "title": "FAQ",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "support": {
+        "title": "Support",
         "theme": {
             "breadcrumb": true,
             "footer": false,
