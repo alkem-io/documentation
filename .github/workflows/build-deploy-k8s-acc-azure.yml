@@ -1,10 +1,8 @@
 name: Deploy to Acceptance
 
 on:
-  workflow_dispatch:
-# on:
-#   push:
-#     branches: [develop]
+  push:
+    branches: [develop]
 
 jobs:
   build:
