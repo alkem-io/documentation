@@ -54,7 +54,7 @@ jobs:
             --docker-password=${{ secrets.REGISTRY_PASSWORD }} \
             --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Deploy to k3s on Hetzner
+      - name: Deploy to Azure Kubernetes Service
         uses: azure/k8s-deploy@v5.0.0
         with:
           manifests: |
