@@ -17,17 +17,79 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        }
+        },
+        "submenus": [
+            {
+                "title": "First Steps",
+                "path": "/getting-started/first-steps",
+                "submenus": [
+                    {
+                        "title": "Complete Profile",
+                        "path": "/getting-started/first-steps/complete-profile"
+                    },
+                    {
+                        "title": "Create Space",
+                        "path": "/getting-started/first-steps/create-space"
+                    },
+                    {
+                        "title": "Inviting People to my Space",
+                        "path": "/getting-started/first-steps/inviting-people"
+                    }
+                ]
+            }
+        ]
     },
-    "functionality": {
-        "title": "Functionality",
+    "structure": {
+        "title": "Structure",
         "theme": {
             "breadcrumb": true,
             "footer": false,
             "sidebar": true,
             "toc": false,
             "pagination": true
-        }
+        },
+        "submenus": [
+            {
+                "title": "Space",
+                "path": "/core-features/space"
+            },
+            {
+                "title": "Subspace",
+                "path": "/core-features/subspace"
+            },
+            {
+                "title": "Collaboration Tool",
+                "path": "/core-features/collaboration-tool"
+            }
+        ]
+    },
+    "features": {
+        "title": "Features",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        },
+        "submenus": [
+            {
+                "title": "Innovation Flow and Library",
+                "path": "/features/innovation-flow-library"
+            },
+            {
+                "title": "Types of Collaboration Tool",
+                "path": "/features/types-of-collaboration-tool"
+            },
+            {
+                "title": "Whiteboards",
+                "path": "/features/whiteboards"
+            },
+            {
+                "title": "Subspace Setup",
+                "path": "/features/subspace-setup"
+            }
+        ]
     },
     "into-practice": {
         "title": "Into Practice",
@@ -37,7 +99,13 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        }
+        },
+        "submenus": [
+            {
+                "title": "Activate and Grow the Community",
+                "path": "/into-practice/activate-grow-community"
+            }
+        ]
     },
     "faq": {
         "title": "FAQ",
@@ -59,4 +127,4 @@
             "pagination": true
         }
     }
-  }
+}

@@ -10,5 +10,8 @@
     },
     "inviting": {
       "title": "Inviting People to my Space"
+    },
+    "create-subspace": {
+      "title": "Create Subspace"
     }
   }
