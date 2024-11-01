@@ -8,10 +8,10 @@
     "create-space": {
       "title": "Create Space"
     },
-    "create-subspace": {
-      "title": "Create Subspace"
-    },
     "inviting": {
       "title": "Inviting People to my Space"
+    },
+    "create-subspace": {
+      "title": "Create Subspace"
     }
   }
