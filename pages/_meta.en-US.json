@@ -39,8 +39,8 @@
             }
         ]
     },
-    "core-features": {
-        "title": "Core Features",
+    "structure": {
+        "title": "Structure",
         "theme": {
             "breadcrumb": true,
             "footer": false,
