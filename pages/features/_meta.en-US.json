@@ -1,12 +1,12 @@
 {
+    "search": {
+      "title": "Search"
+    },
     "collaboration-tool": {
-      "title": "Collaboration Tool"
+      "title": "Collaboration Tools"
     },
-    "types-of-collaboration-tool": {
-      "title": "Types of Collaboration Tool"
-    },
-    "whiteboards": {
-      "title": "Whiteboards"
+    "virtual-contributors": {
+      "title": "Virtual Contributors"
     },
     "innovation-library": {
       "title": "Innovation Library"

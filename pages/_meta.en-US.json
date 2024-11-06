@@ -20,22 +20,16 @@
         },
         "submenus": [
             {
-                "title": "First Steps",
-                "path": "/getting-started/first-steps",
-                "submenus": [
-                    {
-                        "title": "Complete Profile",
-                        "path": "/getting-started/first-steps/complete-profile"
-                    },
-                    {
-                        "title": "Create Space",
-                        "path": "/getting-started/first-steps/create-space"
-                    },
-                    {
-                        "title": "Inviting People to my Space",
-                        "path": "/getting-started/first-steps/inviting-people"
-                    }
-                ]
+                "title": "Create an Account",
+                "path": "/getting-started/create-account"
+            },
+            {
+                "title": "Find a Space",
+                "path": "/getting-started/find-space"
+            },
+            {
+                "title": "Create a Space",
+                "path": "/getting-started/create-space"
             }
         ]
     },
@@ -50,16 +44,20 @@
         },
         "submenus": [
             {
+                "title": "Profile",
+                "path": "/structure/profile"
+            },
+            {
                 "title": "Space",
-                "path": "/core-features/space"
+                "path": "/structure/space"
             },
             {
                 "title": "Subspace",
-                "path": "/core-features/subspace"
+                "path": "/structure/subspace"
             },
             {
-                "title": "Collaboration Tool",
-                "path": "/core-features/collaboration-tool"
+                "title": "Custom Homepage",
+                "path": "/structure/custom-homepage"
             }
         ]
     },
@@ -74,25 +72,29 @@
         },
         "submenus": [
             {
-                "title": "Innovation Flow and Library",
-                "path": "/features/innovation-flow-library"
+                "title": "Search",
+                "path": "/features/search"
             },
             {
-                "title": "Types of Collaboration Tool",
-                "path": "/features/types-of-collaboration-tool"
+                "title": "Innovation Flow",
+                "path": "/features/innovation-flow"
             },
             {
-                "title": "Whiteboards",
-                "path": "/features/whiteboards"
+                "title": "Collaboration Tool + Types",
+                "path": "/features/collaboration-tool"
             },
             {
-                "title": "Subspace Setup",
-                "path": "/features/subspace-setup"
+                "title": "Virtual Contributors",
+                "path": "/features/virtual-contributors"
+            },
+            {
+                "title": "Innovation Library",
+                "path": "/features/innovation-library"
             }
         ]
     },
-    "into-practice": {
-        "title": "Into Practice",
+    "how-to": {
+        "title": "How to...",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -102,10 +104,46 @@
         },
         "submenus": [
             {
-                "title": "Activate and Grow the Community",
-                "path": "/into-practice/activate-grow-community"
+                "title": "Invite People to my Space",
+                "path": "/how-to/invite-people"
+            },
+            {
+                "title": "Create Subspace",
+                "path": "/how-to/create-subspace"
+            },
+            {
+                "title": "Whiteboards",
+                "path": "/how-to/whiteboards"
+            },
+            {
+                "title": "Which Tool to Use",
+                "path": "/how-to/which-tool"
+            },
+            {
+                "title": "Activate Communications",
+                "path": "/how-to/activate-communications"
             }
         ]
+    },
+    "roles-authorization": {
+        "title": "Roles and Authorization",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "tutorials": {
+        "title": "Tutorials",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
     },
     "faq": {
         "title": "FAQ",
@@ -126,5 +164,29 @@
             "toc": false,
             "pagination": true
         }
+    },
+    "about": {
+        "title": "About",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        },
+        "submenus": [
+            {
+                "title": "GDPR",
+                "path": "/about/gdpr"
+            },
+            {
+                "title": "Open Source",
+                "path": "/about/open-source"
+            },
+            {
+                "title": "Security",
+                "path": "/about/security"
+            }
+        ]
     }
 }
