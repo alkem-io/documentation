@@ -13,5 +13,8 @@
     },
     "activate-community": {
       "title": "Activate the Community"
+    },
+    "tutorials": {
+      "title": "Tutorials"
     }
   }
