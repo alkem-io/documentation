@@ -1,17 +1,11 @@
 {
-    "first-steps": {
-      "title": "First Steps"
-    },
-    "complete-profile": {
-      "title": "Complete Profile"
+    "create-account": {
+      "title": "Create an Account"
     },
     "create-space": {
-      "title": "Create Space"
+      "title": "Create a Space"
     },
-    "inviting": {
-      "title": "Inviting People to my Space"
-    },
-    "create-subspace": {
-      "title": "Create Subspace"
+    "find-space": {
+      "title": "Find a Space"
     }
   }
