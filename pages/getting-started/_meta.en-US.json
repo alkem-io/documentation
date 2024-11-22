@@ -1,0 +1,11 @@
+{
+    "create-account": {
+      "title": "Create an Account"
+    },
+    "create-space": {
+      "title": "Create a Space"
+    },
+    "find-space": {
+      "title": "Find a Space"
+    }
+  }
