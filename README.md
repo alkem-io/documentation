@@ -5,7 +5,7 @@
 `npm i`
 `npm run dev`
 
-###### prerequisits
+###### prerequisites
 
 It's recommended to use [volta](https://docs.volta.sh/guide/getting-started)
 ```
