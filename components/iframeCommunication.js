@@ -1,14 +1,28 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
-// not used as there's no access to the parent origin. This is not ideal as anyone can embed the documentation and receive messages.
-// const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'http://localhost:3000'];
-// const isOriginValid = (origin) => allowedOrigins.includes(origin);
+const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'http://localhost:3000'];
+const isOriginValid = (origin) => allowedOrigins.includes(origin);
+
+const getCurrentOrigin = () => {
+    const { protocol, hostname, origin, port } = window.location;
+    if (port) {
+        return `${protocol}//${hostname}:3000`; // local client port
+    }
+
+    return origin;
+};
 
 const sendMessageToParent = (message) => {
     try {
-        // todo: check for isOriginValid here
-        window.parent.postMessage(message, '*');
+        const origin = getCurrentOrigin();
+
+        if (!isOriginValid(origin)) {
+            console.warn('Invalid origin: ', origin);
+            return;
+        }
+
+        window.parent.postMessage(message, getCurrentOrigin());
     } catch (error) {
         console.warn('Failed to send message to parent: ', error);
     }
