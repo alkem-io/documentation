@@ -5,11 +5,17 @@
     "collaboration-tool": {
       "title": "Collaboration Tools"
     },
+    "iframe": {
+      "title": "iFrame"
+    },
     "virtual-contributors": {
       "title": "Virtual Contributors"
     },
-    "innovation-library": {
-      "title": "Innovation Library"
+    "template-library": {
+      "title": "Template Library"
+    },
+    "subspace-templates": {
+      "title": "Subspace Templates"
     },
     "innovation-flow": {
       "title": "Innovation Flow"

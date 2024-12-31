@@ -88,8 +88,16 @@
                 "path": "/features/virtual-contributors"
             },
             {
-                "title": "Innovation Library",
-                "path": "/features/innovation-library"
+                "title": "Template Library",
+                "path": "/features/template-library"
+            },
+            {
+                "title": "Subspace Templates",
+                "path": "/features/subspace-templates"
+            },
+            {
+                "title": "iFrame",
+                "path": "/features/iframe"
             }
         ]
     },
