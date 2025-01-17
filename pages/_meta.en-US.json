@@ -20,6 +20,10 @@
         },
         "submenus": [
             {
+                "title": "First Steps",
+                "path": "/getting-started/first-steps"
+            },
+            {
                 "title": "Create an Account",
                 "path": "/getting-started/create-account"
             },
