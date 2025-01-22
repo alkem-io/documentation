@@ -1,0 +1,3 @@
+files:
+  - source: /pages/**/*.mdx
+    translation: /pages/**/%file_name%.%locale%.mdx
