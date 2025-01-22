@@ -1,3 +1,9 @@
-files:
-  - source: /pages/**/*.mdx
-    translation: /pages/**/%file_name%.%locale%.mdx
+"files": [
+  {
+    "source": "/pages/**/*.en-US.mdx",
+    "translation": "/pages/**/%file_name%.%locale%.mdx",
+    "translation_replace": {
+      ".en-US": ""
+    }
+  }
+]
