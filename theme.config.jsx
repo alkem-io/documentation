@@ -10,5 +10,6 @@ export default {
     },
     i18n: [
         { locale: 'en-US', text: 'English' },
+        { locale: 'nl-NL', text: 'Nederlands' },
     ]
 }
