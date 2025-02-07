@@ -39,19 +39,19 @@ const IframeCommunication = () => {
     const debounceTimeout = useRef(null);
 
     const sendPageHeight = () => {
-        const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-
-        // Only send if there's a meaningful difference in height
-        if (Math.abs(pageHeight - lastHeight.current) > 40) {
-            lastHeight.current = pageHeight;
-
-            // Debounce the message to avoid excessive calls
+        const contentHeight = document.body.offsetHeight;
+        console.log("Actual content height:", contentHeight);
+    
+        if (Math.abs(contentHeight - lastHeight.current) > 40) {
+            lastHeight.current = contentHeight;
+    
             clearTimeout(debounceTimeout.current);
             debounceTimeout.current = setTimeout(() => {
-                sendMessageToParent({ type: SupportedMessageTypes.PageHeight, height: pageHeight });
+                sendMessageToParent({ type: SupportedMessageTypes.PageHeight, height: contentHeight });
             }, 50);
         }
     };
+    
 
     useEffect(() => {
         // Send initial page height and path
