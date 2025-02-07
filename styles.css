@@ -29,3 +29,15 @@ iframe {
     overflow-y: auto !important; /* Voorkomt dat de iframe-inhoud wordt afgesneden */
     border: none;
 }
+
+body.in-iframe {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: 100vh !important;
+}
+
+body.in-iframe .main-content {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: 100vh !important;
+}
