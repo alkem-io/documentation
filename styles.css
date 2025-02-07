@@ -13,3 +13,12 @@ body {
 body:not(.in-iframe) {
     overflow-y: auto;
 }
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: auto; /* Zorgt ervoor dat de inhoud in de iframe kan scrollen */
+    padding: 20px;
+    background: white;
+}
