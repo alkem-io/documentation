@@ -22,3 +22,10 @@ body:not(.in-iframe) {
     padding: 20px;
     background: white;
 }
+
+iframe {
+    width: 100%;
+    height: 100vh !important; /* Zorgt dat de iframe altijd de volle hoogte krijgt */
+    overflow-y: auto !important; /* Voorkomt dat de iframe-inhoud wordt afgesneden */
+    border: none;
+}
