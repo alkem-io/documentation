@@ -52,6 +52,7 @@ const IframeCommunication = () => {
             }, 50);
         }
     };
+    
 
     useEffect(() => {
         // Send initial page height and path
