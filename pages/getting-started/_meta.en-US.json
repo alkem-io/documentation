@@ -1,11 +1,14 @@
 {
+    "first-steps": {
+      "title": "First Steps"
+    },
     "create-account": {
       "title": "Create an Account"
     },
-    "create-space": {
-      "title": "Create a Space"
-    },
     "find-space": {
       "title": "Find a Space"
+    },
+    "create-space": {
+      "title": "Create a Space"
     }
   }

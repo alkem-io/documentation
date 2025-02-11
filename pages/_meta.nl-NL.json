@@ -1,6 +1,6 @@
 {
     "index": {
-        "title": "Introduction",
+        "title": "Introductie",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -10,7 +10,7 @@
         }
     },
     "getting-started": {
-        "title": "Getting Started",
+        "title": "Aan de Slag",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -20,25 +20,25 @@
         },
         "submenus": [
             {
-                "title": "First Steps",
+                "title": "Eerste Stappen",
                 "path": "/getting-started/first-steps"
             },
             {
-                "title": "Create an Account",
+                "title": "Account Aanmaken",
                 "path": "/getting-started/create-account"
             },
             {
-                "title": "Find a Space",
+                "title": "Een Space Vinden",
                 "path": "/getting-started/find-space"
             },
             {
-                "title": "Create a Space",
+                "title": "Een Space Maken",
                 "path": "/getting-started/create-space"
             }
         ]
     },
     "structure": {
-        "title": "Structure",
+        "title": "Structuur",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -48,7 +48,7 @@
         },
         "submenus": [
             {
-                "title": "Profile",
+                "title": "Profiel",
                 "path": "/structure/profile"
             },
             {
@@ -60,13 +60,13 @@
                 "path": "/structure/subspace"
             },
             {
-                "title": "Custom Homepage",
+                "title": "Landingspagina",
                 "path": "/structure/custom-homepage"
             }
         ]
     },
     "features": {
-        "title": "Features",
+        "title": "Functies",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -76,7 +76,7 @@
         },
         "submenus": [
             {
-                "title": "Search",
+                "title": "Zoeken",
                 "path": "/features/search"
             },
             {
@@ -84,7 +84,7 @@
                 "path": "/features/innovation-flow"
             },
             {
-                "title": "Collaboration Tool + Types",
+                "title": "Samenwerkingstools + Types",
                 "path": "/features/collaboration-tool"
             },
             {
@@ -92,13 +92,13 @@
                 "path": "/features/virtual-contributors"
             },
             {
-                "title": "Innovation Library",
+                "title": "Template Bibliotheek",
                 "path": "/features/innovation-library"
             }
         ]
     },
     "how-to": {
-        "title": "How to...",
+        "title": "Hoe...",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -108,11 +108,11 @@
         },
         "submenus": [
             {
-                "title": "Invite People to my Space",
+                "title": "Mensen uitnodigen voor je Space",
                 "path": "/how-to/invite-people"
             },
             {
-                "title": "Create Subspace",
+                "title": "Subspace Maken",
                 "path": "/how-to/create-subspace"
             },
             {
@@ -120,17 +120,17 @@
                 "path": "/how-to/whiteboards"
             },
             {
-                "title": "Which Tool to Use",
+                "title": "Welke Samenwerkingstool te gebruiken",
                 "path": "/how-to/which-tool"
             },
             {
-                "title": "Activate Communications",
+                "title": "Communicaties Activeren",
                 "path": "/how-to/activate-communications"
             }
         ]
     },
     "faq": {
-        "title": "FAQ",
+        "title": "Veelgestelde Vragen",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -150,7 +150,7 @@
         }
     },
     "about": {
-        "title": "About",
+        "title": "Over",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -160,7 +160,7 @@
         },
         "submenus": [
             {
-                "title": "GDPR",
+                "title": "AVG",
                 "path": "/about/gdpr"
             },
             {
@@ -168,7 +168,7 @@
                 "path": "/about/open-source"
             },
             {
-                "title": "Security",
+                "title": "Veiligheid",
                 "path": "/about/security"
             }
         ]

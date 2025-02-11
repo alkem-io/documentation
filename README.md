@@ -5,7 +5,7 @@
 `npm i`
 `npm run dev`
 
-###### prerequisits
+###### prerequisites
 
 It's recommended to use [volta](https://docs.volta.sh/guide/getting-started)
 ```
@@ -54,3 +54,23 @@ _meta.en-US.json
 At the moment the i18n is done manually by the nextra guide - https://nextra.site/docs/guide/i18n
 
 We'll explore the option to use Crowdin instead.
+
+### Build & Deployment
+
+The build and deployments are automatic on merge.
+
+In order to deploy it to dev/acc, merge to `develop` branch.
+
+For production release you need to merge to `main` branch.
+For proper redeployment make sure you bump the version on every merge to main.
+
+Use the following:
+```
+npm version patch
+```
+this will bump the patch version and make a commit (e.g. 0.0.1 -> 0.0.2).
+
+Or manually update the npm version in the package.json file.
+Then run `npm install` and commit the changes.
+
+Once merged into `main`, make sure to merge `main` back to `develop` (to sync the version). 

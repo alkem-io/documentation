@@ -1,4 +1,11 @@
 body {
     font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
+    overflow-y: hidden;
 }
+
+body.not-in-iframe {
+    overflow-y: auto;
+}
+
+
