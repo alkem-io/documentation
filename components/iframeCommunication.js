@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
-const HEIGHT_DIFFERENCE_THRESHOLD = 60;
+const HEIGHT_DIFFERENCE_THRESHOLD = 130; // ~30 locally and 122 on Sandbox (Donna PC)
 
 const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'http://localhost:3000'];
 const isOriginValid = (origin) => allowedOrigins.includes(origin);
@@ -59,9 +59,8 @@ const IframeCommunication = () => {
     
 
     useEffect(() => {
-        // Send initial page height and path
+        // Send path
         sendMessageToParent({ type: SupportedMessageTypes.PageChange, url: router.pathname });
-        sendPageHeight();
 
         // Observe changes to the body size
         const resizeObserver = new ResizeObserver(sendPageHeight);
