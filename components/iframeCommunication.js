@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
+const HEIGHT_DIFFERENCE_THRESHOLD = 60;
+
 const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'http://localhost:3000'];
 const isOriginValid = (origin) => allowedOrigins.includes(origin);
 
@@ -40,14 +42,16 @@ const IframeCommunication = () => {
 
     const sendPageHeight = () => {
         const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        console.log('Scroll change new/old: ', pageHeight, lastHeight.current);
 
         // Only send if there's a meaningful difference in height
-        if (Math.abs(pageHeight - lastHeight.current) > 40) {
+        if (Math.abs(pageHeight - lastHeight.current) > HEIGHT_DIFFERENCE_THRESHOLD) {
             lastHeight.current = pageHeight;
 
             // Debounce the message to avoid excessive calls
             clearTimeout(debounceTimeout.current);
             debounceTimeout.current = setTimeout(() => {
+                console.log('Scroll change SENT: ', pageHeight, lastHeight.current);
                 sendMessageToParent({ type: SupportedMessageTypes.PageHeight, height: pageHeight });
             }, 50);
         }
