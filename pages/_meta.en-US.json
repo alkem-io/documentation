@@ -157,20 +157,6 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "GDPR",
-                "path": "/about/gdpr"
-            },
-            {
-                "title": "Open Source",
-                "path": "/about/open-source"
-            },
-            {
-                "title": "Security",
-                "path": "/about/security"
-            }
-        ]
+        }
     }
 }
