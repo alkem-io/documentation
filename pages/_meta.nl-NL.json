@@ -17,25 +17,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Eerste Stappen",
-                "path": "/getting-started/first-steps"
-            },
-            {
-                "title": "Account Aanmaken",
-                "path": "/getting-started/create-account"
-            },
-            {
-                "title": "Een Space Vinden",
-                "path": "/getting-started/find-space"
-            },
-            {
-                "title": "Een Space Maken",
-                "path": "/getting-started/create-space"
-            }
-        ]
+        }
     },
     "structure": {
         "title": "Structuur",
@@ -45,25 +27,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Profiel",
-                "path": "/structure/profile"
-            },
-            {
-                "title": "Space",
-                "path": "/structure/space"
-            },
-            {
-                "title": "Subspace",
-                "path": "/structure/subspace"
-            },
-            {
-                "title": "Landingspagina",
-                "path": "/structure/custom-homepage"
-            }
-        ]
+        }
     },
     "features": {
         "title": "Functies",
@@ -73,29 +37,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Zoeken",
-                "path": "/features/search"
-            },
-            {
-                "title": "Innovation Flow",
-                "path": "/features/innovation-flow"
-            },
-            {
-                "title": "Samenwerkingstools + Types",
-                "path": "/features/collaboration-tool"
-            },
-            {
-                "title": "Virtual Contributors",
-                "path": "/features/virtual-contributors"
-            },
-            {
-                "title": "Template Bibliotheek",
-                "path": "/features/innovation-library"
-            }
-        ]
+        }
     },
     "how-to": {
         "title": "Hoe...",
@@ -105,29 +47,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Mensen uitnodigen voor je Space",
-                "path": "/how-to/invite-people"
-            },
-            {
-                "title": "Subspace Maken",
-                "path": "/how-to/create-subspace"
-            },
-            {
-                "title": "Whiteboards",
-                "path": "/how-to/whiteboards"
-            },
-            {
-                "title": "Welke Samenwerkingstool te gebruiken",
-                "path": "/how-to/which-tool"
-            },
-            {
-                "title": "Communicaties Activeren",
-                "path": "/how-to/activate-communications"
-            }
-        ]
+        }
     },
     "faq": {
         "title": "Veelgestelde Vragen",
@@ -157,20 +77,6 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "AVG",
-                "path": "/about/gdpr"
-            },
-            {
-                "title": "Open Source",
-                "path": "/about/open-source"
-            },
-            {
-                "title": "Veiligheid",
-                "path": "/about/security"
-            }
-        ]
+        }
     }
 }
