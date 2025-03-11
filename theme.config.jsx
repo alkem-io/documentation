@@ -15,11 +15,22 @@ export default {
     project: {
         title: "Alkemio - Safe Spaces for Collaboration",
         description: "Join Alkemio! Achieve your goals. Safe smart spaces for collective action."
-    },
-    head: (
-      <>
-        <title>Alkemio - Safe Spaces for Collaboration</title>
-        <meta name="description" content="Join Alkemio! Achieve your goals. Safe smart spaces for collective action." />
-      </>
-    )
-}
+      },
+      head: (
+        <>
+          <title>Alkemio - Safe Spaces for Collaboration</title>
+          <meta name="description" content="Join Alkemio! Achieve your goals. Safe smart spaces for collective action." />
+        
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Alkemio - Safe Spaces for Collaboration" />
+          <meta property="og:description" content="Join Alkemio! Achieve your goals. Safe smart spaces for collective action." />
+          <meta property="og:image" content="/alkemio-og.png" />
+          <meta property="og:url" content="https://alkem.io/documentation" />
+    
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Alkemio - Safe Spaces for Collaboration" />
+          <meta name="twitter:description" content="Join Alkemio! Achieve your goals. Safe smart spaces for collective action." />
+          <meta name="twitter:image" content="/alkemio-og.png" />
+        </>
+      )
+    };
