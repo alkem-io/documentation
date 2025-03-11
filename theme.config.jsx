@@ -15,5 +15,11 @@ export default {
     project: {
         title: "Alkemio - Safe Spaces for Collaboration",
         description: "Join Alkemio! Achieve your goals. Safe smart spaces for collective action."
-    }
+    },
+    head: (
+      <>
+        <title>Alkemio - Safe Spaces for Collaboration</title>
+        <meta name="description" content="Join Alkemio! Achieve your goals. Safe smart spaces for collective action." />
+      </>
+    )
 }
