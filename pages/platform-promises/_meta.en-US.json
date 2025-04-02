@@ -1,0 +1,32 @@
+{
+    "introduction": {
+      "title": "Introduction"
+    },
+    "principles": {
+      "title": "Principles"
+    },
+    "compliance": {
+      "title": "Compliance"
+    },
+    "hosting": {
+      "title": "Hosting"
+    },
+    "back-ups": {
+      "title": "Back-ups & Data Retention"
+    },
+    "monitoring": {
+      "title": "Monitoring"
+    },
+    "security": {
+      "title": "Security"
+    },
+    "performance": {
+      "title": "Performance & Reliability"
+    },
+    "accessibility": {
+      "title": "Accessibility"
+    },
+    "future-improvements": {
+      "title": "Future Improvements"
+    }
+  }
