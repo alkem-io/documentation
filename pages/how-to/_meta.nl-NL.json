@@ -2,6 +2,9 @@
     "inviting": {
       "title": "Mensen uitnodigen voor een Space"
     },
+    "join-requests": {
+      "title": "Lidmaatschapsverzoeken beheren"
+    },
     "create-subspace": {
       "title": "Subspace Maken"
     },

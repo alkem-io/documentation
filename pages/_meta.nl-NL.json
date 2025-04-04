@@ -59,8 +59,8 @@
             "pagination": true
         }
     },
-    "support": {
-        "title": "Support",
+    "platform-promises": {
+        "title": "Platform Beloftes",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -69,8 +69,8 @@
             "pagination": true
         }
     },
-    "about": {
-        "title": "Over",
+    "support": {
+        "title": "Support",
         "theme": {
             "breadcrumb": true,
             "footer": false,
