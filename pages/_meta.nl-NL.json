@@ -1,0 +1,82 @@
+{
+    "index": {
+        "title": "Introductie",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "getting-started": {
+        "title": "Aan de Slag",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "structure": {
+        "title": "Structuur",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "features": {
+        "title": "Functies",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "how-to": {
+        "title": "Hoe...",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "faq": {
+        "title": "Veelgestelde Vragen",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "platform-promises": {
+        "title": "Platform Beloftes",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "support": {
+        "title": "Support",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    }
+}

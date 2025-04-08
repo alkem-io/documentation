@@ -3,3 +3,9 @@ body {
     'Arial', sans-serif;
     overflow-y: hidden;
 }
+
+body.not-in-iframe {
+    overflow-y: auto;
+}
+
+

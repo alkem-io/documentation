@@ -1,7 +1,20 @@
-import '../styles.css'
+import { useEffect } from 'react';
+import '../styles.css';
 import IframeCommunication from '../components/iframeCommunication';
- 
-// This default export is required in a new `pages/_app.js` file.
+
 export default function MyApp({ Component, pageProps }) {
-  return <><IframeCommunication /><Component {...pageProps} /></>;
+  useEffect(() => {
+    try {
+      if (window.self === window.top) {
+        document.body.classList.add("not-in-iframe");
+      }
+    } catch (e) {}
+  }, []);
+
+  return (
+    <>
+      <IframeCommunication />
+      <Component {...pageProps} />
+    </>
+  );
 }

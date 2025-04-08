@@ -8,13 +8,16 @@
     "virtual-contributors": {
       "title": "Virtual Contributors"
     },
-    "innovation-library": {
-      "title": "Innovation Library"
+    "templates": {
+      "title": "Templates"
     },
     "innovation-flow": {
       "title": "Innovation Flow"
     },
-    "community-management": {
-      "title": "Community Management"
+    "events": {
+      "title": "Events"
+    },
+    "updates": {
+      "title": "Updates"
     }
   }

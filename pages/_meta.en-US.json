@@ -17,21 +17,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Create an Account",
-                "path": "/getting-started/create-account"
-            },
-            {
-                "title": "Find a Space",
-                "path": "/getting-started/find-space"
-            },
-            {
-                "title": "Create a Space",
-                "path": "/getting-started/create-space"
-            }
-        ]
+        }
     },
     "structure": {
         "title": "Structure",
@@ -41,25 +27,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Profile",
-                "path": "/structure/profile"
-            },
-            {
-                "title": "Space",
-                "path": "/structure/space"
-            },
-            {
-                "title": "Subspace",
-                "path": "/structure/subspace"
-            },
-            {
-                "title": "Custom Homepage",
-                "path": "/structure/custom-homepage"
-            }
-        ]
+        }
     },
     "features": {
         "title": "Features",
@@ -69,29 +37,7 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Search",
-                "path": "/features/search"
-            },
-            {
-                "title": "Innovation Flow",
-                "path": "/features/innovation-flow"
-            },
-            {
-                "title": "Collaboration Tool + Types",
-                "path": "/features/collaboration-tool"
-            },
-            {
-                "title": "Virtual Contributors",
-                "path": "/features/virtual-contributors"
-            },
-            {
-                "title": "Innovation Library",
-                "path": "/features/innovation-library"
-            }
-        ]
+        }
     },
     "how-to": {
         "title": "How to...",
@@ -101,32 +47,20 @@
             "sidebar": true,
             "toc": false,
             "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "Invite People to my Space",
-                "path": "/how-to/invite-people"
-            },
-            {
-                "title": "Create Subspace",
-                "path": "/how-to/create-subspace"
-            },
-            {
-                "title": "Whiteboards",
-                "path": "/how-to/whiteboards"
-            },
-            {
-                "title": "Which Tool to Use",
-                "path": "/how-to/which-tool"
-            },
-            {
-                "title": "Activate Communications",
-                "path": "/how-to/activate-communications"
-            }
-        ]
+        }
     },
     "faq": {
         "title": "FAQ",
+        "theme": {
+            "breadcrumb": true,
+            "footer": false,
+            "sidebar": true,
+            "toc": false,
+            "pagination": true
+        }
+    },
+    "platform-promises": {
+        "title": "Platform Promises",
         "theme": {
             "breadcrumb": true,
             "footer": false,
@@ -144,29 +78,5 @@
             "toc": false,
             "pagination": true
         }
-    },
-    "about": {
-        "title": "About",
-        "theme": {
-            "breadcrumb": true,
-            "footer": false,
-            "sidebar": true,
-            "toc": false,
-            "pagination": true
-        },
-        "submenus": [
-            {
-                "title": "GDPR",
-                "path": "/about/gdpr"
-            },
-            {
-                "title": "Open Source",
-                "path": "/about/open-source"
-            },
-            {
-                "title": "Security",
-                "path": "/about/security"
-            }
-        ]
     }
 }
