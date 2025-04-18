@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 const HEIGHT_DIFFERENCE_THRESHOLD = 130; // ~30 locally and 122 on Sandbox (Donna PC)
 
-const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'http://localhost:3000'];
+const allowedOrigins = ['https://alkem.io', 'https://dev-alkem.io', 'https://acc-alkem.io', 'https://sandbox-alkem.io', 'https://test-alkem.io', 'http://localhost:3000'];
 const isOriginValid = (origin) => allowedOrigins.includes(origin);
 
 const getCurrentOrigin = () => {
