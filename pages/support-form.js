@@ -15,6 +15,7 @@ const IframeComponent = () => {
  position: 'relative',
  width: '100%',
  maxWidth: '600px',
+ height: '700px',
  margin: '40px auto',
  padding: '20px',
  backgroundColor: '#f9f9f9',
