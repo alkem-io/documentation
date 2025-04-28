@@ -31,10 +31,10 @@ const IframeComponent = () => {
  borderRadius: '10px',
  boxShadow: '0 0 10px rgba(0,0,0,0.1)'
  }}>
- {status == 'loading' && (
+ {status === 'loading' && (
       <p style={{ textAlign: 'center' }}>Loading support form...</p>
     )}
-    {status == 'error' && (
+    {status === 'error' && (
       <p style={{ textAlign: 'center' }}>
         We couldn't load the support form. Please try a different browser, check if you have an ad-blocker active, or <a href="mailto:support@alkem.io">contact us directly</a>.
       </p>
@@ -43,7 +43,7 @@ const IframeComponent = () => {
  ref={iframeRef}
  src="https://share-eu1.hsforms.com/1IKi5Eg2DT3C1BoWQzNQ0Eg2drqet"
  title="Embedded Form"
- frameborder="0"
+ frameBorder="0"
  style={{ width: '100%', height: '100%', display: status === 'loaded' ? 'block' : 'none', border: 'none' }}
  ></iframe>
  </div>
