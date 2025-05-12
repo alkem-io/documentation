@@ -1,53 +1,62 @@
 import React, { useState, useEffect } from 'react';
 
-const IframeComponent = () => {
- const [status, setStatus] = useState('loading'); // 'loading', 'loaded', 'error'
- const iframeRef = React.useRef(null);
+const states = {
+  LOADING: 'loading',
+  LOADED: 'loaded',
+  ERROR: 'error',
+};
 
- useEffect(() => {
- const iframe = iframeRef.current;
- if (iframe) {
-    const handleLoad = () => setStatus('loaded');
-    const handleError = () => setStatus('error');
-    iframe.addEventListener('load', handleLoad);
-    iframe.addEventListener('error', handleError);
-    return () => {
-        iframe.removeEventListener('load', handleLoad);
-        iframe.removeEventListener('error', handleError);
-    };
- }
- }, []);
+const SupportForm = () => {
+ const [status, setStatus] = useState(states.LOADING);
+ const [iframeSrc, setIframeSrc] = useState();
+
+  useEffect(() => {
+    // Delay setting src to ensure onLoad can be captured
+    setIframeSrc('https://share-eu1.hsforms.com/1IKi5Eg2DT3C1BoWQzNQ0Eg2drqet');
+  }, []);
+
+  const handleLoad = () => setStatus(states.LOADED);
+  const handleError = () => setStatus(states.ERROR);
 
  return (
- <div style={{
- position: 'relative',
- width: '100%',
- maxWidth: '600px',
- height: '700px',
- margin: '40px auto',
- padding: '20px',
- backgroundColor: '#f9f9f9',
- border: '1px solid #ddd',
- borderRadius: '10px',
- boxShadow: '0 0 10px rgba(0,0,0,0.1)'
- }}>
- {status === 'loading' && (
+  <div 
+    style={{
+      position: 'relative',
+      width: '100%',
+      maxWidth: '600px',
+      height: '700px',
+      margin: '40px auto',
+      padding: '20px',
+      backgroundColor: '#f9f9f9',
+      border: '1px solid #ddd',
+      borderRadius: '10px',
+      boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+    }}
+  >
+    {status === states.LOADING && (
       <p style={{ textAlign: 'center' }}>Loading support form...</p>
     )}
-    {status === 'error' && (
+    {status === states.ERROR && (
       <p style={{ textAlign: 'center' }}>
         We couldn't load the support form. Please try a different browser, check if you have an ad-blocker active, or <a href="mailto:support@alkem.io">contact us directly</a>.
       </p>
     )}
- <iframe
- ref={iframeRef}
- src="https://share-eu1.hsforms.com/1IKi5Eg2DT3C1BoWQzNQ0Eg2drqet"
- title="Embedded Form"
- frameBorder="0"
- style={{ width: '100%', height: '100%', display: status === 'loaded' ? 'block' : 'none', border: 'none' }}
- ></iframe>
+    <iframe
+      src={iframeSrc}
+      title="Embedded Form"
+      onLoad={handleLoad}
+      onError={handleError}
+      frameBorder="0"
+      style={{ 
+        width: '100%', 
+        height: '100%', 
+        border: 'none',
+
+        transition: 'opacity 0.3s ease-in-out',
+      }}
+    />
  </div>
  );
 };
 
-export default IframeComponent;
+export default SupportForm;
