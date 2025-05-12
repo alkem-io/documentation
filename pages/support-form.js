@@ -51,7 +51,7 @@ const SupportForm = () => {
         width: '100%', 
         height: '100%', 
         border: 'none',
-
+        opacity: status === states.LOADED ? 1 : 0,
         transition: 'opacity 0.3s ease-in-out',
       }}
     />
