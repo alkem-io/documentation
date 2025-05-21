@@ -12,5 +12,14 @@ module.exports = withNextra({
     images: {
     unoptimized: true,
     },
-    basePath: '/documentation',   
+    basePath: '/documentation',
+    async redirects() {
+        return [
+          {
+            source: '/:path*.:lang([a-z]{2}-[A-Z]{2})', // matches .nl-NL, .en-US etc.
+            destination: '/:path*',
+            permanent: true,
+          },
+        ];
+      },
 });

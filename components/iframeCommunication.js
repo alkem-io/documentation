@@ -59,8 +59,8 @@ const IframeCommunication = () => {
     
 
     useEffect(() => {
-        // Send path
-        sendMessageToParent({ type: SupportedMessageTypes.PageChange, url: router.pathname });
+        // Send path, use asPath as pathname includes the locale at the end
+        sendMessageToParent({ type: SupportedMessageTypes.PageChange, url: router.asPath });
 
         // Observe changes to the body size
         const resizeObserver = new ResizeObserver(sendPageHeight);

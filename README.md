@@ -51,9 +51,29 @@ _meta.en-US.json
 
 #### i18n
 
-At the moment the i18n is done manually by the nextra guide - https://nextra.site/docs/guide/i18n
+The project uses **Crowdin** for internationalization (i18n) management. All English `.mdx` files automatically generate corresponding `.nl` versions through Crowdin.
 
-We'll explore the option to use Crowdin instead.
+**Translation Process:**
+- **Do not edit Dutch translation files directly** in the repository.
+- All translations must be done through the **Crowdin platform**.
+- When English content is updated or new pages are added:
+  1. Changes sync automatically to Crowdin after it was merged to develop.
+  2. Translators update Dutch versions in Crowdin.
+  3. Translated content is pulled back into the repository via a **Crowdin-generated PR**.
+
+**Handling Crowdin Updates:**
+- Crowdin pushes unsigned commits to a `l10n_develop` branch.
+- After translating the content, the translator should:
+  1. **Create a new branch** (e.g., `git checkout -b translations-<date>`) from the up-to-date `develop` branch.
+  2. **Squash all unsigned commits** from Crowdin:
+     ```bash
+     git merge l10n_develop --squash
+     ```
+  3. **Commit the changes** with a clear message:
+     ```bash
+     git commit -s -m "translation updates"
+     ```
+  . **Publish the branch** and create a PR against `develop`.
 
 ### Build & Deployment
 
