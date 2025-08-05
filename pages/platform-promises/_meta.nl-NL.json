@@ -28,5 +28,8 @@
   },
   "future-improvements": {
     "title": "Toekomstige verbeteringen"
-  }    
+  },
+    "detailed": {
+      "title": "Gedetailleerde technische informatie"
+    }    
   }
