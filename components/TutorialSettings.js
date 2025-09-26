@@ -12,7 +12,7 @@ export default function TutorialSettings() {
     >
       <iframe
         src="https://demo.arcade.software/Rbwhpk4zro3Uer61iQKL?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="Settings Overview"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

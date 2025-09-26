@@ -11,7 +11,7 @@ export default function TutorialSignupNL() {
     >
       <iframe
         src="https://demo.arcade.software/jPkC1W2J9Ijr2QTHRwBN?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="Platform Registratie"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

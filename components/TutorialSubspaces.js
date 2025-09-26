@@ -12,7 +12,7 @@ export default function TutorialSubspaces() {
     >
       <iframe
         src="https://demo.arcade.software/X6hQiRnkEmUSoOgRupvA?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="What are Subspaces?"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

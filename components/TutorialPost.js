@@ -11,7 +11,7 @@ export default function TutorialPost() {
     >
       <iframe
         src="https://demo.arcade.software/hGarFPJT5gfUMj2sgqhP?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="How to create a post"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

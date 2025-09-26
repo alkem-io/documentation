@@ -11,7 +11,7 @@ export default function TutorialKnowledgeBase() {
     >
       <iframe
         src="https://demo.arcade.software/pSXpCpds3Mcdibk8LhBE?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="How to use the knowledge base"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

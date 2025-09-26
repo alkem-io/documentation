@@ -12,7 +12,7 @@ export default function TutorialSpace() {
     >
       <iframe
         src="https://demo.arcade.software/zVYe3x4PkZjUkMEMP9Kg?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="What is a Space?"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

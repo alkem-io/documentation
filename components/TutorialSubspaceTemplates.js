@@ -11,7 +11,7 @@ export default function TutorialSubspaceTemplates() {
     >
       <iframe
         src="https://demo.arcade.software/HqdXXy3PehSDqE9BsHyt?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="Subspace Templates"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

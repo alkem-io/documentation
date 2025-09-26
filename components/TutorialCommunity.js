@@ -12,7 +12,7 @@ export default function TutorialCommunity() {
     >
       <iframe
         src="https://demo.arcade.software/guBQToL8DWsnjCE7GLve?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="How to set up your community"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

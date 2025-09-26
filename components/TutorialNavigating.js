@@ -11,7 +11,7 @@ export default function TutorialNavigating() {
     >
       <iframe
         src="https://demo.arcade.software/hKJb93Jh5gV9dhprXYnS?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="Navigating the platform"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"

@@ -11,7 +11,7 @@ export default function TutorialVC() {
     >
       <iframe
         src="https://demo.arcade.software/FQ0BXUQVdG99VDaSrqiu?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-        title="Arcade embed"
+        title="Create your own Virtual Contributor"
         frameBorder="0"
         loading="lazy"
         allow="clipboard-write"
