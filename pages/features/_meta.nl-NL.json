@@ -8,6 +8,9 @@
     "iframe": {
       "title": "iFrame"
     },
+    "videocall": {
+      "title": "Videocall"
+    },
     "virtual-contributors": {
       "title": "Virtual Contributors"
     },
