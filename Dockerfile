@@ -1,5 +1,5 @@
 # Stage 1: Build the Next.js app
-FROM node:22-alpine AS build
+FROM node:22.21.1-alpine AS build
 
 # Install pnpm globally
 RUN npm i -g pnpm@10.17.1
@@ -21,7 +21,7 @@ COPY . .
 RUN pnpm run build
 
 # Stage 2: Serve the Next.js app
-FROM node:22-alpine AS production
+FROM node:22.21.1-alpine AS production
 
 # Install pnpm globally
 RUN npm i -g pnpm@10.17.1
