@@ -8,4 +8,36 @@ body.not-in-iframe {
     overflow-y: auto;
 }
 
+/* Force pure white background */
+:root {
+    --nextra-bg: 255 255 255 !important;
+}
 
+html, body, .nextra-content, main {
+    background-color: #fff !important;
+}
+
+/* Hide AI chat button and copy/share features - be specific */
+button[aria-label="Ask AI"],
+[data-nextra-ai-chat],
+.nextra-ai-chat-button,
+button[title*="ChatGPT"],
+button[title*="Claude"] {
+    display: none !important;
+}
+
+/* Hide copy/AI dropdown menus only when they contain AI links */
+[data-radix-popper-content-wrapper]:has(a[href*="chatgpt"]),
+[data-radix-popper-content-wrapper]:has(a[href*="claude"]) {
+    display: none !important;
+}
+
+/* Hide the "Copy page" button with ChatGPT/Claude dropdown */
+.nextra-border.x\:float-end {
+    display: none !important;
+}
+
+/* Alternative: hide the entire sidebar footer area that contains the locale switch */
+aside > div.nextra-scrollbar + div {
+    display: none !important;
+}

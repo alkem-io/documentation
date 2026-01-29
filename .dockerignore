@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+.next
+out
+_pagefind
+public/_pagefind
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Documentation
+README.md
+CLAUDE.md
+LICENSE
+
+# CI/CD
+.travis.yml
+.github
+
+# Misc
+*.log
+.DS_Store
