@@ -26,3 +26,7 @@ npm-debug.log
 
 # eslint
 .eslintcache
+
+# Pagefind search index
+public/_pagefind/
+_pagefind/
