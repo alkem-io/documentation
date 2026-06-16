@@ -2,56 +2,30 @@
 
 #### to run the project
 
-`npm i`
-`npm run dev`
+`pnpm i` (install the dependencies)
+`pnpm run build` (do one build)
+`pnpm run dev` (or `start` for a local development server)
+
+Then the project should be available under http:localhost:3010/documentation
 
 ###### prerequisites
 
 It's recommended to use [volta](https://docs.volta.sh/guide/getting-started)
 ```
-"node": ">=20.9.0"
-"npm": ">=10"
-```
-#### to build the project
-
-1. npm run build
-
-
-#### Create a page
-
-In order to get a new page create an .md or .mdx file in the pages folder.
-Then you can control the page details (title, sidebar, pagination, etc) from the _meta.json. We need it there in order to disable the footer.
-
-
-pages -> new-page.md
-
-_meta.en-US.json
-```
-"new-page": {
-    "title": "The new Page",
-    "theme": {
-        "breadcrumb": true,
-        "footer": false,
-        "sidebar": true,
-        "toc": true,
-        "pagination": true
-    }
-},
+"node": ">=22.0.0",
+"pnpm": ">=9.0.0"
 ```
 
-[More details.](https://nextra.site/docs/guide/organize-files)
+#### Development
 
+The project is setup to work with spec-kit. Use Copilot or Claude create specs and implementations. 
 
-#### Editing
-
-[Markdown](https://nextra.site/docs/guide/markdown)
-
-[Template Configuration](https://nextra.site/docs/docs-theme/theme-configuration)
+[More details.](https://nextra.site/docs/)
 
 
 #### i18n
 
-The project uses **Crowdin** for internationalization (i18n) management. All English `.mdx` files automatically generate corresponding `.nl` versions through Crowdin.
+The project uses **Crowdin** (TBD) for internationalization (i18n) management. All English `.mdx` files automatically generate corresponding `.nl` versions through Crowdin.
 
 **Translation Process:**
 - **Do not edit Dutch translation files directly** in the repository.
@@ -89,8 +63,5 @@ Use the following:
 npm version patch
 ```
 this will bump the patch version and make a commit (e.g. 0.0.1 -> 0.0.2).
-
-Or manually update the npm version in the package.json file.
-Then run `npm install` and commit the changes.
 
 Once merged into `main`, make sure to merge `main` back to `develop` (to sync the version). 
