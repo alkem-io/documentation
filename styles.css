@@ -41,3 +41,10 @@ button[title*="Claude"] {
 aside > div.nextra-scrollbar + div {
     display: none !important;
 }
+
+/* Info banner: override Nextra's default black background with a pale-yellow
+   warning style (tailwind/shadcn warning colors: yellow-100 bg, yellow-800 text). */
+.nextra-banner {
+    background: #fef9c3 !important;
+    color: #854d0e !important;
+}
