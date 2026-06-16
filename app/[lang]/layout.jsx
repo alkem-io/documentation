@@ -1,10 +1,11 @@
 import { Footer, Layout, Navbar, LocaleSwitch } from 'nextra-theme-docs'
-import { Head } from 'nextra/components'
+import { Head, Banner } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import '../../styles.css'
 import ClientProviders from '../_components/ClientProviders'
 import LocaleSwitchWrapper from '../_components/LocaleSwitchWrapper'
+import { BANNER_STORAGE_KEY, getBannerText } from '../_components/banner-content'
 
 export const metadata = {
   metadataBase: new URL('https://alkem.io'),
@@ -41,6 +42,15 @@ export default async function RootLayout({ children, params }) {
     </Footer>
   )
 
+  // Global, dismissible info banner: warns that the docs visuals are pending an
+  // update to match the new platform UI. Locale-aware; the versioned storageKey
+  // re-shows the banner whenever the copy/key changes.
+  const banner = (
+    <Banner storageKey={BANNER_STORAGE_KEY}>
+      {getBannerText(lang)}
+    </Banner>
+  )
+
   return (
     <html lang={lang} dir="ltr" suppressHydrationWarning>
       <Head />
@@ -48,6 +58,7 @@ export default async function RootLayout({ children, params }) {
         <ClientProviders />
         <LocaleSwitchWrapper />
         <Layout
+          banner={banner}
           navbar={navbar}
           footer={footer}
           pageMap={pageMap}
