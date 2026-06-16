@@ -9,15 +9,15 @@
 
 // Descriptive + versioned key used by Nextra's <Banner> to persist dismissal in
 // localStorage. Changing this re-shows the banner to everyone (see FR-006).
-export const BANNER_STORAGE_KEY = 'docs-visuals-pending-platform-redesign-2026-06'
+export const BANNER_STORAGE_KEY = 'docs-visuals-pending-platform-redesign-2026-06-v2'
 
 // Locale-keyed banner message. Must contain an entry for every supported locale
 // (en-US, nl-NL) to satisfy bilingual parity.
 export const bannerText = {
   'en-US':
-    "Heads up: the screenshots and visuals in this documentation are being updated to match Alkemio's new platform design. Some images may not yet reflect the latest UI.",
+    "Heads up: the screenshots and visuals in this documentation are being updated to match Alkemio's new platform design. Some images may not yet reflect the latest version.",
   'nl-NL':
-    'Let op: de schermafbeeldingen en visuals in deze documentatie worden bijgewerkt naar het nieuwe platformontwerp van Alkemio. Sommige afbeeldingen komen mogelijk nog niet overeen met de nieuwste UI.'
+    'Let op: de schermafbeeldingen en visuals in deze documentatie worden bijgewerkt naar het nieuwe platformontwerp van Alkemio. Sommige afbeeldingen komen mogelijk nog niet overeen met de nieuwste versie.'
 }
 
 const DEFAULT_LOCALE = 'en-US'
