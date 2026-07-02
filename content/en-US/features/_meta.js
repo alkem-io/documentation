@@ -2,7 +2,7 @@ export default {
   search: { title: 'Search' },
   posts: { title: 'Posts' },
   documents: { title: 'Documents' },
-  'direct-messages': { title: 'Direct Messages' },
+  chat: { title: 'Chat' },
   'guidance-chat': { title: 'Guidance Chat' },
   iframe: { title: 'iFrame' },
   videocall: { title: 'Video Call' },
