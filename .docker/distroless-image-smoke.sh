@@ -42,8 +42,14 @@ echo "== distroless-image-smoke: $IMAGE =="
 
 # --- 1. US1-AS1: declared user --------------------------------------------
 USER_ID="$(docker inspect "$IMAGE" --format '{{.Config.User}}')"
-[ "$USER_ID" = "65532" ] || [ "$USER_ID" = "nonroot" ] ||
-  fail "expected image user 65532/nonroot, got '$USER_ID' (an empty value means ROOT, and the hardened securityContext's runAsNonRoot would fail admission before start)"
+# Must be NUMERIC: the kubelet cannot resolve a non-numeric image user, so a
+# name form (`nonroot`) makes any Pod with `runAsNonRoot: true` fail admission
+# with "image has non-numeric user (nonroot), cannot verify user is non-root".
+# Proven on k8s-hetzner-sandbox during 036 verification.
+case "$USER_ID" in
+  65532|65532:65532) ;;
+  *) fail "expected numeric user 65532 or 65532:65532, got '$USER_ID' (a non-numeric user breaks runAsNonRoot admission)" ;;
+esac
 pass "image declares user '$USER_ID'"
 
 # The kubelet checks the declared user, but only the running process proves it.
