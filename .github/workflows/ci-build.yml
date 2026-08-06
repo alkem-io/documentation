@@ -27,3 +27,29 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+  # workspace#036-distroless-wave-1 (DOC-12).
+  #
+  # The runtime image's hardening invariants (digest-pinned bases, USER 65532,
+  # no shell, no pnpm, no source tree) and — just as importantly — the site
+  # behaviours that the distroless move put at risk (200 under the
+  # /documentation basePath, proxy.js locale negotiation, and the pagefind
+  # index, which lives OUTSIDE Next's traced standalone output and so is only
+  # present because the Dockerfile copies public/ explicitly) are enforced only
+  # if something actually runs the smoke script. Otherwise they regress
+  # silently and surface post-merge — and this repo's merges to `develop`
+  # deploy straight to Hetzner dev AND Scaleway acceptance.
+  #
+  # This repo has no lint job and no test job, so this is its only behavioural
+  # gate.
+  image-hardening:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build runtime image
+        run: docker build -t documentation:pr .
+
+      - name: Assert image hardening and site invariants
+        run: bash .docker/distroless-image-smoke.sh documentation:pr
