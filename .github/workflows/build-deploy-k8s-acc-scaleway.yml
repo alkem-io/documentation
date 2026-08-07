@@ -55,13 +55,12 @@ jobs:
           SCW_REGION: ${{ vars.SCW_REGION }}
         run: .scripts/configure-acceptance-v3-kubeconfig.sh
 
-      - name: Create Image Pull Secret
-        run: |
-          kubectl create secret docker-registry alkemio-documentation-secret \
-            --docker-server=${{ secrets.REGISTRY_LOGIN_SERVER }} \
-            --docker-username=${{ secrets.REGISTRY_USERNAME }} \
-            --docker-password=${{ secrets.REGISTRY_PASSWORD }} \
-            --dry-run=client -o yaml | kubectl apply -f -
+      # The image pull secret is no longer created here. It is provisioned by
+      # GitOps (infrastructure-operations, overlays/*-v3/documentation-registry-secret.yml)
+      # so this workflow needs no `secrets: create/update` grant in the namespace —
+      # which would otherwise let the CI identity read every secret in `default`
+      # (database credentials, Kratos cookie secrets, the Oathkeeper JWKS).
+      # See alkem-io/infrastructure-operations#2517.
 
       - name: Deploy to Scaleway
         uses: azure/k8s-deploy@v7.0.0
