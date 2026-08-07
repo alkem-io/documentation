@@ -38,6 +38,7 @@ readonly target_application=17a221c4-613b-423d-b6c4-cb5245940fd4
 readonly target_deployer_group=scaleway:group:393445d9-6d83-4c5d-9880-1a83b96d67cf
 readonly target_admin_group=scaleway:group:54b80cea-7db9-4238-9cf3-406fd83592ba
 readonly target_region=nl-ams
+readonly kubectl_request_timeout=30s
 # scaleway-cli v2.59.0 linux/amd64 — same pin as infrastructure-operations.
 readonly scw_cli_sha256=e9606386ddbf7885f06d5d585d04356559039c55252bf2abd99e55b69f3d94f6
 
@@ -118,12 +119,12 @@ acceptance_v3_assert_target_fence
 # documentation application, carry the deployer group, and carry no broad or
 # admin path. ROLE is an IAM/RBAC property; an access-key name cannot downscope
 # a more privileged application.
-actual_username=$(kubectl auth whoami -o jsonpath='{.status.userInfo.username}')
+actual_username=$(kubectl auth whoami --request-timeout="$kubectl_request_timeout" -o jsonpath='{.status.userInfo.username}')
 [[ $actual_username == "scaleway:bearer:$target_application" ]] || {
   echo "FAIL: credential bearer $actual_username is not the documentation deployer application" >&2
   exit 1
 }
-read -r -a actual_groups <<<"$(kubectl auth whoami -o jsonpath='{.status.userInfo.groups[*]}')"
+read -r -a actual_groups <<<"$(kubectl auth whoami --request-timeout="$kubectl_request_timeout" -o jsonpath='{.status.userInfo.groups[*]}')"
 has_group() {
   local expected=$1
   local group
@@ -144,7 +145,7 @@ fi
 
 can_i() {
   local result
-  result=$(kubectl auth can-i "$@" 2>/dev/null || true)
+  result=$(kubectl auth can-i --request-timeout="$kubectl_request_timeout" "$@" 2>/dev/null || true)
   [[ $result == yes || $result == no ]] || {
     echo "FAIL: unexpected authorization result for kubectl auth can-i $*" >&2
     exit 1
@@ -168,6 +169,13 @@ expect_can_i yes patch deployments.apps -n default
 expect_can_i yes create jobs.batch -n default
 expect_can_i yes patch services -n default
 expect_can_i no get secrets -n default
+expect_can_i no list secrets -n default
+expect_can_i no watch secrets -n default
+expect_can_i no create secrets -n default
+expect_can_i no patch secrets -n default
+expect_can_i no update secrets -n default
+expect_can_i no delete secrets -n default
+expect_can_i no deletecollection secrets -n default
 expect_can_i no delete deployments.apps -n default
 expect_can_i no create pods/exec -n default
 expect_can_i no patch deployments.apps -n kube-system
@@ -175,4 +183,4 @@ expect_can_i no create clusterrolebindings.rbac.authorization.k8s.io
 
 # Bound the request: kubectl's default --request-timeout is 0 (no timeout), so
 # an unresponsive control plane would hang the deploy job with no diagnostic.
-kubectl get --raw=/readyz --request-timeout=30s
+kubectl get --raw=/readyz --request-timeout="$kubectl_request_timeout"
