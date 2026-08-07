@@ -80,4 +80,6 @@ fi
 # shellcheck source=acceptance-v3-target-fence.sh
 . "$(dirname "$0")/acceptance-v3-target-fence.sh"
 acceptance_v3_assert_target_fence
-kubectl get --raw=/readyz
+# Bound the request: kubectl's default --request-timeout is 0 (no timeout), so an
+# unresponsive control plane would hang the deploy job with no diagnostic.
+kubectl get --raw=/readyz --request-timeout=30s
