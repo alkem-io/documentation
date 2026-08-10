@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout GitHub Action"
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: "Login into ACR"
-        uses: azure/docker-login@v2
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c # v2
         with:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           username: ${{ secrets.REGISTRY_USERNAME }}
@@ -26,31 +26,49 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # Supplies SCW_ACCESS_KEY / SCW_SECRET_KEY and the cluster coordinates,
+    # mirroring the acceptance-v3 environment in infrastructure-operations.
+    environment: acceptance-v3
     steps:
       - name: "Checkout GitHub Action"
-        uses: actions/checkout@v4.1.7
-
-      - name: Set up Kubeconfig for Scaleway
-        run: |
-          mkdir -p $HOME/.kube  # Ensure the .kube directory exists
-          echo "${{ secrets.KUBECONFIG_SECRET_SCALEWAY_ACC }}" > $HOME/.kube/config
-          chmod 600 $HOME/.kube/config
-
-      - name: Install Kubectl
-        uses: azure/setup-kubectl@v4.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          version: "v1.27.6" # Ensure this matches the version used in your cluster
+          # No git push from the deploy job; leaving the token in .git/config
+          # would expose it to every later step in a credential-bearing job.
+          persist-credentials: false
 
-      - name: Create Image Pull Secret
-        run: |
-          kubectl create secret docker-registry alkemio-documentation-secret \
-            --docker-server=${{ secrets.REGISTRY_LOGIN_SERVER }} \
-            --docker-username=${{ secrets.REGISTRY_USERNAME }} \
-            --docker-password=${{ secrets.REGISTRY_PASSWORD }} \
-            --dry-run=client -o yaml | kubectl apply -f -
+      # Must precede the kubeconfig step: the fence in that script uses kubectl
+      # to verify which cluster the generated config actually points at.
+      - name: Install Kubectl
+        uses: azure/setup-kubectl@829323503d1be3d00ca8346e5391ca0b07a9ab0d # v5.1.0
+        with:
+          version: "v1.36.1"
+
+      # Generates the kubeconfig on the runner from Scaleway API credentials.
+      # Replaces the stored KUBECONFIG_SECRET_SCALEWAY_ACC secret, which still
+      # pointed at the DECOMMISSIONED pre-v3 cluster and made every deploy fail
+      # with `dial tcp 51.158.216.139:6443: i/o timeout` — while the workflow's
+      # overall status still showed green, because only this job failed.
+      - name: Configure and fence acceptance-v3
+        env:
+          SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
+          SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+          SCW_APPLICATION_ID: ${{ vars.SCW_APPLICATION_ID }}
+          SCW_CLUSTER_ID: ${{ vars.SCW_CLUSTER_ID }}
+          SCW_PROJECT_ID: ${{ vars.SCW_PROJECT_ID }}
+          SCW_ORGANIZATION_ID: ${{ vars.SCW_ORGANIZATION_ID }}
+          SCW_REGION: ${{ vars.SCW_REGION }}
+        run: .scripts/configure-acceptance-v3-kubeconfig.sh
+
+      # The image pull secret is no longer created here. It is provisioned by
+      # GitOps (infrastructure-operations, overlays/*-v3/documentation-registry-secret.yml)
+      # so this workflow needs no `secrets: create/update` grant in the namespace —
+      # which would otherwise let the CI identity read every secret in `default`
+      # (database credentials, Kratos cookie secrets, the Oathkeeper JWKS).
+      # See alkem-io/infrastructure-operations#2517.
 
       - name: Deploy to Scaleway
-        uses: azure/k8s-deploy@v5.0.0
+        uses: azure/k8s-deploy@51ca02a8b7225fbd0924aac359c5b336a5f1e5b4 # v7.0.0
         with:
           manifests: |
             manifests/25-documentation-deployment-dev.yaml

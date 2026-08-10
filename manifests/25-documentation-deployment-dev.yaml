@@ -1,3 +1,32 @@
+###############################################################################
+# workspace#036-distroless-wave-1 (DOC-7) — hardened securityContext.
+#
+# SCOPE WARNING — despite the "-dev" suffix, this ONE file is the ONLY live
+# apply path for the documentation Deployment, and it is applied by ALL FIVE
+# deploy workflows via `azure/k8s-deploy`:
+#   build-deploy-k8s-dev-hetzner.yml       (push: develop)
+#   build-deploy-k8s-acc-scaleway.yml      (push: develop)
+#   build-deploy-k8s-test-hetzner.yml      (workflow_dispatch)
+#   build-deploy-k8s-sandbox-hetzner.yml   (workflow_dispatch)
+#   build-deploy-k8s-prod-scaleway.yml     (push: main)
+# Edit it as a five-environment change, not a dev-only one.
+#
+# The two other Deployment copies of this workload —
+#   dev-orchestration/01-alkemio-platform/base/.../documentation/11-documentation-deployment.yml
+#   infrastructure-operations/orchestration/base/.../documentation/11-documentation-deployment.yml
+# — are ORPHANS: neither frontend/kustomization.yml lists them (both list only
+# the ingress route and the service), and `kustomize build` over all 16
+# overlays renders ZERO documentation Deployment objects. Do NOT "helpfully"
+# wire them in; that would silently create two more live apply paths. Tracked
+# as follow-up F3 (single ownership).
+#
+# Image/manifest atomicity: each workflow's `build` job pushes
+# `:${{ github.sha }}` built from the checked-out commit, and its `deploy` job
+# passes that exact tag to `azure/k8s-deploy` `images:` alongside THIS file
+# from the SAME commit. The securityContext below and the `USER 65532` added
+# to the Dockerfile in the same commit therefore always arrive together — in
+# every environment, including production when develop→main is promoted.
+###############################################################################
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -16,9 +45,41 @@ spec:
       labels:
         app: alkemio-documentation
     spec:
+      # Pod-level baseline. The runtime image declares `USER 65532` and the
+      # distroless `nonroot` user is UID/GID 65532 (verified in-image:
+      # `uid=65532 gid=65532`), so runAsNonRoot is satisfiable.
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        # Inert today (this pod mounts no volumes) but correct if one is ever
+        # added, and it costs nothing.
+        fsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: alkemio-documentation
           image: rg.nl-ams.scw.cloud/alkemio/alkemio-documentation:latest
+          # Container-level context. Repeats the identity fields deliberately:
+          # container-level wins over pod-level, so stating them here means a
+          # future pod-level edit cannot silently relax this container.
+          #
+          # `readOnlyRootFilesystem` is DELIBERATELY ABSENT — do not "complete"
+          # this block by adding it. A Next.js standalone server on a read-only
+          # root filesystem returns HTTP 200 while logging EROFS failures when
+          # it writes its prerender cache: the pod stays Ready and serves
+          # traffic, so the degradation is invisible to every health check.
+          # Silent degradation past a green probe is worse than the residual
+          # risk it would remove. Re-evaluate only alongside an emptyDir mount
+          # for the cache directory. (workspace#036 agreed point A12.)
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65532
+            runAsGroup: 65532
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           envFrom:
             - secretRef:
                 name: alkemio-secrets
@@ -27,5 +88,3 @@ spec:
           ports:
             - name: documentation
               containerPort: 3010
-
-

@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout GitHub Action"
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: "Login into ACR"
-        uses: azure/docker-login@v2
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c # v2
         with:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           username: ${{ secrets.REGISTRY_USERNAME }}
@@ -26,31 +26,54 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # Supplies SCW_PRODUCTION_V3_* credentials and cluster coordinates. Also a
+    # place to attach required reviewers or a branch policy later — production
+    # currently has neither.
+    environment: production-v3
     steps:
       - name: "Checkout GitHub Action"
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # No git push from the deploy job; leaving the token in .git/config
+          # would expose it to every later step in a credential-bearing job.
+          persist-credentials: false
 
-      - name: Set up Kubeconfig for Scaleway
-        run: |
-          mkdir -p $HOME/.kube  # Ensure the .kube directory exists
-          echo "${{ secrets.KUBECONFIG_SECRET_SCALEWAY_PROD }}" > $HOME/.kube/config
-          chmod 600 $HOME/.kube/config
-
+      # Must precede the kubeconfig step: the fence in that script uses kubectl
+      # to verify which cluster the generated config actually points at.
       - name: Install Kubectl
-        uses: azure/setup-kubectl@v4.0.0
+        uses: azure/setup-kubectl@829323503d1be3d00ca8346e5391ca0b07a9ab0d # v5.1.0
         with:
           version: "v1.27.6" # Ensure this matches the version used in your cluster
 
-      - name: Create Image Pull Secret
-        run: |
-          kubectl create secret docker-registry alkemio-documentation-secret \
-            --docker-server=${{ secrets.REGISTRY_LOGIN_SERVER }} \
-            --docker-username=${{ secrets.REGISTRY_USERNAME }} \
-            --docker-password=${{ secrets.REGISTRY_PASSWORD }} \
-            --dry-run=client -o yaml | kubectl apply -f -
+      # Generates the kubeconfig on the runner from Scaleway API credentials and
+      # fences it to the v3 production cluster before anything is applied.
+      #
+      # NOTE: unlike the acceptance path, this replaces a WORKING mechanism.
+      # KUBECONFIG_SECRET_SCALEWAY_PROD does point at v3 and deploys have been
+      # succeeding. What it lacks is a target fence — if that secret were ever
+      # rotated to the wrong cluster, this repo would deploy there silently,
+      # whereas infrastructure-operations fails closed. This adopts the same
+      # fail-closed pattern and drops a long-lived stored credential.
+      - name: Configure and fence production-v3
+        env:
+          SCW_PRODUCTION_V3_ACCESS_KEY: ${{ secrets.SCW_PRODUCTION_V3_ACCESS_KEY }}
+          SCW_PRODUCTION_V3_SECRET_KEY: ${{ secrets.SCW_PRODUCTION_V3_SECRET_KEY }}
+          SCW_PRODUCTION_V3_APPLICATION_ID: ${{ vars.SCW_PRODUCTION_V3_APPLICATION_ID }}
+          SCW_PRODUCTION_V3_CLUSTER_ID: ${{ vars.SCW_PRODUCTION_V3_CLUSTER_ID }}
+          SCW_PRODUCTION_V3_PROJECT_ID: ${{ vars.SCW_PRODUCTION_V3_PROJECT_ID }}
+          SCW_PRODUCTION_V3_ORGANIZATION_ID: ${{ vars.SCW_PRODUCTION_V3_ORGANIZATION_ID }}
+          SCW_PRODUCTION_V3_REGION: ${{ vars.SCW_PRODUCTION_V3_REGION }}
+        run: .scripts/configure-production-v3-kubeconfig.sh
+
+      # The image pull secret is no longer created here. It is provisioned by
+      # GitOps (infrastructure-operations, overlays/*-v3/documentation-registry-secret.yml)
+      # so this workflow needs no `secrets: create/update` grant in the namespace —
+      # which would otherwise let the CI identity read every secret in `default`
+      # (database credentials, Kratos cookie secrets, the Oathkeeper JWKS).
+      # See alkem-io/infrastructure-operations#2517.
 
       - name: Deploy to Scaleway
-        uses: azure/k8s-deploy@v5.0.0
+        uses: azure/k8s-deploy@51ca02a8b7225fbd0924aac359c5b336a5f1e5b4 # v7.0.0
         with:
           manifests: |
             manifests/25-documentation-deployment-dev.yaml
