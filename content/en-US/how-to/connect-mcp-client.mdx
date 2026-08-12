@@ -1,0 +1,90 @@
+# Connect an MCP client
+
+Alkemio supports the Model Context Protocol (MCP), which lets AI tools such as
+Claude Desktop and Claude Code act on your behalf inside the platform. To
+connect one, you first mint a personal **MCP API key** — a credential that
+acts as you, scoped to the operations you allow, and capped in number so a
+leaked key can't multiply itself.
+
+## What an MCP key is
+
+An MCP key is a personal credential, not a service account. Anything a
+connected client does through it happens as **you** — subject to your own
+permissions on spaces, callouts and other content. Each key is scoped to a
+set of allowed operations (for example, read-only vs. tools access) when you
+create it, and you can hold up to 10 usable keys at a time. Revoke keys you
+no longer use.
+
+## Step 1: Mint a key
+
+1. Click on your profile picture in the top right corner.
+2. Go to **Settings** > **Security**.
+3. Under **MCP API keys**, click **Create key**, give it a name, and choose
+   its scope.
+4. The plaintext key is shown **once**, immediately after creation. Copy it
+   somewhere safe — Alkemio never stores or displays it again. If you close
+   the panel or navigate away before copying it, you'll need to revoke that
+   key and create a new one.
+
+## Step 2: Configure your client
+
+Every client needs the same three things: the platform's address, the
+`/rest/mcp` endpoint, and your key sent as a bearer token.
+
+- **Endpoint**: `https://<your-platform-address>/rest/mcp`
+- **Header**: `Authorization: Bearer <your key>`
+
+### Claude Desktop
+
+Add an entry to your Claude Desktop MCP server configuration
+(`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "alkemio": {
+      "url": "https://alkem.io/rest/mcp",
+      "headers": { "Authorization": "Bearer mcp_YOUR_KEY_HERE" }
+    }
+  }
+}
+```
+
+Replace the URL with your platform's own address (for example
+`https://acc-alkem.io/rest/mcp` on the acceptance environment), and
+`mcp_YOUR_KEY_HERE` with the key you copied in Step 1. Restart Claude Desktop
+after saving the configuration.
+
+### Claude Code
+
+Add the Alkemio server with the `claude mcp add` command, passing the same
+endpoint and header:
+
+```bash
+claude mcp add --transport http alkemio https://alkem.io/rest/mcp \
+  --header "Authorization: Bearer mcp_YOUR_KEY_HERE"
+```
+
+Again, substitute your platform's address and your own key.
+
+### Generic MCP client
+
+Any client that speaks Streamable HTTP MCP needs the same two values. Most
+clients accept the header as `Authorization: Bearer <key>`. If a client's
+configuration only exposes a named "API key" field rather than a raw header,
+it may instead expect `X-MCP-API-Key: <key>` — check your client's
+documentation for which one it uses. Alkemio's `/rest/mcp` endpoint accepts
+either.
+
+## Revoking a key
+
+If a key is no longer needed, or you suspect it may have leaked, revoke it
+immediately:
+
+1. Go to **Settings** > **Security**.
+2. Under **MCP API keys**, find the key by name and click **Revoke**.
+
+A revoked key stops working right away — including for any client sessions
+that were already connected using it. Revoking does not delete the key's
+history; it simply stops it from authenticating any further requests. Create
+a new key if you still need client access afterwards.
