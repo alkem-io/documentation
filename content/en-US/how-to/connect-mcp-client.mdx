@@ -36,15 +36,23 @@ Every client needs the same three things: the platform's address, the
 
 ### Claude Desktop
 
-Add an entry to your Claude Desktop MCP server configuration
-(`claude_desktop_config.json`):
+Claude Desktop's `claude_desktop_config.json` launches **local** MCP servers —
+every entry needs a `command` to run. It has no field for a remote URL with a
+static `Authorization` header, so connect through a small bridge that runs
+locally and forwards to Alkemio with your key attached:
 
 ```json
 {
   "mcpServers": {
     "alkemio": {
-      "url": "https://alkem.io/rest/mcp",
-      "headers": { "Authorization": "Bearer mcp_YOUR_KEY_HERE" }
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://alkem.io/rest/mcp",
+        "--header",
+        "Authorization: Bearer mcp_YOUR_KEY_HERE"
+      ]
     }
   }
 }
@@ -54,6 +62,11 @@ Replace the URL with your platform's own address (for example
 `https://acc-alkem.io/rest/mcp` on the acceptance environment), and
 `mcp_YOUR_KEY_HERE` with the key you copied in Step 1. Restart Claude Desktop
 after saving the configuration.
+
+The bridge requires Node.js on your machine. Claude Desktop's **Settings →
+Connectors → Add custom connector** is the other route to a remote server, but
+it negotiates credentials at connect time and offers no place to paste a
+personal key, so it does not work with the key you just minted.
 
 ### Claude Code
 
