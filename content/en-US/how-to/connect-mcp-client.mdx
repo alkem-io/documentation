@@ -48,7 +48,7 @@ locally and forwards to Alkemio with your key attached:
       "command": "npx",
       "args": [
         "-y",
-        "mcp-remote",
+        "mcp-remote@0.1.38",
         "https://alkem.io/rest/mcp",
         "--header",
         "Authorization: Bearer mcp_YOUR_KEY_HERE"
@@ -63,10 +63,20 @@ Replace the URL with your platform's own address (for example
 `mcp_YOUR_KEY_HERE` with the key you copied in Step 1. Restart Claude Desktop
 after saving the configuration.
 
-The bridge requires Node.js on your machine. Claude Desktop's **Settings →
-Connectors → Add custom connector** is the other route to a remote server, but
-it negotiates credentials at connect time and offers no place to paste a
-personal key, so it does not work with the key you just minted.
+The config file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+The bridge needs **Node.js 18 or newer** on your machine. The version above is
+pinned deliberately: this command passes your key to the bridge, so it should
+resolve to a version someone has looked at rather than whatever is newest at
+the moment you run it. Raise the pin when you have reason to.
+
+Claude Desktop's **Settings → Connectors → Add custom connector** is the other
+route to a remote server, but it negotiates credentials at connect time and
+offers no place to paste a personal key, so it does not work with the key you
+just minted.
 
 ### Claude Code
 
