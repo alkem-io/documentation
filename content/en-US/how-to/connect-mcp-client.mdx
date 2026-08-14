@@ -51,12 +51,21 @@ locally and forwards to Alkemio with your key attached:
         "mcp-remote@0.1.38",
         "https://alkem.io/rest/mcp",
         "--header",
-        "Authorization: Bearer mcp_YOUR_KEY_HERE"
-      ]
+        "Authorization:${AUTH_HEADER}"
+      ],
+      "env": {
+        "AUTH_HEADER": "Bearer mcp_YOUR_KEY_HERE"
+      }
     }
   }
 }
 ```
+
+The header is split across `args` and `env` on purpose. On Windows, a value
+containing spaces inside `args` can be mangled before it reaches the bridge,
+which produces a confusing authentication failure rather than an obvious
+error. Passing the value through `env` avoids that, and works identically on
+macOS and Linux — so use this form everywhere.
 
 Replace the URL with your platform's own address (for example
 `https://acc-alkem.io/rest/mcp` on the acceptance environment), and
@@ -73,10 +82,14 @@ pinned deliberately: this command passes your key to the bridge, so it should
 resolve to a version someone has looked at rather than whatever is newest at
 the moment you run it. Raise the pin when you have reason to.
 
-Claude Desktop's **Settings → Connectors → Add custom connector** is the other
-route to a remote server, but it negotiates credentials at connect time and
-offers no place to paste a personal key, so it does not work with the key you
-just minted.
+Claude Desktop's custom-connector UI is the other route to a remote server
+(**Customize → Connectors** on Pro and Max; on Team and Enterprise an owner
+adds it under **Organization settings → Connectors**). It does not work with
+the key you just minted: it negotiates credentials at connect time and offers
+no place to paste a personal key. It also connects from Anthropic's cloud
+rather than from your machine, so it cannot reach a platform address that is
+only resolvable on your network — a local development instance, for example.
+The bridge above runs locally and does not have that limitation.
 
 ### Claude Code
 
@@ -89,6 +102,13 @@ claude mcp add --transport http alkemio https://alkem.io/rest/mcp \
 ```
 
 Again, substitute your platform's address and your own key.
+
+Typing the key directly into the command puts it in your shell history and
+writes it to the Claude Code configuration file in plain text. If that matters
+in your environment, read it from a secret store instead of pasting it — for
+example, keep the key in your OS keychain or a password manager and reference
+it, rather than leaving a copy in two places you are unlikely to clean up
+later.
 
 ### Generic MCP client
 
@@ -110,4 +130,4 @@ immediately:
 A revoked key stops working right away — including for any client sessions
 that were already connected using it. Revoking does not delete the key's
 history; it simply stops it from authenticating any further requests. Create
-a new key if you still need client access afterwards.
+a new key if you still need client access afterward.
