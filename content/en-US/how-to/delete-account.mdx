@@ -43,14 +43,23 @@ sign-in identity, and all active sessions.
 - Posts, comments, whiteboards, and other contributions you made in other
   people's Spaces stay in place but are no longer attributed to you — they
   show as authored by "Former member".
-- Your chat identity is deprovisioned by a scheduled follow-up process, not
-  at the moment of deletion.
+- Your chat identity — including your chat display name and avatar — is
+  **not** removed by account deletion. Removing it is planned for a future
+  update. If you'd like it removed sooner, email
+  **[support@alkem.io](mailto:support@alkem.io)**.
 
 ## Backups
 
-Alkemio keeps daily backups for up to 14 days. Data from a deleted account
-may still exist in a backup taken before deletion until that backup ages out
-of the retention window.
+Database backups are taken frequently and retained for up to 30 days in our
+primary backup store; a copy is also kept in a separate off-site archive
+(within Europe), where it may be retained for longer. Data from a deleted
+account may still exist in a backup taken before deletion until that backup
+ages out.
+
+Uploaded files (such as documents and avatars) are separately replicated to
+an immutable, write-once backup store for disaster recovery. Once written,
+those copies are retained for at least 30 days and **cannot be deleted on
+request** during that period, even by Alkemio staff.
 
 ## Active subscriptions
 
