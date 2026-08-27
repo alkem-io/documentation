@@ -27,19 +27,25 @@ You can't delete your account while it still owns any of the following:
 - An organization you're the **sole owner** of
 
 If any of these apply, the delete dialog lists exactly what's blocking you.
-Go to **Settings** > **Account** to delete or hand over each item yourself —
-for an organization, appoint a second owner or transfer ownership. If you'd
-rather have us help with a transfer, email
-**[support@alkem.io](mailto:support@alkem.io)**. Once nothing blocks your
-account, deletion goes through.
+Go to **Settings** > **Account** to delete the Spaces, Virtual Contributors,
+Template Packs and Custom Homepages you own. There is no self-service way to
+hand an item over to someone else — email
+**[support@alkem.io](mailto:support@alkem.io)** if you need a transfer.
+
+An organization you solely own is not listed on that page. To clear that
+blocker, appoint a second owner from that organization's own settings, or
+email **[support@alkem.io](mailto:support@alkem.io)**. Once nothing blocks
+your account, deletion goes through.
 
 ## What happens to your data
 
-**Removed immediately**: your profile, account settings, uploaded files,
-sign-in identity, and all active sessions. If any part of this clean-up
-doesn't complete right away, we're alerted and finish it automatically;
-contact **[support@alkem.io](mailto:support@alkem.io)** if you're still able
-to sign in after deleting your account.
+**Removed immediately**: your profile, your account settings, the files stored
+on your own profile and account (for example your avatar), your sign-in
+identity, and all active sessions. If any part of this clean-up doesn't
+complete right away, it is recorded so that our team can finish it — this is
+not automatic. Contact **[support@alkem.io](mailto:support@alkem.io)** if
+you're still able to sign in after deleting your account, or if you'd like
+confirmation that your uploaded files were removed.
 
 **Not removed immediately**:
 
@@ -47,6 +53,10 @@ to sign in after deleting your account.
   people's Spaces stay in place but are no longer attributed to you — the
   author is simply no longer shown. In your activity feed and others',
   deleted accounts appear under the neutral label "Former member".
+- Files you uploaded into other people's Spaces stay with those Spaces, along
+  with the rest of your contributions there, and are no longer attributed to
+  you. Email **[support@alkem.io](mailto:support@alkem.io)** if you need them
+  removed.
 - Your chat identity — including your chat display name and avatar — is
   **not** removed by account deletion. Removing it is planned for a future
   update. If you'd like it removed sooner, email
@@ -64,12 +74,18 @@ the archive-expiry policy removes it.
 
 Uploaded files (such as documents and avatars) are also separately
 replicated to an immutable, write-once backup store for disaster recovery.
-Copies there **cannot be deleted on request at all** — 30 days is only how
-long they're guaranteed to stay immutable; after that they remain in place,
-retained until Alkemio's disaster-recovery retention policy expires them.
+Copies there **cannot be deleted on request at all**: that store is
+write-once, and the credential that writes to it has no delete permission.
+The 30 days is only the guaranteed immutability period — no expiry rule is
+configured on that store today, so after 30 days those copies simply stay in
+place until such a policy is put in place.
 
 ## Active subscriptions
 
 An active subscription does not block account deletion — you can delete your
-account while a subscription is in place. Billing is reconciled separately
-after deletion.
+account while a subscription is in place. **Deleting your account does not
+cancel your subscription.** The deletion does not contact the billing provider
+at all; it only records your subscription reference so our finance team can
+reconcile it afterwards. Cancel your subscription before deleting your account,
+or email **[support@alkem.io](mailto:support@alkem.io)** — once the account is
+gone you can no longer reach the subscription yourself.
