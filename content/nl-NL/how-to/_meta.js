@@ -9,6 +9,7 @@ export default {
   'template-packs': { title: 'Gebruik template packs van andere organisaties' },
   'change-email': { title: 'Wijzig je e-mailadres' },
   'change-password': { title: 'Wijzig je wachtwoord' },
+  'connected-accounts': { title: 'Koppel of ontkoppel een inlogmethode' },
   'delete-account': { title: 'Verwijder je account' },
   'report-bug': { title: 'Meld een bug / signaleer een probleem' },
   whiteboards: { title: 'Gebruik Excalidraw whiteboards' },
