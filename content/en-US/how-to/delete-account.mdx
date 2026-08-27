@@ -36,13 +36,17 @@ account, deletion goes through.
 ## What happens to your data
 
 **Removed immediately**: your profile, account settings, uploaded files,
-sign-in identity, and all active sessions.
+sign-in identity, and all active sessions. If any part of this clean-up
+doesn't complete right away, we're alerted and finish it automatically;
+contact **[support@alkem.io](mailto:support@alkem.io)** if you're still able
+to sign in after deleting your account.
 
 **Not removed immediately**:
 
 - Posts, comments, whiteboards, and other contributions you made in other
-  people's Spaces stay in place but are no longer attributed to you — they
-  show as authored by "Former member".
+  people's Spaces stay in place but are no longer attributed to you — the
+  author is simply no longer shown. In your activity feed and others',
+  deleted accounts appear under the neutral label "Former member".
 - Your chat identity — including your chat display name and avatar — is
   **not** removed by account deletion. Removing it is planned for a future
   update. If you'd like it removed sooner, email
@@ -50,16 +54,19 @@ sign-in identity, and all active sessions.
 
 ## Backups
 
-Database backups are taken frequently and retained for up to 30 days in our
-primary backup store; a copy is also kept in a separate off-site archive
-(within Europe), where it may be retained for longer. Data from a deleted
-account may still exist in a backup taken before deletion until that backup
-ages out.
+Database backups are taken frequently. Backups in our primary store are
+pruned after 30 days. A copy of each backup — and a copy of your uploaded
+files — is also kept in a separate off-site archive (within Europe) for
+disaster recovery; that archive copy currently has no fixed deletion date
+and is retained until an archive-expiry policy is put in place. Data from a
+deleted account may still exist in either backup path until it is pruned or
+the archive-expiry policy removes it.
 
-Uploaded files (such as documents and avatars) are separately replicated to
-an immutable, write-once backup store for disaster recovery. Once written,
-those copies are retained for at least 30 days and **cannot be deleted on
-request** during that period, even by Alkemio staff.
+Uploaded files (such as documents and avatars) are also separately
+replicated to an immutable, write-once backup store for disaster recovery.
+Copies there **cannot be deleted on request at all** — 30 days is only how
+long they're guaranteed to stay immutable; after that they remain in place,
+retained until Alkemio's disaster-recovery retention policy expires them.
 
 ## Active subscriptions
 
