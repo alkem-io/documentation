@@ -65,20 +65,12 @@ confirmation that your uploaded files were removed.
 ## Backups
 
 Database backups are taken frequently. Backups in our primary store are
-pruned after 30 days. A copy of each backup — and a copy of your uploaded
-files — is also kept in a separate off-site archive (within Europe) for
+pruned after 30 days. Copies of backups — and a copy of your uploaded
+files — are also kept in a separate off-site archive (within Europe) for
 disaster recovery; that archive copy currently has no fixed deletion date
 and is retained until an archive-expiry policy is put in place. Data from a
 deleted account may still exist in either backup path until it is pruned or
 the archive-expiry policy removes it.
-
-Uploaded files (such as documents and avatars) are also separately
-replicated to an immutable, write-once backup store for disaster recovery.
-Copies there **cannot be deleted on request at all**: that store is
-write-once, and the credential that writes to it has no delete permission.
-The 30 days is only the guaranteed immutability period — no expiry rule is
-configured on that store today, so after 30 days those copies simply stay in
-place until such a policy is put in place.
 
 ## Active subscriptions
 
