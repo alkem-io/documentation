@@ -9,6 +9,7 @@ export default {
   'template-packs': { title: 'Use template packs from other organisations' },
   'change-email': { title: 'Change your email address' },
   'change-password': { title: 'Change your password' },
+  'connected-accounts': { title: 'Connect or disconnect a sign-in method' },
   'connect-mcp-client': { title: 'Connect an MCP client' },
   'delete-account': { title: 'Delete your account' },
   'report-bug': { title: 'Raise a bug / flag an issue' },

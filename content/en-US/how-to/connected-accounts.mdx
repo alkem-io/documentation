@@ -1,0 +1,100 @@
+# Connect or disconnect a sign-in method
+
+Your account can have more than one way to sign in: a password, a passkey, and
+any identity provider Alkemio supports — for example **CleverBase**. The
+**Connected Accounts** section in your security settings shows every way you can
+currently sign in, and lets you connect a new provider or disconnect one you no
+longer use.
+
+Connecting a provider does not create a second account and does not change your
+profile. It adds another door into the account you already have.
+
+## Where to find it
+
+1. Click on your profile picture in the top right corner.
+2. Go to **Settings** > **Security**.
+3. **Connected Accounts** is the first section on the page.
+
+## What the section shows
+
+- **A row for each identity provider** Alkemio supports, marked **Connected** or
+  **Not connected**, with a **Connect** or **Disconnect** button.
+- **A row for Password and one for Passkey**, marked **Set** or **Not set**.
+  These are shown for completeness only — they are managed in their own sections
+  further down the page, and the **Change password** and **Manage passkeys**
+  links take you straight there.
+
+A connected provider shows its name and nothing else. Alkemio does not display
+the name, email or any other detail the provider holds about you.
+
+## Connect a provider
+
+1. In **Connected Accounts**, find the provider you want and click **Connect**.
+2. You are taken to the provider to confirm it is you.
+3. When you come back, the provider is marked **Connected** and you can use it to
+   sign in from then on.
+
+If you last signed in a while ago, Alkemio first asks you to confirm it is you.
+Do that, and your request continues on its own — you do not have to start over.
+
+Your display name, profile and everything else on your account stay exactly as
+they were.
+
+## Disconnect a provider
+
+1. In **Connected Accounts**, find the connected provider and click
+   **Disconnect**.
+2. Confirm in the dialog that appears.
+
+You can no longer sign in with that provider. You can connect it again later,
+but if the provider has changed how it identifies you in the meantime, that same
+connection may not come back. Disconnecting never requires you to visit the
+provider — so if a connection has stopped working, you can always remove it and
+make a fresh one.
+
+## Your last sign-in method is protected
+
+You cannot disconnect the only way you have left to sign in. If a provider is
+your last method, its **Disconnect** button explains why it is unavailable:
+
+> This is your only way to sign in right now — add a password or a passkey below
+> before you can disconnect it.
+
+Set a password or register a passkey first, then come back and disconnect the
+provider.
+
+## If the identity belongs to another account
+
+An identity can be connected to one Alkemio account at a time. If you try to
+connect one that is already in use elsewhere, the attempt is refused and nothing
+changes on either account:
+
+> That identity is already connected to a different Alkemio account. Nothing has
+> changed on either account.
+
+Sign in to that other account and disconnect the identity there first.
+
+## If something goes wrong
+
+- **The attempt did not finish** — you abandoned it, it expired, or the provider
+  refused it. You are returned to **Connected Accounts** with an explanation, and
+  your ways of signing in are unchanged. Click **Connect** again to retry.
+- **Alkemio cannot show your sign-in methods** — the section says so, offers
+  **Try again**, and shows no provider as connected or not connected. No connect
+  or disconnect action is offered until it can read your real state, so you are
+  never acting on a guess.
+
+## "I may already have an account"
+
+If you sign **up** with a provider rather than signing in, Alkemio warns you
+before you continue:
+
+> You are trying to sign up with CleverBase. If you already have an Alkemio
+> account with the same email, CleverBase will be connected to that account and
+> you can use both sign-in methods from then on.
+
+So if the email is the same, just continue — the provider is connected to your
+existing account automatically, and there is nothing to clean up afterwards. Use
+**Sign in with a different account** only when the provider carries a *different*
+email from the account you already have; continuing would otherwise leave you
+with a second, separate account.
