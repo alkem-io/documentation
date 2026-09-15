@@ -18,9 +18,10 @@ no longer use.
 ## Step 1: Mint a key
 
 1. Click on your profile picture in the top right corner.
-2. Go to **Settings** > **Security**.
-3. Under **MCP API keys**, click **Create key**, give it a name, and choose
-   its scope.
+2. Go to the **Security** tab (it sits next to **Settings**, not inside it).
+3. Under **MCP API Keys**, click **Create API key** to open the create-key
+   dialog. Give it a name, choose which **Operations** it allows (**Read**
+   and/or **Tools**), optionally set an expiry, and click **Create key**.
 4. The plaintext key is shown **once**, immediately after creation. Copy it
    somewhere safe — Alkemio never stores or displays it again. If you close
    the panel or navigate away before copying it, you'll need to revoke that
@@ -154,8 +155,8 @@ either.
 If a key is no longer needed, or you suspect it may have leaked, revoke it
 immediately:
 
-1. Go to **Settings** > **Security**.
-2. Under **MCP API keys**, find the key by name and click **Revoke**.
+1. Go to the **Security** tab (it sits next to **Settings**, not inside it).
+2. Under **MCP API Keys**, find the key by name and click **Revoke**.
 
 A revoked key stops working right away — including for any client sessions
 that were already connected using it. Revoking does not delete the key's
