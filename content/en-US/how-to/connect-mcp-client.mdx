@@ -26,13 +26,20 @@ no longer use.
    the panel or navigate away before copying it, you'll need to revoke that
    key and create a new one.
 
+The key itself already starts with `mcp_` (for example
+`mcp_AbCdEf123...`) — paste it exactly as copied, without adding another
+`mcp_` in front of it.
+
 ## Step 2: Configure your client
 
 Every client needs the same three things: the platform's address, the
 `/rest/mcp` endpoint, and your key sent as a bearer token.
 
-- **Endpoint**: `https://<your-platform-address>/rest/mcp`
-- **Header**: `Authorization: Bearer <your key>`
+- **Endpoint**: `https://alkem.io/rest/mcp` (substitute your own platform's
+  address if you're not on the main hosted instance — for example
+  `https://acc-alkem.io/rest/mcp` on the acceptance environment, or your
+  self-hosted domain)
+- **Header**: `Authorization: Bearer <your-mcp-api-key>`
 
 ### Claude Desktop
 
@@ -41,12 +48,13 @@ The simplest route is Claude Desktop's built-in Connectors UI:
 1. Go to **Settings → Connectors → Add custom connector**.
 2. Fill in:
    - **Name**: Alkemio
-   - **Remote MCP server URL**: `https://<your-platform-address>/rest/mcp`
+   - **Remote MCP server URL**: `https://alkem.io/rest/mcp` (substitute your
+     own platform's address if applicable — see Step 2 above)
 3. Under **Authentication**, select **None** ("Pick this for servers that
    use an API key instead of OAuth").
 4. Click **+ Add header** and enter:
    - **Key**: `Authorization`
-   - **Value**: `Bearer <your key>`
+   - **Value**: `Bearer <your-mcp-api-key>`
 5. Click **Add**.
 
 The Alkemio tools should now appear in Claude Desktop's connector list.
@@ -69,13 +77,13 @@ locally and forwards to Alkemio with your key attached:
       "command": "npx",
       "args": [
         "-y",
-        "mcp-remote@0.1.38",
+        "mcp-remote@0.14.2",
         "https://alkem.io/rest/mcp",
         "--header",
         "Authorization:${AUTH_HEADER}"
       ],
       "env": {
-        "AUTH_HEADER": "Bearer mcp_YOUR_KEY_HERE"
+        "AUTH_HEADER": "Bearer <your-mcp-api-key>"
       }
     }
   }
@@ -88,9 +96,10 @@ which produces a confusing authentication failure rather than an obvious
 error. Passing the value through `env` avoids that, and works identically on
 macOS and Linux — so use this form everywhere.
 
-Replace the URL with your platform's own address (for example
-`https://acc-alkem.io/rest/mcp` on the acceptance environment), and
-`mcp_YOUR_KEY_HERE` with the key you copied in Step 1. Restart Claude Desktop
+Replace the URL with your platform's own address if you're not on the main
+hosted instance (for example `https://acc-alkem.io/rest/mcp` on the
+acceptance environment), and `<your-mcp-api-key>` with the key you copied in
+Step 1 — pasted as-is, including its `mcp_` prefix. Restart Claude Desktop
 after saving the configuration.
 
 The config file lives at:
@@ -118,10 +127,11 @@ endpoint and header:
 
 ```bash
 claude mcp add --transport http alkemio https://alkem.io/rest/mcp \
-  --header "Authorization: Bearer mcp_YOUR_KEY_HERE"
+  --header "Authorization: Bearer <your-mcp-api-key>"
 ```
 
-Again, substitute your platform's address and your own key.
+Again, substitute your platform's own address if applicable, and your own
+key (pasted as-is, including its `mcp_` prefix).
 
 Typing the key directly into the command puts it in your shell history and
 writes it to the Claude Code configuration file in plain text. If that matters
