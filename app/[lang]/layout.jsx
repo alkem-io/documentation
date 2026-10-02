@@ -9,19 +9,19 @@ import { BANNER_STORAGE_KEY, getBannerText } from '../_components/banner-content
 
 export const metadata = {
   metadataBase: new URL('https://alkem.io'),
-  title: 'Alkemio - Safe Spaces for Collaboration',
-  description: 'Join Alkemio! Achieve your goals. Safe smart spaces for collective action.',
+  title: 'Alkemio - Collaboration in the spaces between organisations',
+  description: 'Alkemio is a European digital platform for collaboration in the spaces between organisations.',
   openGraph: {
     type: 'website',
-    title: 'Alkemio - Safe Spaces for Collaboration',
-    description: 'Join Alkemio! Achieve your goals. Safe smart spaces for collective action.',
+    title: 'Alkemio - Collaboration in the spaces between organisations',
+    description: 'Alkemio is a European digital platform for collaboration in the spaces between organisations.',
     images: '/alkemio-og.png',
     url: 'https://alkem.io/documentation'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alkemio - Safe Spaces for Collaboration',
-    description: 'Join Alkemio! Achieve your goals. Safe smart spaces for collective action.',
+    title: 'Alkemio - Collaboration in the spaces between organisations',
+    description: 'Alkemio is a European digital platform for collaboration in the spaces between organisations.',
     images: '/alkemio-og.png'
   }
 }
@@ -38,7 +38,11 @@ export default async function RootLayout({ children, params }) {
 
   const footer = (
     <Footer>
-      MIT {new Date().getFullYear()} Alkemio Foundation
+      EUPL-1.2 {new Date().getFullYear()} Alkemio B.V.
+      {' · '}
+      <a href="https://www.linkedin.com/company/alkemio" target="_blank" rel="noopener noreferrer" aria-label="Alkemio on LinkedIn">LinkedIn</a>
+      {' · '}
+      <a href="https://github.com/alkem-io" target="_blank" rel="noopener noreferrer" aria-label="Alkemio on GitHub">GitHub</a>
     </Footer>
   )
 
