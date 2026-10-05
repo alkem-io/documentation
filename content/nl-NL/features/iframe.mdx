@@ -1,53 +1,63 @@
 # iFrame
 
-Wil je een video, een document of een formulier delen? Je kunt dit doen door een iFrame te gebruiken.
+Wil je een video, een document of een formulier delen? Je kunt het direct in een Post laten zien door een iFrame te gebruiken.
 
-Het is een krachtig hulpmiddel bij het insluiten van externe inhoud zoals video's, documenten of interactieve formulieren in een Post.
+## Wat is een iFrame?
+
+Een iFrame is een venster in je Post dat inhoud van een andere website laat zien: een YouTube-video, een Canva-ontwerp, een Google-formulier, een presentatie in Figma. Leden kunnen het bekijken, lezen of invullen zonder Alkemio te verlaten. De inhoud zelf blijft op die andere website staan, dus als je daar iets aanpast, zie je dat ook in je Post. Dat betekent ook dat de deelinstellingen van die website blijven gelden: als een document daar niet openbaar gedeeld is, zien mensen misschien een inlogmelding in plaats van de inhoud.
+
+Om een iFrame toe te voegen heb je een klein stukje tekst van de andere website nodig: de **insluitcode** (ook wel *embed code* genoemd). De meeste websites die dit toestaan geven je die via hun **Delen**-knop. Je hoeft de code niet zelf te schrijven; je kopieert hem en plakt hem in Alkemio.
 
 ## Wat kun je doen met een iFrame?
 
-Met behulp van een iFrame, kan je:
+Met een iFrame kun je video's en podcasts insluiten, documenten, presentaties of formulieren laten zien, interactieve tools of dashboards delen en andere inhoud toevoegen, zoals kaarten, visualisaties of grafieken.
 
-- Video's insluiten van online platforms;
-- Documenten of formulieren weergeven;
-- Deel interactieve tools, widgets of dashboards;
-- Voeg externe content toe, zoals kaarten, visualisaties of grafieken.
+## Welke websites kun je insluiten?
 
-> Let op: Alleen goedgekeurde websites kunnen worden ingesloten vanwege beveiligingsredenen. 
-> Wanneer je mediabron niet wordt ondersteund, kun je de media niet embedden. \
-> Wil je een bron toevoegen aan de whitelist? 
-> Stuur een e-mail naar support@alkem.io met informatie over de bron die je wil toevoegen.
+Om veiligheidsredenen laat Alkemio alleen inhoud zien van websites op de lijst met goedgekeurde websites. Daaronder vallen YouTube, Vimeo, Spotify, Canva, Google Docs en Google Drive, Figma, Issuu, Flickr, CryptPad, HackMD en Arcade.
 
-## Voorbeeld: Een video insluiten met een iFrame
+{/* Notitie voor beheerders: lijst gecontroleerd op 2026-10-05 tegen de live platforminstelling
+    (publieke GraphQL: platform { settings { integration { iframeAllowedUrls } } }).
+    Alleen algemene websites worden genoemd; organisatiespecifieke domeinen op de lijst
+    zijn bewust weggelaten. Opnieuw controleren als de lijst verandert. */}
 
-Hier is een stapsgewijze handleiding voor het insluiten van een video van een online platform in een Post met behulp van een iFrame:
+Staat de website die je wilt gebruiken niet op de lijst? Dan toont Alkemio de melding *Ongeldige of niet-ondersteunde insluiting* en wordt de inhoud niet toegevoegd.
+
+## Voorbeeld: een video insluiten in een Post
+
+Zo sluit je een video in van een online platform zoals YouTube of Vimeo:
 
 1. **Ga naar de video**\
-   Navigeer naar de video die je wilt insluiten (deze moet online beschikbaar zijn).
+   Open de video die je wilt insluiten in je browser (hij moet online beschikbaar zijn).
 
 2. **Klik op "Delen"**\
-   onder of naast de videospeler vind je een **Delen** knop. Klik erop om de deelopties te openen.
+   Onder of naast de videospeler vind je een **Delen**-knop. Klik erop om de deelopties te openen.
 
-3. **Selecteer "Insluiten"**\
-   Kies in de opties voor delen **Insluiten**. Dit toont een vak met de insluitcode voor de video.
+3. **Kies "Insluiten"**\
+   Kies in de deelopties voor **Insluiten** (op Engelstalige websites: **Embed**). Je ziet nu een vak met de insluitcode van de video. Die begint met `<iframe`.
 
-4. **Kopieer de invoegcode**\
-   Markeer de code en kopieer het naar je klembord.
+4. **Kopieer de insluitcode**\
+   Selecteer de hele code en kopieer hem (Ctrl+C, of Cmd+C op een Mac). Veel websites hebben ook een **Kopiëren**-knop naast de code.
 
-5. **Plak de Embed Code**\
-   In je Post, kies het iFrame icoon. Plak daar de insluitcode. En dat is alles! De video is nu beschikbaar in je Post, je kunt hem daar bekijken.
+5. **Plak de insluitcode in je Post**\
+   Maak een Post aan of bewerk er een. Boven de beschrijving staat een rij opmaakknoppen. Klik op de knop **Insluiten** (een klein scherm met een afspeelsymbool). Er opent een venster *Video of inhoud insluiten*. Plak de code in het vak **Insluitcode** en klik op **Invoegen**. De video staat nu in je beschrijving en leden kunnen hem daar bekijken.
 
-Bekijk de [Welcome Space](https://alkem.io/welcome-space/challenges/collaborationtools-3751/collaboration/wanttoshowmediafromanothe) om voorbeelden van iframe's te zien en het zelf uit te proberen!
+Je kunt op dezelfde manier inhoud insluiten overal waar je die rij opmaakknoppen boven een tekstvak ziet, bijvoorbeeld in een bijdrage, de beschrijving van je Space, een evenement of een update. Memo's zijn de uitzondering: daarin kun je niets insluiten.
 
-The insluitcode is niet altijd in het juiste format, soms zul je deze nog aan moeten passen of zelf maken.
-Om daarmee te helpen is hieronder een voorbeeld weergegeven van hoe we een van onze tutorials insluiten:
+Alkemio gebruikt alleen het webadres uit de code en bepaalt zelf de grootte van het venster. Instellingen voor breedte of hoogte in de code maken dus geen verschil.
+
+Wil je zien hoe dat eruitziet? De Post [Meet the Product Team](https://alkem.io/welcome-space/collaboration/meettheproductteamwereher) in de Welcome Space laat een ingesloten presentatie zien.
+
+## Als een website alleen een link geeft
+
+Sommige websites bieden geen kant-en-klare insluitcode, maar alleen een link die bedoeld is om in te sluiten (soms *embed link* genoemd). Van die link kun je zelf insluitcode maken. Kopieer de regel hieronder, vervang `PLAK-HIER-DE-LINK` door de link (laat de aanhalingstekens staan) en plak de hele regel in het vak **Insluitcode**:
 
 ```html
-<iframe 
-src="https://demo.arcade.software/hKJb93Jh5gV9dhprXYnS?embed&embed_mobile=tab&embed_desktop=inli…" 
-></iframe>
+<iframe src="PLAK-HIER-DE-LINK"></iframe>
 ```
+
+Dit werkt alleen met een link van een website op de goedgekeurde lijst, en het moet de insluitlink van die website zijn: een gewone link naar een pagina geeft in het venster vaak een foutmelding in plaats van de inhoud.
 
 ### Heb je extra hulp nodig?
 
-Voor meer hulp, bekijk onze **[FAQ](/faq)** of neem contact met ons op via de **[Support](/support)** pagina.
+Staat de website die je wilt insluiten niet op de lijst met goedgekeurde websites, of heb je andere hulp nodig? Stuur een e-mail naar **support@alkem.io**, bekijk onze **[FAQ](/faq)**, of neem contact met ons op via de **[Support](/support)** pagina.
