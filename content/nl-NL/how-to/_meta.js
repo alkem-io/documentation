@@ -10,6 +10,7 @@ export default {
   'change-email': { title: 'Wijzig je e-mailadres' },
   'change-password': { title: 'Wijzig je wachtwoord' },
   'connected-accounts': { title: 'Koppel of ontkoppel een inlogmethode' },
+  'connect-mcp-client': { title: 'Koppel een MCP-client' },
   'delete-account': { title: 'Verwijder je account' },
   'report-bug': { title: 'Meld een bug / signaleer een probleem' },
   whiteboards: { title: 'Gebruik Excalidraw whiteboards' },
