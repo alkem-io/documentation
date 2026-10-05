@@ -1,5 +1,40 @@
-# Guidance Chat
+# AI assistance
 
-The Guidance assistant is a chat built into the platform that can help you navigate Alkemio, understand how features work, and get the most out of your Space.
+Alkemio has AI help built in, so you can use it without setting anything up. Right now this only contains the **Guidance chat**; the **Assistant** is coming soon.
 
-> We are currently working on this feature. More information will follow soon.
+## Guidance chat
+
+Guidance chat is an AI guide built into the chat. It helps you find your way around Alkemio: ask it how something works, where to find a setting, or how to get started with your Space.
+
+> Guidance chat is in **beta**: it works, but it's still being developed. Its answers may not always be complete or correct, so double-check important information, for example in this documentation.
+
+### Asking a question
+
+1. Click the chat button at the bottom right of the screen.
+2. At the top of your conversations you'll find **Guidance chat**, marked **Beta**. Open it.
+3. Type your question and send it, just like a chat message to a person.
+
+Your conversation stays there, so you can come back to it later. To start fresh, click **Clear chat**. **About the assistant** gives a short explanation of what it can do.
+
+### What can you ask?
+
+Anything about using Alkemio, for example:
+
+- How do I create a Subspace?
+- What is a Virtual Contributor?
+- How do I invite people to my Space?
+- Where can I change my notification settings?
+
+Guidance chat is there to help you with the platform itself. It's different from a [Virtual Contributor](/features/virtual-contributors), which you add to a Space to answer questions from that Space's own knowledge.
+
+{/* Maintainer note (2026-10-05): Alkemio Guidance is the pinned 1:1 conversation with the guidance VC in the unified chat (client-web `isGuidanceConversation`, `chat.*.json` → `guidance.*`), available to everyone. Separate from it, client-web also has a feature-flagged personal "Assistant" (✨ button, `common.*.json` → `assistant.*`, Settings → Assistant, Approve/Decline before changes) that is only enabled for some users; it isn't documented here yet. */}
+
+## Coming soon: the Assistant
+
+We're also working on the **Assistant**: an AI helper that works with your own content in Alkemio. It will be able to search and summarise everything you have access to, and help you work on whiteboards. It's already available for some accounts and will come to everyone later.
+
+Already use your own AI app, like Claude? You can also connect it to Alkemio yourself, see [Connect an MCP client](/how-to/connect-mcp-client).
+
+## Need help?
+
+Is something unclear, or did Guidance chat give an answer that doesn't seem right? [Contact the team](/support).

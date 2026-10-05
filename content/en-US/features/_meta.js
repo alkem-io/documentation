@@ -3,7 +3,7 @@ export default {
   posts: { title: 'Posts' },
   documents: { title: 'Documents' },
   chat: { title: 'Chat' },
-  'guidance-chat': { title: 'Guidance Chat' },
+  'guidance-chat': { title: 'AI assistance' },
   iframe: { title: 'iFrame' },
   videocall: { title: 'Video Call' },
   'virtual-contributors': { title: 'Virtual Contributors' },
