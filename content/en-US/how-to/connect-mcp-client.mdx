@@ -87,11 +87,17 @@ has every step you need, even if you haven't done this before.
 Alkemio now appears in Claude Desktop's list of connectors, and you can ask
 Claude about your Alkemio spaces.
 
+> Do you use Claude through your organisation (a Team or Enterprise plan)? Then
+> an administrator may add connectors for everyone. Never put your personal
+> Alkemio key in a connector that others share: they would then work in Alkemio
+> with your rights. Each person should use their own key.
+
 ### Claude Code
 
 You add Alkemio to Claude Code by pasting one command into a terminal: the
 window where you type commands to your computer. The command tells Claude
-Code where to find Alkemio and which key to use.
+Code where to find Alkemio and which key to use. You need Claude Code
+installed first; see [Claude Code's setup page](https://code.claude.com/docs/en/setup).
 
 1. Open a text editor, such as Notepad on Windows or TextEdit on a Mac, and
    paste this command into it:
@@ -140,7 +146,9 @@ that passes your key on to Alkemio.
    new text file with exactly that name.
 4. Copy the text below into the file. If the file is empty, paste all of it.
    If it already contains a section starting with `"mcpServers"`, add only
-   the `"alkemio"` part inside that section.
+   the `"alkemio"` part inside that section. If it contains other settings but
+   no `"mcpServers"` section, add the `"mcpServers"` part right after the first
+   `{`, and put a comma after its closing `}` so the other settings still follow.
 
    ```json
    {

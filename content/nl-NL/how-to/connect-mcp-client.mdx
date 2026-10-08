@@ -92,12 +92,18 @@ zoals je ze in de app ziet.
 Alkemio staat nu in de lijst met connectors van Claude Desktop, en je kunt
 Claude vragen stellen over je Alkemio-spaces.
 
+> Gebruik je Claude via je organisatie (een Team- of Enterprise-abonnement)? Dan
+> voegt een beheerder misschien connectors toe voor iedereen. Zet nooit je
+> persoonlijke Alkemio-sleutel in een connector die anderen ook gebruiken: zij
+> werken dan in Alkemio met jouw rechten. Iedereen gebruikt zijn eigen sleutel.
+
 ### Claude Code
 
 Je voegt Alkemio aan Claude Code toe door één opdracht in een terminal te
 plakken: het venster waarin je opdrachten aan je computer typt. De opdracht
 vertelt Claude Code waar Alkemio te vinden is en welke sleutel gebruikt moet
-worden.
+worden. Claude Code moet daarvoor wel geïnstalleerd zijn; zie de
+[installatiepagina van Claude Code](https://code.claude.com/docs/en/setup).
 
 1. Open een teksteditor, zoals Kladblok (Notepad) op Windows of TextEdit op een
    Mac, en plak deze opdracht erin:
@@ -147,7 +153,10 @@ sleutel aan Alkemio doorgeeft.
    een nieuw tekstbestand met precies die naam.
 4. Kopieer de tekst hieronder naar het bestand. Is het bestand leeg, plak dan
    alles. Staat er al een deel in dat begint met `"mcpServers"`, voeg dan
-   alleen het `"alkemio"`-deel binnen dat deel toe.
+   alleen het `"alkemio"`-deel binnen dat deel toe. Staan er andere instellingen
+   in maar geen `"mcpServers"`-deel, voeg het `"mcpServers"`-deel dan direct na
+   de eerste `{` toe, met een komma na de afsluitende `}` zodat de andere
+   instellingen erna volgen.
 
    ```json
    {
