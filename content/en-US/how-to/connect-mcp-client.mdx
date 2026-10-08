@@ -118,7 +118,7 @@ installed first; see [Claude Code's setup page](https://code.claude.com/docs/en/
 5. To check that it worked, type `claude` and press Enter to start Claude
    Code, then type `/mcp` and press Enter. Alkemio should be in the list.
 
-Afterwards, close the text editor without saving, because the command
+Afterwards, close the text editor and choose **Don't Save**, because the command
 contains your key. Claude Code also stores the key on your computer, in its
 own settings file and in the terminal's list of recent commands. On a
 computer that only you use, that's fine. If you share the computer,
@@ -143,7 +143,10 @@ that passes your key on to Alkemio.
    `~/Library/Application Support/Claude` and press Enter.
 3. Open the file `claude_desktop_config.json` in that folder with a text
    editor such as Notepad or TextEdit. If the file isn't there, create a
-   new text file with exactly that name.
+   new text file with exactly that name. In Notepad, choose **All files** under
+   *Save as type*, otherwise Windows adds `.txt` to the name. If the file is already there, first
+   make a copy of it in the same folder, so you can put it back if something
+   goes wrong.
 4. Copy the text below into the file. If the file is empty, paste all of it.
    If it already contains a section starting with `"mcpServers"`, add only
    the `"alkemio"` part inside that section. If it contains other settings but
@@ -175,24 +178,21 @@ that passes your key on to Alkemio.
    Leave the word `Bearer` and the space after it in place.
 6. Save the file and close Claude Desktop completely, then open it again.
 
+   If Claude Desktop shows an error about its settings, a comma or bracket is
+   probably missing. Put your copy of the file back, and Claude Desktop works as
+   before.
+
 Alkemio now appears among Claude Desktop's tools.
 
-If it doesn't, and you're on Windows, a Windows safety setting may be blocking
-the helper program. You'll then see an error that includes
-`running scripts is disabled on this system`. To allow the helper program,
-open PowerShell (press the Windows key, type `PowerShell` and press Enter),
-paste the command below and press Enter. If PowerShell asks you to confirm,
-type `Y` and press Enter. Then restart Claude Desktop.
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
+Your key is now stored in this file as plain text, so don't share the file with anyone. If Alkemio doesn't appear, ask your IT contact for help or [contact the team](/support).
 
 {/* Note for maintainers: the key sits under `env` rather than in `args`
 because Windows can break a value containing a space when it is passed as an
 argument, which shows up as a confusing sign-in failure. The helper version
 (`mcp-remote@0.14.2`) is pinned on purpose, because it handles the user's key;
-only raise it after checking the newer version. */}
+only raise it after checking the newer version. A Set-ExecutionPolicy workaround
+was removed on purpose (2026-10-08): it wasn't confirmed to be needed when Claude
+Desktop starts the helper, and it changes a Windows security setting. */}
 
 ### Other AI assistants
 

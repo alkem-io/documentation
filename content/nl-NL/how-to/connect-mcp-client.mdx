@@ -125,7 +125,7 @@ worden. Claude Code moet daarvoor wel geïnstalleerd zijn; zie de
    Claude Code te starten. Typ daarna `/mcp` en druk op Enter. Alkemio hoort in
    de lijst te staan.
 
-Sluit daarna de teksteditor zonder op te slaan, omdat de opdracht je sleutel
+Sluit daarna de teksteditor en kies **Niet opslaan**, omdat de opdracht je sleutel
 bevat. Claude Code bewaart de sleutel ook op je computer, in zijn eigen
 instellingenbestand en in de lijst met recente opdrachten van de terminal. Op
 een computer die alleen jij gebruikt, is dat geen probleem. Deel je de
@@ -150,7 +150,10 @@ sleutel aan Alkemio doorgeeft.
    `~/Library/Application Support/Claude` en druk op Enter.
 3. Open het bestand `claude_desktop_config.json` in die map met een
    teksteditor zoals Kladblok of TextEdit. Bestaat het bestand niet, maak dan
-   een nieuw tekstbestand met precies die naam.
+   een nieuw tekstbestand met precies die naam. Kies in Kladblok bij *Opslaan als
+   type* voor **Alle bestanden**, anders zet Windows er `.txt` achter. Bestaat het bestand al, maak
+   er dan eerst een kopie van in dezelfde map, zodat je die kunt terugzetten als
+   er iets misgaat.
 4. Kopieer de tekst hieronder naar het bestand. Is het bestand leeg, plak dan
    alles. Staat er al een deel in dat begint met `"mcpServers"`, voeg dan
    alleen het `"alkemio"`-deel binnen dat deel toe. Staan er andere instellingen
@@ -184,25 +187,21 @@ sleutel aan Alkemio doorgeeft.
 6. Sla het bestand op en sluit Claude Desktop volledig af. Open het daarna
    opnieuw.
 
+   Toont Claude Desktop een foutmelding over zijn instellingen, dan ontbreekt er
+   waarschijnlijk een komma of haakje. Zet je kopie van het bestand terug, dan
+   werkt Claude Desktop weer zoals voorheen.
+
 Alkemio staat nu tussen de tools van Claude Desktop.
 
-Lukt dat niet en gebruik je Windows, dan kan een beveiligingsinstelling van
-Windows het hulpprogramma tegenhouden. Je ziet dan een foutmelding met daarin
-`running scripts is disabled on this system`. Om het hulpprogramma toe te
-staan, open je PowerShell (druk op de Windows-toets, typ `PowerShell` en druk
-op Enter), plak je de opdracht hieronder en druk je op Enter. Vraagt
-PowerShell om een bevestiging, typ dan `Y` en druk op Enter. Start Claude
-Desktop daarna opnieuw.
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
+Je sleutel staat nu als gewone tekst in dit bestand, dus deel het bestand met niemand. Verschijnt Alkemio niet, vraag dan je IT-contactpersoon om hulp of [neem contact op met het team](/support).
 
 {/* Note for maintainers: the key sits under `env` rather than in `args`
 because Windows can break a value containing a space when it is passed as an
 argument, which shows up as a confusing sign-in failure. The helper version
 (`mcp-remote@0.14.2`) is pinned on purpose, because it handles the user's key;
-only raise it after checking the newer version. */}
+only raise it after checking the newer version. A Set-ExecutionPolicy workaround
+was removed on purpose (2026-10-08): it wasn't confirmed to be needed when Claude
+Desktop starts the helper, and it changes a Windows security setting. */}
 
 ### Andere AI-assistenten
 
