@@ -1,24 +1,24 @@
-# Whiteboards
+# Gebruik whiteboards
 
-## 🌟 Tips & Tricks voor het Gebruik van Whiteboards 🌟
-
-Wil je deze tips direct op een whiteboard verkennen? [Klik hier om het bijbehorende whiteboard in de Welcome Space te openen](#).
+Wil je deze tips direct op een whiteboard verkennen? [Klik hier om het bijbehorende whiteboard in de Welcome Space te openen](https://alkem.io/welcome-space/collaboration/whiteboardtipstricks).
 
 Pak een kop thee, zet je favoriete muziek op, en duik in de wereld van creativiteit! 🎨
 
 Dit is wat je zult ontdekken:
 
-- **Gebruik de juiste Tools**: Ontdek hoe je de essentiële tools optimaal gebruikt. Van penselen tot gummen, we zorgen ervoor dat je goed voorbereid bent.
+- **Gebruik de juiste Tools**: Ontdek hoe je de essentiële tools optimaal gebruikt. Van vormen tot het potlood, we zorgen ervoor dat je goed voorbereid bent.
 - **Maak het visueel aantrekkelijk**: Schoonheid zit in de details! Leer hoe je elementen ordent, kleuren kiest en pakkende ontwerpen maakt.
 - **Houd het netjes en overzichtelijk**: Onderhoud is belangrijk! Voorkom rommel en zorg dat je whiteboard visueel aantrekkelijk blijft.
 - **Betrek anderen**: Samenwerken is de sleutel! Of je nu brainstormt of een workshop geeft, leer hoe je iedereen erbij betrekt.
 - **Sneltoetsen**: Voor extra productiviteit. Versnel je workflow met handige sneltoetsen.
 
-De Whiteboards in Alkemio maken gebruik van de open-source **Excalidraw API**. Kudos voor hun opmerkelijke werk!
+De whiteboards in Alkemio gebruiken de open-source **Excalidraw API**, dus de tools, menu's en sneltoetsen in een whiteboard komen van Excalidraw. Alles werkt meteen in elk whiteboard, je hoeft niets in te stellen. Daarom zijn die menu's in het Engels, ook als je Alkemio in het Nederlands gebruikt; op deze pagina staan de Engelse namen zoals je ze op het scherm ziet. Kudos aan het Excalidraw-team voor hun opmerkelijke werk!
+
+{/* Maintainer note: client-web depends on @excalidraw-yjs/excalidraw (Alkemio's fork, 0.5.3 on master, checked 2026-10-05). No langCode is passed, so the editor's own menus show in English. */}
 
 **Klaar om erin te duiken? Daar gaan we! ✨**
 
-### 🛠️ Gebruik van de juiste tools
+## 🛠️ Gebruik van de juiste tools
 
 Je hebt misschien gemerkt dat het whiteboard **2 hoofdmenu's** heeft:
 
@@ -27,7 +27,7 @@ Je hebt misschien gemerkt dat het whiteboard **2 hoofdmenu's** heeft:
    - **Rechthoek**: Wijzig de lijnkleur, achtergrondkleur, vulmodus, etc.
    - **Tekst**: Wijzig kleur, lettergrootte, lettertype, etc. 🎨
 
-#### 📝 Tekst
+### 📝 Tekst
 
 Hoewel je de "tekst" tool kunt gebruiken, raden we aan om de "Rechthoek"-tool te gebruiken voor tekst:
 
@@ -35,88 +35,111 @@ Hoewel je de "tekst" tool kunt gebruiken, raden we aan om de "Rechthoek"-tool te
 2. Dubbelklik erin.
 3. Begin met typen. De rechthoek zorgt ervoor dat je tekst naar de volgende regel gaat wanneer je de rand hebt bereikt. Het zal automatisch in verticale richting groeien wanneer je meer tekst toevoegt dan er in past.
 
-#### ➡️ Pijlen
+### ➡️ Pijlen
 
 **Pijlen** kunnen los gebruikt worden of verbonden worden met vormen. Zodra je een pijl selecteert en over een vorm zweeft, verschijnt er een transparante rand. Klik om de pijl eraan vast te maken. De pijl blijft verbonden, zelfs als je de vorm verplaatst. Pijlen en lijnen zijn standaard recht, maar je kunt een kromming toevoegen. Selecteer de pijl, klik op de cirkel in het midden en sleep deze omhoog of omlaag om een boog te maken. 🎯
+
+### 🔀 Stroomschema's
+
+Wil je een stroomschema, zoals de stappen van een proces? Er zijn twee manieren om er een te maken zonder elk blok en elke pijl met de hand te tekenen.
+
+**Snel, met het toetsenbord.** Selecteer een vorm, houd **CTRL** ingedrukt en druk op een pijltjestoets. Er verschijnt een nieuw blok in die richting, al verbonden met een pijl. Houd CTRL ingedrukt en druk nog eens op een pijltjestoets om de volgende stap toe te voegen, en laat los als je klaar bent.
+
+**Met Mermaid-code.** *Mermaid* is een veelgebruikte manier om een complex schema als tekst te schrijven. Heb je de code voor je schema, dan kun je die direct in het Mermaid-venster plakken, en wordt het schema voor je op het whiteboard getekend:
+
+1. Klik in het bovenste menu op **More tools** (de knop helemaal rechts) en kies onder **Generate** voor **Mermaid to Excalidraw**.
+2. Plak je code in het linkerdeel. Rechts zie je je schema. Wil je de code aanpassen, doe dat dan waar je hem hebt geschreven en plak hem opnieuw.
+3. Klik op **Insert**.
+
+Eenmaal ingevoegd is het schema **volledig te bewerken**: het bestaat uit gewone vormen, tekst en pijlen, dus je kunt het verplaatsen, groter of kleiner maken, een andere kleur geven, hernoemen en aanvullen zoals al het andere op je whiteboard.
+
+Weet je niet hoe je Mermaid-code schrijft? Bovenin het venster **Mermaid to Excalidraw** staan links naar de website van Mermaid voor de soorten schema's die het kan tekenen: **Flowchart**, **Sequence**, **Class** en **Entity Relationship**. Op elke pagina wordt uitgelegd hoe je de code voor zo'n schema schrijft, met voorbeelden die je kunt kopiëren en aanpassen.
+
+Mermaid-code ziet er zo uit, voor drie stappen verbonden met pijlen:
+
+```
+flowchart LR
+  A[Idee] --> B[Plan] --> C[Doen]
+```
 
 ### 🧰 Andere tools
 
 Er is nog veel meer! Aarzel niet om alle tools in het tool menu en de verschillende bewerkingsopties in het bewerkmenu te onderzoeken. Probeer de verschillende vormen, de potloodtool (voor vrije hand tekenen) en het uploaden van afbeeldingen.
 
-### 📚 Bibliotheek
+### 📚 Begin met een template
 
-Alkemio heeft een **bibliotheek** met veel whiteboards die je kunt gebruiken. Klik op de **"Template zoeken"** knop naast de titel linksboven in uw scherm.
+Je hoeft niet met een leeg bord te beginnen. Klik tijdens het bewerken van een whiteboard op **Zoek Template**, naast de titel linksboven in je scherm. Je ziet eerst de whiteboard-templates van je Space, daarna whiteboard-templates uit de **Templatebibliotheek**, de bibliotheek met templates die op het hele platform gedeeld worden. Kies er een en de inhoud wordt aan je whiteboard toegevoegd, naast wat er al staat; er verdwijnt niets van het bord.
 
-### 🌟 Maak het visueel aantrekkelijk
+## 🌟 Maak het visueel aantrekkelijk
 
-#### Uitlijning & Structuur
+### Uitlijning & Structuur
 
-Rommelig whiteboard? Probeer de inhoud op één lijn te brengen. Selecteer alle elementen met je muis en scroll omlaag in het linkermenu om ze links, rechts, boven of onder uit te lijnen. Gebruik de **Align** optie om de elementen uit te lijnen aan de linkerkant, midden of bovenkant. Met de twee knoppen aan de rechterkant kun je iets nog coolers doen: de ruimte gelijkmatig verdelen tussen elementen!
+Rommelig whiteboard? Probeer de inhoud op één lijn te brengen. Selecteer alle elementen met je muis en scroll omlaag in het linkermenu. Daar vind je de optie **Align**, waarmee je de elementen links, rechts, boven of onder uitlijnt. Met de twee knoppen aan de rechterkant kun je iets nog coolers doen: de ruimte gelijkmatig verdelen tussen elementen!
 
-Houd er rekening mee dat de uitlijningsopties alleen zichtbaar worden zodra je meerdere elementen hebt geselecteerd. Wanneer elementen al zijn gegroepeerd, moet je ze eerst degroeperen voordat je ze kunt uitlijnen.\*
+*Houd er rekening mee dat de uitlijningsopties alleen zichtbaar worden zodra je meerdere elementen hebt geselecteerd. Wanneer elementen al zijn gegroepeerd, moet je ze eerst degroeperen voordat je ze kunt uitlijnen.*
 
-**Snel dupliceren en uitlijnen?** Probeer een blok te kopiëren door het te selecteren en houd dan de **Alt-key** ingedrukt wanneer je de muis wegsleept. Als je ook de **Shift-key** ingedrukt houdt, wordt het element automatisch horizontaal of verticaal uitgelijnd met het origineel.
+**Snel dupliceren en uitlijnen?** Probeer een blok te kopiëren door het te selecteren en houd dan de **Alt-toets** ingedrukt wanneer je de muis wegsleept. Als je ook de **Shift-toets** ingedrukt houdt, wordt het element automatisch horizontaal of verticaal uitgelijnd met het origineel.
 
-#### 🎨 Achtergrondkleuren & Randen
+### 🎨 Achtergrondkleuren & Randen
 
 - **Tip 1**: Gebruik geen gestreepte vulling achter tekst.
 - **Tip 2**: Zorg voor voldoende contrast tussen tekst en achtergrond.
 - **Tip 3**: Vermijd zwarte tekst op een donkere achtergrond, naast een zwak contrast ziet dat er ook niet zo mooi uit.
 - **Tip 4**: Maak een keuze. Gebruik een rand of een achtergrondkleur, niet beide (tenzij je een goede reden hebt…)
 
-**↔️ Scheiden van de randkleur van de tekstkleur**
+#### ↔️ Scheiden van de randkleur van de tekstkleur
 
 Om de randkleur anders te maken dan de tekstkleur, volg je de volgende stappen:
 
-1. Selecteer het blok en wijzig de randkleur (stroke color).
+1. Selecteer het blok en wijzig de randkleur (**stroke color**).
 2. Dubbelklik in het blok en selecteer de tekst.
-3. Wijzig nu de **tekstkleur** zonder dat de randkleur verandert. Als je de tekst hebt geselecteerd, zal de randkleur van het blok niet veranderen.
+3. Kies nu de **stroke color** voor de tekst. Als je de tekst hebt geselecteerd, zal de randkleur van het blok niet veranderen.
 4. Kopieer dit blok zodat je deze instellingen niet telkens opnieuw hoeft te doen.
 
-### 🏰 Houd je whiteboard netjes en georganiseerd
+## 🏰 Houd je whiteboard netjes en georganiseerd
 
-#### 🪢 Elementen groeperen
+### 🪢 Elementen groeperen
 
-Als je een mooie structuur hebt, wil je dit niet per ongelijk in de war brengen als jij of iemand anders (bijvoorbeeld) wat tekst aanpast. Selecteer alle elementen die je wilt groeperen, klik met de rechtermuisknop en kies **Group Selection**. Deze elementen blijven nu bij elkaar. Sleep de groep als één geheel of bewerk binnen de groep door meerdere keren op een element te klikken. 🧩
+Als je een mooie structuur hebt, wil je dit niet per ongeluk in de war brengen als jij of iemand anders (bijvoorbeeld) wat tekst aanpast. Selecteer alle elementen die je wilt groeperen, klik met de rechtermuisknop en kies **Group selection**. Deze elementen blijven nu bij elkaar. Sleep de groep als één geheel of bewerk binnen de groep door meerdere keren op een element te klikken. 🧩
 
-#### 🔒 Elementen vergrendelen
+### 🔒 Elementen vergrendelen
 
-Wanneer je met verschillende elementen op een whiteboard werkt, kun je fouten maken. Vooral achtergrondblokken worden per ongelijk verplaatst. Heel vaak. Om dit te voorkomen kun je elementen **vergrendelen** die niet gewijzigd moeten worden. Klik met de rechtermuisknop op een element en selecteer "Lock" of gebruik `CTRL + SHIFT + L`. Om een element te ontgrendelen klik je met de rechtermuisknop op het element en kies "Unlock" of `CTRL + SHIFT + L`. Alles ontgrendelen? Klik met de rechtermuisknop op een leeg deel van het bord en kies "Unlock All" of `CTRL + SHIFT + L`. Meerdere elementen vergrendelen? Overweeg ze eerst te groeperen! Op deze manier kun je alles tegelijk ontgrendelen, in plaats van elk item apart te ontgrendelen wanneer je een paar wijzigingen moet aanbrengen. 🔒
+Wanneer je met verschillende elementen op een whiteboard werkt, kun je fouten maken. Vooral achtergrondblokken worden per ongeluk verplaatst. Heel vaak. Om dit te voorkomen kun je elementen **vergrendelen** die niet gewijzigd moeten worden. Klik met de rechtermuisknop op een element en selecteer **Lock** of gebruik `CTRL + SHIFT + L`. Om een element te ontgrendelen klik je met de rechtermuisknop op het element en kies je **Unlock** of `CTRL + SHIFT + L`. Alles ontgrendelen? Klik met de rechtermuisknop op een leeg deel van het bord en kies **Unlock all**. Meerdere elementen vergrendelen? Overweeg ze eerst te groeperen! Op deze manier kun je alles tegelijk ontgrendelen, in plaats van elk item apart te ontgrendelen wanneer je een paar wijzigingen moet aanbrengen. 🔒
 
-#### 🔢 Meerdere Objecten Selecteren
+### 🔢 Meerdere Objecten Selecteren
 
-Om meerdere objecten te selecteren die je wil groeperen, vergrendelen of verplaatsen houd je de **SHIFT-knop** ingedrukt terwijl je op elk object klikt. Een andere manier om snel meerdere objecten te selecteren is door de **muis** rond de objecten te slepen. Zorg ervoor dat je alles volledig selecteert, want zefls als je een kleine hoek mist, word het object niet geselecteerd. _Let op: Vergrendelde objecten worden niet geselecteerd!._ 🖱️
+Om meerdere objecten te selecteren die je wilt groeperen, vergrendelen of verplaatsen, houd je de **SHIFT-toets** ingedrukt terwijl je op elk object klikt. Een andere manier om snel meerdere objecten te selecteren is door de **muis** rond de objecten te slepen. Zorg ervoor dat je alles volledig selecteert, want zelfs als je een kleine hoek mist, wordt het object niet geselecteerd. _Let op: vergrendelde objecten worden niet geselecteerd!_ 🖱️
 
----
+## ⌨️ Handige toetsenbordtips
 
-### ⌨️ Handige toetsenbordtips
+Op een Mac gebruik je **Cmd** waar op deze pagina CTRL staat, en **Option** voor ALT.
 
-#### 🖱️ Navigatie
+### 🖱️ Navigatie
 
-Houd de **spatiebalk** ingedrukt om de muisaanwijzer in een handje te veranderen. Klik ergens op het bord, houd je muis ingedrukt, en sleep hem rond. Dit is een snelle manier om naar een andere plek op het bord te verplaatsen als je weet waar je naartoe wil. Als je niet zeker weet waar je naartoe wil, gebruik dan de kleine knop naast de zoom knoppen om een overzicht van het hele bord te krijgen. Als je de **SHIFT knop** ingedrukt houdt terwijl je met je muiswiel scrolt, kun je horizontaal scrollen op het whiteboard in plaats van verticaal.
+Houd de **spatiebalk** ingedrukt om de muisaanwijzer in een handje te veranderen. Klik ergens op het bord, houd je muis ingedrukt, en sleep hem rond. Dit is een snelle manier om naar een andere plek op het bord te gaan als je weet waar je naartoe wilt. Als je niet zeker weet waar je naartoe wilt, gebruik dan de kleine knop naast de zoomknoppen om een overzicht van het hele bord te krijgen. Als je de **SHIFT-toets** ingedrukt houdt terwijl je met je muiswiel scrolt, kun je horizontaal scrollen op het whiteboard in plaats van verticaal.
 
-#### 👯‍♂️ Elementen Dupliceren
+### 👯‍♂️ Elementen Dupliceren
 
-In plaats van te kopiëren en plakken, kun je een element **dupliceren** door het te selecteren, door op de **ALT knop** te drukken en het naar de gewenste locatie te slepen. Wanneer je elementen dupliceert terwijl je **SHIFT** ingedrukt houdt, blijven ze horizontaal of verticaal met het oorspronkelijke element uitgelijnd worden.
+In plaats van te kopiëren en plakken, kun je een element **dupliceren** door het te selecteren, de **ALT-toets** ingedrukt te houden en het naar de gewenste plek te slepen. Wanneer je elementen dupliceert terwijl je **SHIFT** ingedrukt houdt, blijven ze horizontaal of verticaal uitgelijnd met het oorspronkelijke element.
 
-#### 📏 Tekst Snel Schalen
+### 📏 Tekst Snel Schalen
 
-Soms is de lettergrootte gewoon te groot om mooi in uw ontwerp te passen. Wanneer deze tekst zich in een vorm bevindt en je de grootte van de vorm niet wilt wijzigen, selecteer gewoon alle tekst (`CTRL+A`) en gebruik de toetsenbordcombinatie hierboven.
+Soms is de lettergrootte gewoon te groot om mooi in je ontwerp te passen. Wanneer deze tekst in een vorm staat en je de grootte van de vorm niet wilt wijzigen, selecteer dan alle tekst (`CTRL+A`) en druk op `CTRL+SHIFT+<` om de tekst kleiner te maken of `CTRL+SHIFT+>` om hem groter te maken.
 
-#### 🆙 Laagvolgorde aanpassen
+### 🆙 Laagvolgorde aanpassen
 
-Gebruik **CTRL** samen met de **vierkante haakjes** om items vooruit of achteruit te bewegen. Je moet misschien een paar keer klikken voordat je het juiste resultaat krijgt, dus vaak is het sneller om een van de objecten volledig naar de voor- of achtergrond te verplaatsen. Wanneer je een object toevoegt, plaats het gewoon op de achtergrond door te klikken op `CTRL+SHIFT+[`. Dit maakt het heel eenvoudig om later een achtergrond aan je bord toe te voegen: plaats het gewoon boven op alles en gebruik vervolgens deze sneltoets.
+Gebruik **CTRL** samen met de **vierkante haakjes** om items vooruit of achteruit te bewegen. Je moet misschien een paar keer drukken voordat je het juiste resultaat krijgt, dus vaak is het sneller om een van de objecten volledig naar de voor- of achtergrond te verplaatsen. Wanneer je een object toevoegt, plaats het dan op de achtergrond met `CTRL+SHIFT+[` (op een Mac: `Cmd+Option+[`). Dit maakt het heel eenvoudig om later een achtergrond aan je bord toe te voegen: plaats het gewoon boven op alles en gebruik vervolgens deze sneltoets.
 
-#### 👥 Anderen betrekken
+## 👥 Anderen betrekken
 
-#### 🔒 Vergrendel!
+### 🔒 Vergrendel!
 
-Zorg dat elementen die niet gewijzigd mogen worden **vergrendeld zijn**. Overweeg ze eerst te groeperen, zodat je sneller delen van je whiteboard kan ontgrendelen wanneer je iets moet bewerken.
+Zorg dat elementen die niet gewijzigd mogen worden **vergrendeld zijn**. Overweeg ze eerst te groeperen, zodat je sneller delen van je whiteboard kunt ontgrendelen wanneer je iets moet bewerken.
 
-#### 📄 Tekstblokken voorbereiden
+### 📄 Tekstblokken voorbereiden
 
-Voeg placeholders toe, zoals **""**, zodat deelnemers direct tekst kunnen kopiëren en invullen. Gebruik verschillende kleuren voor verschillende personen, zodat je kunt zien wie wat heeft toegevoegd.  
+Voeg placeholders toe, zoals `""`, zodat deelnemers direct tekst kunnen kopiëren en invullen. Gebruik verschillende kleuren voor verschillende personen, zodat je kunt zien wie wat heeft toegevoegd.
 
-#### 🟪 Achtergrondblokken gebruiken
+### 🟪 Achtergrondblokken gebruiken
 
 Breek complexe vragen of processen op in kleinere delen door gebruik te maken van achtergrondblokken.

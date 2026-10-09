@@ -1,52 +1,61 @@
 # iFrame
 
-Do you want to share a video, a document or a form? You can do so by using an iFrame.
+Do you want to share a video, a document or a form? You can show it right inside a Post by using an iFrame.
 
-It is a powerful tool used to embed external content such as videos, documents, or interactive forms directly into a Post.
+## What is an iFrame?
+
+An iFrame is a window in your Post that shows content from another website: a YouTube video, a Canva design, a Google Form, a Figma slide deck. Members watch, read or fill it in without leaving Alkemio. The content itself stays on the other website, so if you change it there, the change shows up in your Post too. That also means the other website's sharing settings still apply: if a document isn't shared publicly there, people may see a sign-in message instead of the content.
+
+To add one, you need a small piece of text from the other website called **embed code**. Most websites that allow this give it to you through their **Share** button. You don't have to write it yourself; you copy it and paste it into Alkemio.
 
 ## What can you do with an iFrame?
 
-Using an iFrame, you can:
-- Embed videos from online platforms;
-- Display documents or forms;
-- Share interactive tools, widgets, or dashboards;
-- Include other external content like maps, visualizations, or charts.
+Using an iFrame, you can embed videos and podcasts, show documents, slide decks or forms, share interactive tools or dashboards, and include other content such as maps, visualisations or charts.
 
->Note: Only whitelisted sites can be embedded for security reasons. 
-When your media source is not supported, you will not be able to embed the media. \
->Would you like to add it to our whitelist? 
-Please send an e-mail to support@alkem.io with information about the content source you would like to add.
+## Which websites can you embed?
 
-## Example: Embed a video using an iFrame
+For security reasons, Alkemio only shows content from approved websites. These include popular sites for video, music, presentations and documents, such as YouTube, Vimeo, Spotify, Canva, Google Docs and Figma. Is the website you want to use not supported? Alkemio will show the message *Invalid or unsupported embed*. Send an e-mail to support@alkem.io and we'll look into adding it.
 
-Here's a step-by-step guide to embedding a video from an online platform into a Post using an iFrame:
+{/* Maintainer note: examples checked on 2026-10-05 against the live platform setting
+    (public GraphQL: platform { settings { integration { iframeAllowedUrls } } }).
+    The page deliberately names only a few well-known examples, so it doesn't go out
+    of date when the list changes. */}
+
+## Example: Embed a video in a Post
+
+Here's how to embed a video from an online platform such as YouTube or Vimeo:
 
 1. **Go to the video**  
-   Navigate to the video you want to embed (it needs to be available online).
+   Open the video you want to embed in your browser (it needs to be available online).
 
 2. **Click on "Share"**  
-   Below or next to the video player, you'll find a **Share** button. Click on it to open sharing options.
+   Below or next to the video player, you'll find a **Share** button. Click on it to open the sharing options.
 
 3. **Select "Embed"**  
-   In the sharing options, choose **Embed**. This will display a box containing the embed code for the video.
+   In the sharing options, choose **Embed**. This shows a box with the embed code for the video. It starts with `<iframe`.
 
-4. **Copy the Embed Code**  
-   Highlight the code and copy it to your clipboard.
+4. **Copy the embed code**  
+   Select all of the code and copy it (Ctrl+C, or Cmd+C on a Mac). Many websites also have a **Copy** button next to the code.
 
-5. **Paste the Embed Code**  
-   In your Post, choose the iFrame icon. Paste the embed code there. And that's it! The video is now available in your Post, and you can watch it from there.
+5. **Paste the embed code into your Post**  
+   Create or edit a Post. Above the description there is a row of formatting buttons. Click the **Insert embed** button (a small screen with a play symbol). A window called *Embed video or content* opens. Paste the code into the **Embed code** box and click **Insert**. The video now appears in your description, and members can watch it from there.
 
-Check out the [Welcome Space](https://alkem.io/welcome-space/challenges/collaborationtools-3751/collaboration/wanttoshowmediafromanothe) to see examples of iframe's and to try it out yourself!
+You can add embeds the same way anywhere you see that row of formatting buttons above a text box, for example in a contribution, your Space's description, an event or an update. Memos are the exception: they don't support embeds.
 
-The code is not always provided in the right format, sometimes you may need to change it, or create it yourself.
-To help with that, here is an example embed code of one of our tutorials that we embed:
+Alkemio only uses the web address from the code and sizes the window itself, so settings for width or height in the code make no difference.
+
+Want to see what this looks like? The Post [Meet the Product Team](https://alkem.io/welcome-space/collaboration/meettheproductteamwereher) in the Welcome Space shows an embedded slide deck.
+
+## When a website only gives you a link
+
+Some websites don't offer ready-made embed code, only a link meant for embedding (sometimes called an *embed link*). You can turn that link into embed code yourself. Copy the line below, replace `PASTE-THE-LINK-HERE` with the link (keep the quotation marks), and paste the whole line into the **Embed code** box:
 
 ```html
-<iframe 
-src="https://demo.arcade.software/hKJb93Jh5gV9dhprXYnS?embed&embed_mobile=tab&embed_desktop=inli…" 
-></iframe>
+<iframe src="PASTE-THE-LINK-HERE"></iframe>
 ```
+
+This works only with a link from a website on the approved list, and it has to be the website's embed link: an ordinary link to a page often shows an error inside the window instead of the content.
 
 ### Do you need additional help?
 
-For more help, check out our **[FAQ](/faq)** or contact us via the **[Support](/support)** page.
+Do you need other assistance? Send an e-mail to **support@alkem.io**, check out our **[FAQ](/faq)**, or contact us via the **[Support](/support)** page.

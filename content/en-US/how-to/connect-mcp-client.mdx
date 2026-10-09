@@ -1,153 +1,228 @@
 # Connect an MCP client
 
-Alkemio supports the Model Context Protocol (MCP), which lets AI tools such as
-Claude Desktop and Claude Code act on your behalf inside the platform. To
-connect one, you first mint a personal **MCP API key** — a credential that
-acts as you, scoped to the operations you allow, and capped in number so a
-leaked key can't multiply itself.
+You can connect an AI assistant, such as Claude Desktop or Claude Code, to
+Alkemio. The assistant can then read and work with your Alkemio content when
+you ask it to. To set this up, you need a personal key from Alkemio, which you
+then add to your assistant. This page explains both steps.
 
-## What an MCP key is
+## What MCP is
 
-An MCP key is a personal credential, not a service account. Anything a
-connected client does through it happens as **you** — subject to your own
-permissions on spaces, callouts and other content. Each key is scoped to a
-set of allowed operations (for example, read-only vs. tools access) when you
-create it, and you can hold up to 10 usable keys at a time. Revoke keys you
-no longer use.
+MCP (Model Context Protocol) is a common standard that lets AI assistants
+connect to other services. Alkemio supports MCP, so any assistant that
+supports it can work with Alkemio in the same way.
 
-## Step 1: Mint a key
+The assistant connects with a personal key that you create in Alkemio. This
+key doesn't give the assistant an account of its own: everything it does
+happens **as you**. It therefore has exactly the same rights as you, and never
+more. It can only see the spaces and content you can see, and only change what
+you are allowed to change yourself.
 
-1. Click on your profile picture in the top right corner.
-2. Go to **Settings** > **Security**.
-3. Under **MCP API keys**, click **Create key**, give it a name, and choose
-   its scope.
-4. The plaintext key is shown **once**, immediately after creation. Copy it
-   somewhere safe — Alkemio never stores or displays it again. If you close
-   the panel or navigate away before copying it, you'll need to revoke that
-   key and create a new one.
+When you create a key, you also choose what the assistant may do with it:
 
-## Step 2: Configure your client
+- **Read** allows the assistant to open and read spaces, posts and whiteboards
+  that you have access to.
+- **Tools** allows the assistant to use Alkemio's tools on your behalf: for
+  example searching across your spaces, summarising recent activity, and
+  creating or editing whiteboards.
 
-Every client needs the same three things: the platform's address, the
-`/rest/mcp` endpoint, and your key sent as a bearer token.
+Most assistants need **Tools** to be useful, because searching also counts as
+a tool. Keep in mind that **Tools** can't be limited further: a key with
+**Tools** allows searching as well as making changes, such as editing a
+whiteboard. The assistant can still only make changes where you could make
+them yourself.
 
-- **Endpoint**: `https://<your-platform-address>/rest/mcp`
-- **Header**: `Authorization: Bearer <your key>`
+You can switch a key off at any time, and you can have up to 10 active keys.
+
+## Step 1: Create a key in Alkemio
+
+1. Click your profile picture in the top right corner and choose
+   **My Account**.
+2. Open the **Security** tab.
+3. Under **MCP API Keys**, click **Create API key**.
+4. Give the key a name that tells you where it is used, such as
+   "Claude Desktop".
+5. Under **Operations**, select **Read**, **Tools**, or both (see
+   [What MCP is](#what-mcp-is)). If you want the key to stop working
+   automatically, you can also set an expiry date.
+6. Click **Create key**.
+7. Your new key is shown once, immediately after it is created. Click
+   **Copy** and store the key somewhere safe until Step 2, for example in a
+   password manager. Alkemio can't show the key again. If you lose it, switch
+   it off and create a new one.
+8. Under **Connection recipe**, the same window shows the web address your
+   assistant needs, next to **Endpoint**. In most cases this is
+   `https://alkem.io/rest/mcp`. Write it down if yours is different, then
+   click **Done**.
+
+The key starts with `mcp_`. This is part of the key, so always paste it
+exactly as you copied it.
+
+## Step 2: Connect your AI assistant
+
+Choose the section below that matches the assistant you use. Each section
+has every step you need, even if you haven't done this before.
+
+- **Claude Desktop**, the Claude app on your computer: see
+  [Claude Desktop](#claude-desktop).
+- **Claude Code**, which you use by typing in a terminal window: see
+  [Claude Code](#claude-code).
+- **Claude Desktop with an Alkemio address that only works inside your
+  organisation's network**, such as a test version on your own computer: see
+  [Claude Desktop on your own network](#claude-desktop-on-your-own-network).
+- **Another assistant**: see [Other AI assistants](#other-ai-assistants).
 
 ### Claude Desktop
 
-The simplest route is Claude Desktop's built-in Connectors UI:
+1. In Claude Desktop, go to **Customize → Connectors**, click **+ Add** and
+   choose **Add custom connector**.
+2. Give the connector a name, for example `Alkemio`.
+3. As the remote MCP server URL, enter the **Endpoint** address from Step 1,
+   usually `https://alkem.io/rest/mcp`.
+4. For authentication, choose **No sign in**. Alkemio uses your key instead
+   of a sign-in.
+5. Under **Request headers**, add a header with the name `Authorization`. As
+   its value, type the word `Bearer`, a space, and then paste your key, so it
+   looks like `Bearer mcp_...`.
+6. Save the connector.
 
-1. Go to **Settings → Connectors → Add custom connector**.
-2. Fill in:
-   - **Name**: Alkemio
-   - **Remote MCP server URL**: `https://<your-platform-address>/rest/mcp`
-3. Under **Authentication**, select **None** ("Pick this for servers that
-   use an API key instead of OAuth").
-4. Click **+ Add header** and enter:
-   - **Key**: `Authorization`
-   - **Value**: `Bearer <your key>`
-5. Click **Add**.
+Alkemio now appears in Claude Desktop's list of connectors, and you can ask
+Claude about your Alkemio spaces.
 
-The Alkemio tools should now appear in Claude Desktop's connector list.
-
-This connects from Anthropic's cloud, so it can't reach a platform address
-that's only resolvable on your own network — a local development instance,
-for example. In that case, use the local bridge below instead.
-
-#### Local bridge (for addresses only reachable on your own network)
-
-Claude Desktop's `claude_desktop_config.json` launches **local** MCP servers —
-every entry needs a `command` to run. It has no field for a remote URL with a
-static `Authorization` header, so connect through a small bridge that runs
-locally and forwards to Alkemio with your key attached:
-
-```json
-{
-  "mcpServers": {
-    "alkemio": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote@0.1.38",
-        "https://alkem.io/rest/mcp",
-        "--header",
-        "Authorization:${AUTH_HEADER}"
-      ],
-      "env": {
-        "AUTH_HEADER": "Bearer mcp_YOUR_KEY_HERE"
-      }
-    }
-  }
-}
-```
-
-The header is split across `args` and `env` on purpose. On Windows, a value
-containing spaces inside `args` can be mangled before it reaches the bridge,
-which produces a confusing authentication failure rather than an obvious
-error. Passing the value through `env` avoids that, and works identically on
-macOS and Linux — so use this form everywhere.
-
-Replace the URL with your platform's own address (for example
-`https://acc-alkem.io/rest/mcp` on the acceptance environment), and
-`mcp_YOUR_KEY_HERE` with the key you copied in Step 1. Restart Claude Desktop
-after saving the configuration.
-
-The config file lives at:
-
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
-The bridge needs **Node.js 18 or newer** on your machine. The version above is
-pinned deliberately: this command passes your key to the bridge, so it should
-resolve to a version someone has looked at rather than whatever is newest at
-the moment you run it. Raise the pin when you have reason to.
-
-**Windows note**: if `npx` fails with a `running scripts is disabled on this
-system` error, PowerShell's default execution policy is blocking it. Run this
-once in PowerShell to fix it:
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
+> Do you use Claude through your organisation (a Team or Enterprise plan)? Then
+> an administrator may add connectors for everyone. Never put your personal
+> Alkemio key in a connector that others share: they would then work in Alkemio
+> with your rights. Each person should use their own key.
 
 ### Claude Code
 
-Add the Alkemio server with the `claude mcp add` command, passing the same
-endpoint and header:
+You add Alkemio to Claude Code by pasting one command into a terminal: the
+window where you type commands to your computer. The command tells Claude
+Code where to find Alkemio and which key to use. You need Claude Code
+installed first; see [Claude Code's setup page](https://code.claude.com/docs/en/setup).
 
-```bash
-claude mcp add --transport http alkemio https://alkem.io/rest/mcp \
-  --header "Authorization: Bearer mcp_YOUR_KEY_HERE"
-```
+1. Open a text editor, such as Notepad on Windows or TextEdit on a Mac, and
+   paste this command into it:
 
-Again, substitute your platform's address and your own key.
+   ```bash
+   claude mcp add --transport http alkemio https://alkem.io/rest/mcp --header "Authorization: Bearer <your-mcp-api-key>"
+   ```
 
-Typing the key directly into the command puts it in your shell history and
-writes it to the Claude Code configuration file in plain text. If that matters
-in your environment, read it from a secret store instead of pasting it — for
-example, keep the key in your OS keychain or a password manager and reference
-it, rather than leaving a copy in two places you are unlikely to clean up
-later.
+2. Replace `<your-mcp-api-key>`, including the `<` and `>`, with the key you
+   copied in Step 1. If your **Endpoint** address from Step 1 is different,
+   replace `https://alkem.io/rest/mcp` with it as well. Keep everything else
+   exactly as it is.
+3. Open a terminal. On Windows, press the Windows key, type `PowerShell` and
+   press Enter. On a Mac, press Command and the space bar together, type
+   `Terminal` and press Enter.
+4. Copy the edited command from your text editor, paste it into the terminal
+   and press Enter.
+5. To check that it worked, type `claude` and press Enter to start Claude
+   Code, then type `/mcp` and press Enter. Alkemio should be in the list.
 
-### Generic MCP client
+Afterwards, close the text editor and choose **Don't Save**, because the command
+contains your key. Claude Code also stores the key on your computer, in its
+own settings file and in the terminal's list of recent commands. On a
+computer that only you use, that's fine. If you share the computer,
+or your organisation has rules about where passwords may be stored, check
+with your IT contact before you continue.
 
-Any client that speaks Streamable HTTP MCP needs the same two values. Most
-clients accept the header as `Authorization: Bearer <key>`. If a client's
-configuration only exposes a named "API key" field rather than a raw header,
-it may instead expect `X-MCP-API-Key: <key>` — check your client's
-documentation for which one it uses. Alkemio's `/rest/mcp` endpoint accepts
-either.
+### Claude Desktop on your own network
 
-## Revoking a key
+The [Claude Desktop](#claude-desktop) route connects through Anthropic, the
+company behind Claude, over the internet. It can't reach an Alkemio address
+that only works inside your organisation's own network, such as a test
+version running on your own computer. In that case, you add Alkemio to a
+settings file on your computer instead, together with a small helper program
+that passes your key on to Alkemio.
 
-If a key is no longer needed, or you suspect it may have leaked, revoke it
-immediately:
+1. Install Node.js, which the helper program needs. Download it from
+   [nodejs.org](https://nodejs.org) and install it like any other program.
+   Any version from 18 onwards works.
+2. Open the folder where Claude Desktop keeps its settings. On Windows, press
+   the Windows key and R together, type `%APPDATA%\Claude` and press Enter.
+   On a Mac, open Finder, press Command, Shift and G together, type
+   `~/Library/Application Support/Claude` and press Enter.
+3. Open the file `claude_desktop_config.json` in that folder with a text
+   editor such as Notepad or TextEdit. If the file isn't there, create a
+   new text file with exactly that name. In Notepad, choose **All files** under
+   *Save as type*, otherwise Windows adds `.txt` to the name. In TextEdit on a
+   Mac, first choose **Format → Make Plain Text**. If the file is already there, first
+   make a copy of it in the same folder, so you can put it back if something
+   goes wrong.
+4. Copy the text below into the file. If the file is empty, paste all of it.
+   If it already contains a section starting with `"mcpServers"`, add only
+   the `"alkemio"` part inside that section; if another connector is already
+   listed there, put a comma between its closing `}` and `"alkemio"`. If it contains other settings but
+   no `"mcpServers"` section, add the `"mcpServers"` part right after the first
+   `{`, and put a comma after its closing `}` so the other settings still follow.
 
-1. Go to **Settings** > **Security**.
-2. Under **MCP API keys**, find the key by name and click **Revoke**.
+   ```json
+   {
+     "mcpServers": {
+       "alkemio": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "mcp-remote@0.14.2",
+           "https://alkem.io/rest/mcp",
+           "--header",
+           "Authorization:${AUTH_HEADER}"
+         ],
+         "env": {
+           "AUTH_HEADER": "Bearer <your-mcp-api-key>"
+         }
+       }
+     }
+   }
+   ```
 
-A revoked key stops working right away — including for any client sessions
-that were already connected using it. Revoking does not delete the key's
-history; it simply stops it from authenticating any further requests. Create
-a new key if you still need client access afterward.
+5. Replace `https://alkem.io/rest/mcp` with your **Endpoint** address from
+   Step 1, and `<your-mcp-api-key>`, including the `<` and `>`, with your key.
+   Leave the word `Bearer` and the space after it in place.
+6. Save the file and close Claude Desktop completely, then open it again.
+
+   If Claude Desktop shows an error about its settings, a comma or bracket is
+   probably missing. Put your copy of the file back, and Claude Desktop works as
+   before.
+
+Alkemio now appears among Claude Desktop's tools.
+
+Your key is now stored in this file as plain text, so don't share the file with anyone. If Alkemio doesn't appear, ask your IT contact for help or [contact the team](/support).
+
+{/* Note for maintainers: the key sits under `env` rather than in `args`
+because Windows can break a value containing a space when it is passed as an
+argument, which shows up as a confusing sign-in failure. The helper version
+(`mcp-remote@0.14.2`) is pinned on purpose, because it handles the user's key;
+only raise it after checking the newer version. A Set-ExecutionPolicy workaround
+was removed on purpose (2026-10-08): it wasn't confirmed to be needed when Claude
+Desktop starts the helper, and it changes a Windows security setting. */}
+
+### Other AI assistants
+
+Other assistants can also connect to Alkemio, as long as they support MCP
+over the internet. In their settings, this is sometimes called
+"Streamable HTTP".
+
+1. In your assistant's settings, look for the option to add an MCP server or
+   a connector.
+2. As the address, enter the **Endpoint** address from Step 1.
+3. Add a header with the name `Authorization`. As its value, type the word
+   `Bearer`, a space, and then your key.
+
+If your assistant has a field called "API key" instead of a place to add
+headers, try pasting your key there. Many assistants then send the key in a
+form that Alkemio also accepts.
+
+## Switching a key off
+
+If you no longer need a key, or you think someone else may have seen it,
+switch it off immediately:
+
+1. Click your profile picture, choose **My Account** and open the
+   **Security** tab.
+2. Under **MCP API Keys**, find the key by its name and click **Revoke**.
+3. Confirm by clicking **Revoke key**.
+
+The key stops working immediately, also in any assistant that is still
+connected with it. If you still want to use your assistant with Alkemio,
+create a new key and repeat Step 2.

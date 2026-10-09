@@ -2,37 +2,36 @@ import TutorialPost from '../../../components/TutorialPost'
 
 # Posts
 
-Posts in Alkemio help communities **share knowledge**, **engage in discussions**, and **structure their work**. Instead of relying on external documents, spreadsheets, or whiteboards, these tools allow users to collaborate directly **within a Space or Subspace**, keeping everything organized and accessible.
+Posts help communities **share knowledge**, **start discussions** and **structure their work**, directly **within a Space or Subspace** instead of in separate documents or tools. Use them to share news, ask questions or gather input from members.
 
 <TutorialPost />
 
-Use Posts to **initiate discussions**, **share messages**, and **ask questions** within your Space. They support text formatting, references, embedded media and images, making it easy to communicate updates or gather input from members.
 ![Example of a Post](/example-post.png)
+
+{/* Maintainer note (2026-10-05): plans (Free/Plus/Premium, welcome.alkem.io/pricing) are left out of
+    this page at the maintainer's request, since licenses are hardly used yet. For reference: in the live
+    license policy, Plus and Premium include simultaneous whiteboard and memo editing and Save as Template;
+    Documents (office documents) and memo signing are separate per-Space add-ons. */}
+
+> Not every Space has all the options on this page, and some work differently depending on your Space's plan. For example, how many people can work on a whiteboard at the same time. See [what each plan includes](https://welcome.alkem.io/pricing/).
+
 ## Basic Post
 
-A basic post contains a title and an optional description. In the description you can add text formatting, references, embedded media and images, making it easy to communicate updates or gather input from members.
+A basic post has a title and an optional description. In the description you can format text and add images, embedded media and references, such as links to webpages or documents. It's ideal for discussions, announcements and quick feedback.
 
-Key Features:
-- Can include text, images or embedded media
-- Attach references, like webpages or documents
-- Ideal for discussions, announcements, and quick feedback
-
-Read more about text fields and embedding links on the [page about making your post look beautiful](/how-to/make-post-beautiful).
+Want to show a video or other content from another website inside your Post? Read how on the [iFrame page](/features/iframe).
 
 ![Basic Post](/basic-post.png)
+
 ## Additional Content
 
-You can add additional content to the post, such as whiteboards, memos, and calls to action, with more options planned for the future.
+In the **Add to Post** part of the form you can add one extra piece of content to your post: a whiteboard, memo, document, call to action, media gallery or poll. After the post is created you can still remove it, but you can't swap it for a different kind.
 
 ### Whiteboard
 
-A Whiteboard enables **real-time visual collaboration**. Members can **sketch, add notes, or map out ideas** together, making it useful for brainstorming sessions or structuring thoughts visually.
+A Whiteboard lets members **sketch, add notes and map out ideas together**, at the same time. You can start from a template and attach references, like webpages or documents. It's useful for brainstorming, planning and stakeholder mapping.
 
-Key Features:
-- Multiple participants can contribute simultaneously in **Plus** and **Premium** Spaces. Want to have multi-user whiteboards in your free space? [Contact the team!](/support)
-- Supports drawings, sticky notes, and structured templates
-- Attach references, like webpages or documents
-- For example useful for brainstorming, planning, and stakeholder mapping
+> In a free Space, one person can work on a whiteboard at a time. Want to work on it together at the same time? [Contact the team](/support).
 
 ![Create a post with a whiteboard](/post-with-whiteboard.png)
 
@@ -40,20 +39,27 @@ Read more about using whiteboards on the [Whiteboard Page](/how-to/whiteboards)
 
 ### Memo
 
-A Memo is a collaborative document that allows multiple users to edit and contribute simultaneously, provided the Space license supports real-time collaboration. It is ideal for co-writing, sharing detailed notes, or working together on text-heavy content.
+A Memo is a text that several people can write in at the same time, with formatting such as headings, lists and links. Changes are saved as you type. It's useful for meeting notes, project documentation and other writing you do together.
 
-Key Features:
-- Multi-user editing in Plus and Premium Spaces
-- Supports rich text formatting in a markdown editor. To learn more about the markdown editor, check out this [page](/how-to/make-post-beautiful)
-- Useful for meeting notes, project documentation, and collaborative writing
-- Changes are saved in real-time, keeping everyone up to date
+> In a free Space, one person can write in a memo at a time. Want to write in it together at the same time? [Contact the team](/support).
 
 ![Create a Post with a memo](/post-with-memo.png)
 
+#### Signing a memo
+
+In Spaces where it's turned on, you can sign a memo with your digital identity through **Cleverbase**. This only works if you have a Cleverbase account that's linked to your Alkemio account; see [Connect or disconnect a sign-in method](/how-to/connected-accounts).
+
+Open the memo and choose **Sign memo**. Alkemio first shows you the exact PDF copy of the memo that will be signed. Check it, click **Continue to Cleverbase**, confirm your identity there, and you return to Alkemio with the result.
+
+The signed PDF is saved with the memo under **Signed copies**, where anyone with access can open, download or **verify** it. The memo itself stays editable: signing only creates a separate PDF copy, so if you sign again after changes, you get a new copy and earlier ones are kept.
+
+### Document
+
+A Document adds a text document, spreadsheet or presentation to your post, which members can open and **edit together at the same time** without leaving Alkemio. You can create a new one or upload an existing Word, Excel or PowerPoint file to edit it together. A PDF you upload here can be viewed, but not edited. Documents are an extra feature that is turned on per Space. Read more on the [Documents page](/features/documents).
+
 ### Call to Action
 
-A Call to Action (CTA) is a clickable button that guides users to perform a specific action, such as visiting a webpage, submitting a form, or starting a process. 
-Easily insert CTAs into your posts to increase user engagement.
+A Call to Action (CTA) is a clickable button that guides users to perform a specific action, such as visiting a webpage, submitting a form, or starting a process.
 
 Key Features:
 - Customizable button text and link destination
@@ -64,15 +70,9 @@ Key Features:
 
 ### Poll
 
-A Poll lets you gather structured input from your community by asking members to vote on the available options. Polls are ideal for making decisions together, gauging sentiment, or prioritising ideas.
+A Poll lets you gather structured input from your community by asking members to vote on the available options. Polls are ideal for making decisions together, gauging sentiment, or prioritising ideas. Vote counts and percentages update live as members vote.
 
-Key Features:
-- **Single-choice or multi-choice**: configure whether members can select one answer or multiple.
-- **Flexible results visibility**: choose to show results to everyone straight away, or only after a member has voted.
-- **Real-time updates**: vote counts and percentages update live as the community responds.
-- Optionally show voter avatars next to each option for full transparency.
-
-Members can change their vote at any time as long as the poll is open.
+Members can change their vote at any time as long as the poll is open. When voting is done, you can close the poll with **Close poll**, and reopen it later if needed.
 
 When creating a poll, you can configure the following settings:
 
@@ -100,73 +100,84 @@ Clicking any image opens the full gallery view.
 
 ![Create a Post with a Media Gallery](/post-with-media-gallery.png)
 
-## Response Options
+### Contributors and Subspaces
 
-There are 2 types of response options you can set up for your posts to enable collaboration within the community: Comments and a Collection. 
+Space admins have two more options. **Contributors** shows the members of your community as cards, and **Subspaces** shows the Subspaces of your Space. Both keep themselves up to date as people join or Subspaces are added, or you can pick yourself which ones to show.
+
+## Comments and Reactions
+
+### Comments
+Comments are on by default, so the community can reply to the post. This can be useful to start a discussion or ask for input.
+If the post is for information only and you don't want people to reply, open **More options** in the post form and turn off **Allow comments**.
+
+### Reactions
+Members can react to a published post with an emoji: a heart, hugging face, clapping hands, light bulb, bullseye, check mark or rocket. Everyone has one reaction per post; pick another emoji to change it, or click your own to remove it. Click the reaction count to see who reacted.
+
+## Contributions
+
+Besides comments, you can ask members to add something to your post, such as links, their own posts or whiteboards. These additions are called **contributions**, and they appear in the post under **Contributions**.
+
+You set this up in the **Responses** section of the post form. Choose one type: **Links & Files**, **Posts**, **Memos**, **Whiteboards**, **Documents** or a **Tasks board**. For every type you decide who can add: **Members can add** lets everyone in the community contribute, and **Admins can add** lets admins contribute. The type can't be changed after the post is created; if you need a different type, simply create a new post.
 
 ![Response options](/response-options.png)
 
-### Comments
-Enable comments (the default setting) if you want the community to be able to reply to the post. This can be usefull to initiate a discussion or ask for input f.e.
-If the post is for information purposes only and you don't want people to respond, simply disable the comment option in the comments section of the response options.
+### Links & Files
 
-### Collection
-Collections are a structured way of collecting resources like links & files, posts and whiteboards. If you want to showcase a collection or ask for structured input from the community, this is the way!
-
-#### Collection of Links & Files
-
-This is a structured way to **curate and share relevant materials** such as articles, reports, and blog posts. Community members can also contribute by adding their own links and insights.
-
-Key Features:
-- Organize important resources in one place
-- Members can add links and documents with descriptions
-- Ideal for research, best practices, or reference materials
+This is a way to **collect and share materials in one place**, such as articles, reports and reference documents. Members can add their own links and files, each with a description. Files added here, such as a PDF, can be opened or downloaded, but not edited together; to work on a document together, use a **Document** instead.
 
 ![Collection of links](/collection-links.png)
 
-In the collection settings, you can already add the first links and determine who can add to the collection.
+While creating the post, you can already add the first links under **Pre-populate collection** and decide who can add to the collection.
 
 ![Collection settings of links & files](/links-files.png)
 
-#### Collection of Posts
+### Posts
 
 A collection of posts allows **structured information gathering** by providing **predefined questions or headers** that members can fill in. This is ideal for collecting insights, crowdsourcing ideas, or running structured discussions.
 
 ![Example of collection of posts](/collection-posts.png)
 
-In the collection settings you can specify:
-- A specific template for the posts, containing f.e. guiding questions or a structure.
-- Who can add to the collection
-- Enable or disable comments on each post in the collection.
+In the settings you can specify:
+- With **Set Default Response**: a default title, guidance for members, or a template, containing for example guiding questions or a structure.
+- Who can add to the collection.
+- Whether members can comment on each post in the collection (**Enable comments**).
 
 ![Settings of collection of posts](/posts-settings.png)
 
-When contributing to a Collection of Posts, hit the '+' button and the window opens up with a text editor prefilled by the creator of the Collection of Posts. Fill in a title and fill up the description following the instructions in the text editor.
+When contributing to a collection of posts, click **Add Post**. A window opens with the guidance from the creator of the post already filled in. Fill in a title and complete the description following that guidance.
 
-#### Collection of Whiteboards
+### Whiteboards
 
-This tool allows members to **respond with visual contributions**. Leads can set up a template, such as a vision board or a stakeholder map, and ask members to **submit their own whiteboard responses**.
+This option, shown on the post as **Call for Whiteboards**, allows members to **contribute visually**. Leads can set up a template, such as a vision board or a stakeholder map, and ask members to **add their own whiteboards**.
 
 ![Collection of Whiteboards](/call-for-whiteboards.png)
 
-In the collection settings you can specify:
-- A template for the whiteboards to be added. You can create one, choose from the library, or leave it empty.
-- Who can add to the collection
+In the settings you can specify:
+- With **Set Default Response**: a whiteboard that every new contribution starts from. You can draw one yourself, choose a template, or leave it empty so contributions start blank.
+- Who can add to the collection.
 
 ![Settings of collection of whiteboards](/whiteboard-settings.png)
 
-### More Settings for the Posts
+### Memos and Documents
+
+With **Memos**, each member can add their own memo, for example a short write-up or meeting notes. With **Documents**, members add text documents, spreadsheets or presentations; this is available in Spaces where Documents are turned on.
+
+### Tasks Board
+
+A Tasks board is a board with columns, in which every task is a post that members move from column to column by dragging it. After creating it, use **Manage columns** in the post's menu to add, rename, reorder or remove columns.
+
+## More Settings for the Posts
 
 There are several settings that will help you make the most of these posts. For example, you can:
 
-- **Edit**: After creating the tool, you can still edit most settings. Note that the collection type cannot be changed afterward, if you need a different type, simply create a new post with the desired collection.
-- **Close Them for Answers**: In the edit window, you can decide to turn the switch **‘Accept New Responses’** on or off. Members are still able to see the previous answers and comment on them, but they cannot submit new ones.
-- **Create Them in Draft State**: Make them only visible for the admin. When the admin is ready to share it with the community, they can publish it (with the option to notify the community).
-- **Sort Contributions**: Adjusting the order of the contributions that were added to the tool.
-- **Save as Template**: You can save the tool as a template. You will find the template back in your Space Template Library.
-- **Move Them Up and Down**: Reorder the tools or move them to the bottom or top of the list as well as between the various pages.
-- **Expand the Dialog**: See a clearer overview of all contributions.
-- **Share Them**: Share with other people inside and outside of the platform.
+- **Edit**: After creating the post, you can still edit most settings. The kind of additional content and the contribution type can't be changed afterwards.
+- **Close It for New Contributions**: In the edit window, turn off **Members can add** so only admins can still add, or turn off **Admins can add** to stop new contributions altogether. Everything that was already added stays visible.
+- **Create It in Draft State**: Click **Save Draft** instead of **Post** to make it only visible for admins. When you're ready to share it with the community, choose **Publish** in the post's menu. When you post right away, you can turn on **Notify space members** to let everyone know.
+- **Sort Contributions**: Adjust the order of the contributions that were added to the post.
+- **Save as Template**: You can save the post as a template, which you'll then find among your Space's templates. This doesn't work yet for posts with a Document.
+- **Move It Up and Down**: Reorder posts or move them to the top or bottom of the list.
+- **Open It in a Larger View**: Open the post to see a clearer overview of all contributions.
+- **Share It**: Share with other people inside and outside of the platform.
 
 ![Menu Collaboration Tool](/menu-collaboration-tool.png)
 
@@ -177,20 +188,10 @@ Depending on the settings of a (Sub)Space, only the **admins** or all members ar
 - **A post** on the **Dashboard Tab** to ask for comments, suggestions or feedback.
 - **A post with a collection of links** on the **Dashboard Tab** to share guiding materials to help members get started in this Space.
 - **A post with a whiteboard containing a stakeholder map** on the **Community Tab**, so that the community can contribute with their insights about the current ecosystem.
-- **A post** on the **Community Tab** to ask members to introduce themselves or suggest other people or organizations to invite.
+- **A post** on the **Community Tab** to ask members to introduce themselves or suggest other people or organisations to invite.
 - **A post with a collection of posts** on the **Subspaces Tab**, where members can submit ideas for creating Subspaces by filling in a few context questions.
 - **A post with a collection of links** on the **Knowledge tab**, featuring relevant articles related to the topic.
 
-## How Can Posts Help?
+Templates can give your Posts a ready-made structure and best practices. Learn more about **how to use templates** on the [Templates Page](/features/templates).
 
-Posts support a variety of community-driven activities:
-
-- **Engaging the Community**: Encourage participation and idea-sharing.
-- **Structuring Information**: Organize discussions, resources, and brainstorming in a clear format.
-- **Enhancing Decision-Making**: Use visual tools like Whiteboards to structure complex challenges.
-- **Gathering Insights**: Use Collection of Posts to crowdsource perspectives and structured input.
-
-By integrating these tools, Spaces and Subspaces can improve communication, make collaboration more effective, and accelerate progress.
-
-Templates can further enhance these tools by providing predefined structures and best practices. Learn more about **how to use templates** on the [Templates Page](/templates).
-
+Questions about Posts? [Contact the team](/support).

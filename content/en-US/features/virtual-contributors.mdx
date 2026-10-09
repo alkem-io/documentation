@@ -2,101 +2,57 @@ import TutorialVC from '../../../components/TutorialVC'
 
 # Virtual Contributors (VCs)
 
-Virtual Contributors are your AI-powered teammates on Alkemio—designed to help you navigate complexity, spark new ideas, and move forward with confidence.
-You can invite them to join multiple Spaces, you can have multiple VC's in the same Space, 
-and they allow for many-to-many interaction inside the Space, allowing you to learn from each other and get different insights.
+Virtual Contributors are AI teammates you can add to your Spaces on Alkemio. They help your community find information, spark new ideas and keep moving. A VC can join several Spaces, and a Space can have several VCs, so members can ask different VCs for different perspectives.
 
 <TutorialVC />
 
 ### What is a Virtual Contributor?
 
-A Virtual Contributor (VC) is an AI agent trained on specific knowledge to support you in your work. Unlike generic AI tools, a VC only uses the information **you provide**—so you stay in control of its responses and scope.
+A Virtual Contributor (VC) is an AI assistant: a computer program that reads a question in everyday language and writes an answer back. What makes a VC different from a general AI chatbot is that it answers from the knowledge **you** give it, such as the Posts in one of your Spaces or documents you add (a VC linked to an external AI service uses the knowledge set up in that service). You decide what it knows, so its answers stay focused on your topic instead of drawing on random sources from the internet. Like any AI, it can still get things wrong, so check answers you plan to rely on.
 
-VCs are a kind of smart wrapper: they combine a powerful Large Language Model (LLM) with knowledge from:
-- Your Subspace
-- Uploaded documents
-- Or your own external AI engine
-
-This means:
-- **No hallucinations** from random internet sources
-- **Relevant, focused responses**
-- **Knowledge ownership stays with you**
-
+A VC takes part in a Space the same way a person does: it has to be a member of that Space. You choose which Spaces it joins, and a Space admin can remove it again at any time. Each VC also has a profile page that shows who hosts it, which AI service it runs on, whether it can search the web and where that service is hosted, so you can see what you're working with before you invite one.
 
 ### How to create a VC
 
-You can create a VC in three different ways:
+Not everyone can create VCs. If you don't see the option, or you've reached the number of VCs your account allows, [contact the Alkemio team](/support).
 
-1. Based on a Subspace  
-The VC learns from posts, calls, and interactions within a Subspace. Great for project- or theme-based support.
+There are two ways to start:
 
-2. Based on a custom knowledge base  
-Upload your own content (Word, PDF, Excel) or create a Notion-style document. This VC lives in your profile and isn’t tied to a Subspace.
+- In the profile menu, choose **My Account**, open the **Account** tab, and in the **Virtual Contributors** section click **Add Contributor**.
+- If your dashboard shows the **Create your Virtual Contributor** banner, click **Create Virtual Contributor**.
 
-3. By linking an external AI engine  
-Already have your own GPT or custom model? You can “plug it in” as a VC and use it in your Alkemio spaces. Note: training and content management happens outside Alkemio.
+First, give your VC a name. A tagline, description and picture are optional. Then choose where its knowledge comes from. In the setup, the three options are called *Written knowledge*, *Existing Space* and *External AI*:
 
-> ⚠️ Not all users have permission to create VCs. If you'd like access, [contact the Alkemio team](/support).
+1. **Based on a custom knowledge base**: the VC gets its own **knowledge base**, a separate place that only this VC uses. You fill it yourself with Posts, and you can add documents to them as files or links. Nobody else adds to it, so you decide exactly what the VC knows. This works well for a fixed set of information, such as a method, a policy or a list of frequently asked questions. The VC belongs to your account and isn't tied to a Space.
+2. **Based on a Space or Subspace**: the VC learns from a Space or Subspace that already exists on your account. It reads everything in it: the Posts, what members have contributed to them, documents and links added there, and any Subspaces inside it. Because your community keeps adding to that Space, what the VC knows grows with their work. This works well for a VC that supports a specific project or theme.
+3. **Linked to an external AI service**: connect an AI service your organisation already uses outside Alkemio (at the moment, OpenAI). You'll need an **API key**, a kind of password that service gives you so Alkemio can talk to it. Everything this VC knows is set up and managed in that service, not in Alkemio.
 
+The difference between the first two isn't whether documents are included: both can use Posts, files and links. The difference is who fills the knowledge. With a **custom knowledge base** that's only you, in a place made for the VC. With a **Space or Subspace** it's everyone who contributes to it.
 
-### How to get started
+As the last step, you can add your VC to a community straight away, or choose **Skip for now** and do it later.
 
-Once you have permissions, you can start creating a VC:
+### What kind of content works best?
 
-- **From the dashboard banner** → Click "Create your own VC"
-- **From your profile settings** → Go to the *Account*  tab, find the VC container, and click ➕
+VCs work best with clear, written text. That can be Posts, or documents in Word (.docx), PDF or Excel (.xlsx) format. A VC can't read text inside images, such as scans, photos or screenshots, so use real text wherever you can.
 
-During the setup:
-1. Give your VC a name and optional description
-2. Choose one of the three creation types
-3. Upload or link your training materials
-4. Follow the guided flow to publish
+When you add a link, the VC reads the text of the web page or document behind it. If a page doesn't seem to come through, save it as a PDF and add that file instead.
 
+When you change the content a VC learns from, open the VC's profile, go to its settings, and on the **Settings** tab click **Refresh Knowledge** so it picks up the changes.
 
-### What kind of content can you use?
+### How to talk to a VC
 
-VCs work best with clean, written text. You can train them using:
+In the comments of a Post, type **@** followed by the VC's name and pick it from the list. The VC replies in the same thread, and you can keep the conversation going there without tagging it again. This only works in Spaces the VC is a member of.
 
-- Written posts or call for posts in your Subspace
-- Uploaded files:
-  - Word documents (.doc/.docx)
-  - PDFs
-  - Excel files (.xls/.xlsx)
+You can ask a VC to explain or summarise something, to rephrase a text, to come up with ideas, or to give feedback on a plan.
 
-> Tip: VCs can’t read text embedded in images (like scans or screenshots). Use real text for best results.
+### What a VC can't do (yet)
 
-**Images, diagrams, and links** don’t currently contribute to training—keep it text-based for now.
+A VC only knows what it has been given. Unless its profile says otherwise under **Web Access**, it doesn't look things up on the internet. And it doesn't replace working together: it's there to support your community's conversations, not to take them over.
 
-If you want to train on a web page, save it as a PDF and upload that instead.
+### Learn more
 
+Read [What is a Virtual Contributor?](https://alkem.io/welcome-space/collaboration/faq/posts/whatisavirtualcontributor) in the Welcome Space FAQ.
 
-### How to interact with a VC
-
-Talking to a VC is easy:
-
-- **Tag the VC** in a post using its name (e.g. `@GreenIdeasVC`)
-- The VC will reply directly in the thread
-- In that same thread, you can continue the conversation without tagging again
-
-Use VCs to:
-- Explore new ideas
-- Ask for summaries or explanations
-- Rephrase content
-- Brainstorm or get feedback
-
-
-
-### What a VC can’t do (yet)
-
-- It won’t pull in info from the internet
-- It doesn’t replace collaboration—it supports it
-- It only knows what it was trained on
-
-
-
-###  Try it yourself
-
-Check out the [*Virtual Contributor Subspace*](https://alkem.io/welcome-space/challenges/virtualcontributors) in the Welcome Space or explore [public VCs](https://alkem.io/contributors) created by the community.
-
+{/* Maintainer note (2026-10-05): the old "Virtual Contributor Subspace" link (welcome-space/challenges/virtualcontributors) no longer exists (ENTITY_NOT_FOUND), and the "public VCs" link to alkem.io/contributors was dropped because client-web master no longer routes /contributors. Add a link back if a public page for browsing VCs returns. */}
 
 Still have questions? Check out the [FAQ](/faq) for more details.
