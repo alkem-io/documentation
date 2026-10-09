@@ -2,6 +2,10 @@
 
 Platform documentation for Alkemio, built with Nextra 4 (documentation framework on top of Next.js App Router).
 
+## Writing Style
+
+Most people reading these docs are running a space or community on Alkemio, not building software — assume no comfort with terminals, config files, or developer jargon. Write so someone with little to no background on the specific topic can follow along; getting-started pages should assume nothing, but elsewhere you can lean on what a reader has already picked up there rather than re-explaining Alkemio basics from scratch every time. That includes technical setup tasks like connecting an external tool through MCP: break it into steps a non-technical person can actually follow and complete, even without needing to understand what's happening underneath. Prefer short, clear prose over bullet-point lists where the content allows it, and keep it concise — get the point across without turning a simple explanation into a long walkthrough.
+
 ## Technology Stack
 
 - **Framework**: Nextra 4.6.1 with `nextra-theme-docs`
