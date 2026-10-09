@@ -39,6 +39,10 @@ export default async function RootLayout({ children, params }) {
   const footer = (
     <Footer>
       EUPL-1.2 {new Date().getFullYear()} Alkemio
+      {' · '}
+      <a href="https://www.linkedin.com/company/alkemio" target="_blank" rel="noopener noreferrer" aria-label="Alkemio on LinkedIn">LinkedIn</a>
+      {' · '}
+      <a href="https://github.com/alkem-io" target="_blank" rel="noopener noreferrer" aria-label="Alkemio on GitHub">GitHub</a>
     </Footer>
   )
 
