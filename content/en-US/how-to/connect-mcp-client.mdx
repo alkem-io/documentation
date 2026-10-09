@@ -73,16 +73,17 @@ has every step you need, even if you haven't done this before.
 
 ### Claude Desktop
 
-1. In Claude Desktop, go to **Settings → Connectors → Add custom connector**.
-2. For **Name**, type `Alkemio`.
-3. For **Remote MCP server URL**, type the **Endpoint** address from Step 1,
+1. In Claude Desktop, go to **Customize → Connectors**, click **+ Add** and
+   choose **Add custom connector**.
+2. Give the connector a name, for example `Alkemio`.
+3. As the remote MCP server URL, enter the **Endpoint** address from Step 1,
    usually `https://alkem.io/rest/mcp`.
-4. Under **Authentication**, choose **None**. This is the correct option for
-   services that use a key, such as Alkemio.
-5. Click **+ Add header**. For **Key**, type `Authorization`. For **Value**,
-   type the word `Bearer`, a space, and then paste your key, so it looks like
-   `Bearer mcp_...`.
-6. Click **Add**.
+4. For authentication, choose **No sign in**. Alkemio uses your key instead
+   of a sign-in.
+5. Under **Request headers**, add a header with the name `Authorization`. As
+   its value, type the word `Bearer`, a space, and then paste your key, so it
+   looks like `Bearer mcp_...`.
+6. Save the connector.
 
 Alkemio now appears in Claude Desktop's list of connectors, and you can ask
 Claude about your Alkemio spaces.
@@ -144,12 +145,14 @@ that passes your key on to Alkemio.
 3. Open the file `claude_desktop_config.json` in that folder with a text
    editor such as Notepad or TextEdit. If the file isn't there, create a
    new text file with exactly that name. In Notepad, choose **All files** under
-   *Save as type*, otherwise Windows adds `.txt` to the name. If the file is already there, first
+   *Save as type*, otherwise Windows adds `.txt` to the name. In TextEdit on a
+   Mac, first choose **Format → Make Plain Text**. If the file is already there, first
    make a copy of it in the same folder, so you can put it back if something
    goes wrong.
 4. Copy the text below into the file. If the file is empty, paste all of it.
    If it already contains a section starting with `"mcpServers"`, add only
-   the `"alkemio"` part inside that section. If it contains other settings but
+   the `"alkemio"` part inside that section; if another connector is already
+   listed there, put a comma between its closing `}` and `"alkemio"`. If it contains other settings but
    no `"mcpServers"` section, add the `"mcpServers"` part right after the first
    `{`, and put a comma after its closing `}` so the other settings still follow.
 

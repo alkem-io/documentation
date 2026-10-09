@@ -78,16 +78,17 @@ gedaan.
 Claude Desktop is in het Engels. De knoppen en velden hieronder staan daarom
 zoals je ze in de app ziet.
 
-1. Ga in Claude Desktop naar **Settings → Connectors → Add custom connector**.
-2. Typ bij **Name** `Alkemio`.
-3. Typ bij **Remote MCP server URL** het **Endpoint**-adres uit Stap 1,
+1. Ga in Claude Desktop naar **Customize → Connectors**, klik op **+ Add** en
+   kies **Add custom connector**.
+2. Geef de connector een naam, bijvoorbeeld `Alkemio`.
+3. Vul als remote MCP server URL het **Endpoint**-adres uit Stap 1 in,
    meestal `https://alkem.io/rest/mcp`.
-4. Kies onder **Authentication** voor **None**. Dit is de juiste optie voor
-   diensten die met een sleutel werken, zoals Alkemio.
-5. Klik op **+ Add header**. Typ bij **Key** `Authorization`. Typ bij **Value**
-   het woord `Bearer`, een spatie, en plak daarna je sleutel, zodat het eruitziet
-   als `Bearer mcp_...`.
-6. Klik op **Add**.
+4. Kies bij de authenticatie voor **No sign in**. Alkemio gebruikt je sleutel
+   in plaats van een inlog.
+5. Voeg onder **Request headers** een header toe met de naam `Authorization`.
+   Typ als waarde het woord `Bearer`, een spatie, en plak daarna je sleutel,
+   zodat het eruitziet als `Bearer mcp_...`.
+6. Sla de connector op.
 
 Alkemio staat nu in de lijst met connectors van Claude Desktop, en je kunt
 Claude vragen stellen over je Alkemio-spaces.
@@ -151,12 +152,14 @@ sleutel aan Alkemio doorgeeft.
 3. Open het bestand `claude_desktop_config.json` in die map met een
    teksteditor zoals Kladblok of TextEdit. Bestaat het bestand niet, maak dan
    een nieuw tekstbestand met precies die naam. Kies in Kladblok bij *Opslaan als
-   type* voor **Alle bestanden**, anders zet Windows er `.txt` achter. Bestaat het bestand al, maak
+   type* voor **Alle bestanden**, anders zet Windows er `.txt` achter. Kies in TextEdit op een
+   Mac eerst **Opmaak → Maak platte tekst**. Bestaat het bestand al, maak
    er dan eerst een kopie van in dezelfde map, zodat je die kunt terugzetten als
    er iets misgaat.
 4. Kopieer de tekst hieronder naar het bestand. Is het bestand leeg, plak dan
    alles. Staat er al een deel in dat begint met `"mcpServers"`, voeg dan
-   alleen het `"alkemio"`-deel binnen dat deel toe. Staan er andere instellingen
+   alleen het `"alkemio"`-deel binnen dat deel toe; staat daar al een andere
+   connector, zet dan een komma tussen de afsluitende `}` daarvan en `"alkemio"`. Staan er andere instellingen
    in maar geen `"mcpServers"`-deel, voeg het `"mcpServers"`-deel dan direct na
    de eerste `{` toe, met een komma na de afsluitende `}` zodat de andere
    instellingen erna volgen.
