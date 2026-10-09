@@ -1,0 +1,237 @@
+# Koppel een MCP-client
+
+Je kunt een AI-assistent, zoals Claude Desktop of Claude Code, aan Alkemio
+koppelen. De assistent kan dan je Alkemio-inhoud lezen en ermee werken wanneer
+je daarom vraagt. Hiervoor heb je een persoonlijke sleutel van Alkemio nodig,
+die je vervolgens aan je assistent toevoegt. Op deze pagina lees je hoe je
+beide stappen uitvoert.
+
+## Wat is MCP
+
+MCP (Model Context Protocol) is een gangbare standaard waarmee AI-assistenten
+verbinding kunnen maken met andere diensten. Alkemio ondersteunt MCP, zodat
+elke assistent die MCP ondersteunt op dezelfde manier met Alkemio kan werken.
+
+De assistent maakt verbinding met een persoonlijke sleutel die je in Alkemio
+aanmaakt. Deze sleutel geeft de assistent geen eigen account: alles wat de
+assistent doet, gebeurt **als jou**. De assistent heeft daardoor precies
+dezelfde rechten als jij, en nooit meer. Hij kan alleen de spaces en inhoud
+zien die jij kunt zien, en alleen wijzigen wat jij zelf mag wijzigen.
+
+Bij het aanmaken van een sleutel kies je ook wat de assistent ermee mag doen:
+
+- **Lezen** staat de assistent toe om spaces, posts en whiteboards waar je
+  toegang toe hebt te openen en te lezen.
+- **Tools** staat de assistent toe om namens jou de tools van Alkemio te
+  gebruiken: bijvoorbeeld zoeken in je spaces, recente activiteit samenvatten,
+  en whiteboards aanmaken of bewerken.
+
+De meeste assistenten hebben **Tools** nodig om bruikbaar te zijn, omdat ook
+zoeken als tool geldt. Houd er rekening mee dat **Tools** niet verder te
+beperken is: een sleutel met **Tools** staat zowel zoeken als wijzigen toe,
+zoals het bewerken van een whiteboard. De assistent kan wijzigingen nog steeds
+alleen maken waar jij dat zelf ook kunt.
+
+Je kunt een sleutel op elk moment uitschakelen, en je kunt maximaal 10 actieve
+sleutels hebben.
+
+## Stap 1: Maak een sleutel aan in Alkemio
+
+1. Klik rechtsboven op je profielfoto en kies **Mijn account**.
+2. Open het tabblad **Beveiliging**.
+3. Klik onder **MCP API-sleutels** op **API-sleutel aanmaken**.
+4. Geef de sleutel een naam waaraan je ziet waar hij wordt gebruikt,
+   bijvoorbeeld "Claude Desktop".
+5. Kies onder **Bewerkingen** voor **Lezen**, **Tools** of beide (zie
+   [Wat is MCP](#wat-is-mcp)). Wil je dat de sleutel automatisch stopt met
+   werken, stel dan ook een vervaldatum in.
+6. Klik op **Sleutel aanmaken**.
+7. Je nieuwe sleutel wordt één keer getoond, direct na het aanmaken. Klik op
+   **Kopiëren** en bewaar de sleutel tot Stap 2 op een veilige plek,
+   bijvoorbeeld in een wachtwoordmanager. Alkemio kan de sleutel niet opnieuw
+   tonen. Raak je hem kwijt, schakel hem dan uit en maak een nieuwe aan.
+8. Onder **Verbindingsrecept** toont hetzelfde venster naast **Endpoint** het
+   webadres dat je assistent nodig heeft. Meestal is dat
+   `https://alkem.io/rest/mcp`. Noteer het als het bij jou anders is, en klik
+   daarna op **Klaar**.
+
+De sleutel begint met `mcp_`. Dit hoort bij de sleutel, dus plak hem altijd
+precies zoals je hem hebt gekopieerd.
+
+## Stap 2: Koppel je AI-assistent
+
+Kies hieronder het onderdeel dat past bij de assistent die je gebruikt. Elk
+onderdeel bevat alle stappen die je nodig hebt, ook als je dit nog nooit hebt
+gedaan.
+
+- **Claude Desktop**, de Claude-app op je computer: zie
+  [Claude Desktop](#claude-desktop).
+- **Claude Code**, dat je gebruikt door te typen in een terminalvenster: zie
+  [Claude Code](#claude-code).
+- **Claude Desktop met een Alkemio-adres dat alleen binnen het netwerk van je
+  organisatie werkt**, zoals een testversie op je eigen computer: zie
+  [Claude Desktop op je eigen netwerk](#claude-desktop-op-je-eigen-netwerk).
+- **Een andere assistent**: zie [Andere AI-assistenten](#andere-ai-assistenten).
+
+### Claude Desktop
+
+Claude Desktop is in het Engels. De knoppen en velden hieronder staan daarom
+zoals je ze in de app ziet.
+
+1. Ga in Claude Desktop naar **Customize → Connectors**, klik op **+ Add** en
+   kies **Add custom connector**.
+2. Geef de connector een naam, bijvoorbeeld `Alkemio`.
+3. Vul als remote MCP server URL het **Endpoint**-adres uit Stap 1 in,
+   meestal `https://alkem.io/rest/mcp`.
+4. Kies bij de authenticatie voor **No sign in**. Alkemio gebruikt je sleutel
+   in plaats van een inlog.
+5. Voeg onder **Request headers** een header toe met de naam `Authorization`.
+   Typ als waarde het woord `Bearer`, een spatie, en plak daarna je sleutel,
+   zodat het eruitziet als `Bearer mcp_...`.
+6. Sla de connector op.
+
+Alkemio staat nu in de lijst met connectors van Claude Desktop, en je kunt
+Claude vragen stellen over je Alkemio-spaces.
+
+> Gebruik je Claude via je organisatie (een Team- of Enterprise-abonnement)? Dan
+> voegt een beheerder misschien connectors toe voor iedereen. Zet nooit je
+> persoonlijke Alkemio-sleutel in een connector die anderen ook gebruiken: zij
+> werken dan in Alkemio met jouw rechten. Iedereen gebruikt zijn eigen sleutel.
+
+### Claude Code
+
+Je voegt Alkemio aan Claude Code toe door één opdracht in een terminal te
+plakken: het venster waarin je opdrachten aan je computer typt. De opdracht
+vertelt Claude Code waar Alkemio te vinden is en welke sleutel gebruikt moet
+worden. Claude Code moet daarvoor wel geïnstalleerd zijn; zie de
+[installatiepagina van Claude Code](https://code.claude.com/docs/en/setup).
+
+1. Open een teksteditor, zoals Kladblok (Notepad) op Windows of TextEdit op een
+   Mac, en plak deze opdracht erin:
+
+   ```bash
+   claude mcp add --transport http alkemio https://alkem.io/rest/mcp --header "Authorization: Bearer <your-mcp-api-key>"
+   ```
+
+2. Vervang `<your-mcp-api-key>`, inclusief de `<` en `>`, door de sleutel die
+   je in Stap 1 hebt gekopieerd. Is je **Endpoint**-adres uit Stap 1 anders,
+   vervang dan ook `https://alkem.io/rest/mcp` daardoor. Laat al het andere
+   precies zoals het is.
+3. Open een terminal. Druk op Windows op de Windows-toets, typ `PowerShell` en
+   druk op Enter. Druk op een Mac tegelijk op Command en de spatiebalk, typ
+   `Terminal` en druk op Enter.
+4. Kopieer de aangepaste opdracht uit je teksteditor, plak hem in de terminal
+   en druk op Enter.
+5. Om te controleren of het gelukt is, typ je `claude` en druk je op Enter om
+   Claude Code te starten. Typ daarna `/mcp` en druk op Enter. Alkemio hoort in
+   de lijst te staan.
+
+Sluit daarna de teksteditor en kies **Niet opslaan**, omdat de opdracht je sleutel
+bevat. Claude Code bewaart de sleutel ook op je computer, in zijn eigen
+instellingenbestand en in de lijst met recente opdrachten van de terminal. Op
+een computer die alleen jij gebruikt, is dat geen probleem. Deel je de
+computer, of heeft je organisatie regels over waar wachtwoorden bewaard mogen
+worden, overleg dan eerst met je IT-contactpersoon.
+
+### Claude Desktop op je eigen netwerk
+
+De route via [Claude Desktop](#claude-desktop) maakt verbinding via Anthropic,
+het bedrijf achter Claude, over het internet. Die route kan geen Alkemio-adres
+bereiken dat alleen binnen het eigen netwerk van je organisatie werkt, zoals een
+testversie op je eigen computer. In dat geval voeg je Alkemio toe aan een
+instellingenbestand op je computer, samen met een klein hulpprogramma dat je
+sleutel aan Alkemio doorgeeft.
+
+1. Installeer Node.js, dat het hulpprogramma nodig heeft. Download het van
+   [nodejs.org](https://nodejs.org) en installeer het zoals elk ander
+   programma. Elke versie vanaf 18 werkt.
+2. Open de map waarin Claude Desktop zijn instellingen bewaart. Druk op Windows
+   tegelijk op de Windows-toets en R, typ `%APPDATA%\Claude` en druk op Enter.
+   Open op een Mac de Finder, druk tegelijk op Command, Shift en G, typ
+   `~/Library/Application Support/Claude` en druk op Enter.
+3. Open het bestand `claude_desktop_config.json` in die map met een
+   teksteditor zoals Kladblok of TextEdit. Bestaat het bestand niet, maak dan
+   een nieuw tekstbestand met precies die naam. Kies in Kladblok bij *Opslaan als
+   type* voor **Alle bestanden**, anders zet Windows er `.txt` achter. Kies in TextEdit op een
+   Mac eerst **Opmaak → Maak platte tekst**. Bestaat het bestand al, maak
+   er dan eerst een kopie van in dezelfde map, zodat je die kunt terugzetten als
+   er iets misgaat.
+4. Kopieer de tekst hieronder naar het bestand. Is het bestand leeg, plak dan
+   alles. Staat er al een deel in dat begint met `"mcpServers"`, voeg dan
+   alleen het `"alkemio"`-deel binnen dat deel toe; staat daar al een andere
+   connector, zet dan een komma tussen de afsluitende `}` daarvan en `"alkemio"`. Staan er andere instellingen
+   in maar geen `"mcpServers"`-deel, voeg het `"mcpServers"`-deel dan direct na
+   de eerste `{` toe, met een komma na de afsluitende `}` zodat de andere
+   instellingen erna volgen.
+
+   ```json
+   {
+     "mcpServers": {
+       "alkemio": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "mcp-remote@0.14.2",
+           "https://alkem.io/rest/mcp",
+           "--header",
+           "Authorization:${AUTH_HEADER}"
+         ],
+         "env": {
+           "AUTH_HEADER": "Bearer <your-mcp-api-key>"
+         }
+       }
+     }
+   }
+   ```
+
+5. Vervang `https://alkem.io/rest/mcp` door je **Endpoint**-adres uit Stap 1,
+   en `<your-mcp-api-key>`, inclusief de `<` en `>`, door je sleutel. Laat het
+   woord `Bearer` en de spatie erna staan.
+6. Sla het bestand op en sluit Claude Desktop volledig af. Open het daarna
+   opnieuw.
+
+   Toont Claude Desktop een foutmelding over zijn instellingen, dan ontbreekt er
+   waarschijnlijk een komma of haakje. Zet je kopie van het bestand terug, dan
+   werkt Claude Desktop weer zoals voorheen.
+
+Alkemio staat nu tussen de tools van Claude Desktop.
+
+Je sleutel staat nu als gewone tekst in dit bestand, dus deel het bestand met niemand. Verschijnt Alkemio niet, vraag dan je IT-contactpersoon om hulp of [neem contact op met het team](/support).
+
+{/* Note for maintainers: the key sits under `env` rather than in `args`
+because Windows can break a value containing a space when it is passed as an
+argument, which shows up as a confusing sign-in failure. The helper version
+(`mcp-remote@0.14.2`) is pinned on purpose, because it handles the user's key;
+only raise it after checking the newer version. A Set-ExecutionPolicy workaround
+was removed on purpose (2026-10-08): it wasn't confirmed to be needed when Claude
+Desktop starts the helper, and it changes a Windows security setting. */}
+
+### Andere AI-assistenten
+
+Ook andere assistenten kunnen verbinding maken met Alkemio, zolang ze MCP via
+het internet ondersteunen. In de instellingen heet dit soms
+"Streamable HTTP".
+
+1. Zoek in de instellingen van je assistent naar de optie om een MCP-server of
+   connector toe te voegen.
+2. Vul als adres het **Endpoint**-adres uit Stap 1 in.
+3. Voeg een header toe met de naam `Authorization`. Typ als waarde het woord
+   `Bearer`, een spatie en daarna je sleutel.
+
+Heeft je assistent een veld "API key" in plaats van een plek om headers toe te
+voegen, probeer je sleutel dan daar te plakken. Veel assistenten sturen de
+sleutel dan in een vorm die Alkemio ook accepteert.
+
+## Een sleutel uitschakelen
+
+Heb je een sleutel niet meer nodig, of denk je dat iemand anders hem gezien kan
+hebben, schakel hem dan direct uit:
+
+1. Klik op je profielfoto, kies **Mijn account** en open het tabblad
+   **Beveiliging**.
+2. Zoek onder **MCP API-sleutels** de sleutel op naam en klik op **Intrekken**.
+3. Bevestig door op **Sleutel intrekken** te klikken.
+
+De sleutel werkt direct niet meer, ook niet in een assistent die er nog mee
+verbonden is. Wil je je assistent toch met Alkemio blijven gebruiken, maak dan
+een nieuwe sleutel aan en herhaal Stap 2.

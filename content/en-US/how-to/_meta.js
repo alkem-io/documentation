@@ -13,6 +13,6 @@ export default {
   'connect-mcp-client': { title: 'Connect an MCP client' },
   'delete-account': { title: 'Delete your account' },
   'report-bug': { title: 'Raise a bug / flag an issue' },
-  whiteboards: { title: 'Use Excalidraw whiteboards' },
+  whiteboards: { title: 'Use whiteboards' },
   tutorials: { title: 'Tutorials' }
 }

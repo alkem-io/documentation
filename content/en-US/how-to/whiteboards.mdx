@@ -1,18 +1,20 @@
-# Use Excalidraw whiteboards
+# Use whiteboards
 
 Prefer exploring these tips on a whiteboard straight away? [Click here to open the corresponding whiteboard in the Welcome Space](https://alkem.io/welcome-space/collaboration/whiteboardtipstricks).
 
-Grab a cup of tea, put on your favorite tunes, and let’s dive into the world of creativity! 🎨
+Grab a cup of tea, put on your favourite tunes, and let’s dive into the world of creativity! 🎨
 
 Here’s what you’ll discover:
 
-- **Use the Right Tools**: We’ll explore the essential tools at your disposal. From brushes to erasers, we’ll make sure you’re equipped for artistic success.
-- **Make It Look Nice**: Beauty lies in the details! Learn how to arrange elements, choose colors, and create eye-catching designs.
-- **Make It Stay Nice 😉**: Maintenance matters! Discover tips to keep your whiteboard organized, clutter-free, and visually appealing.
+- **Use the Right Tools**: We’ll explore the essential tools at your disposal. From shapes to the pencil, we’ll make sure you’re equipped for artistic success.
+- **Make It Look Nice**: Beauty lies in the details! Learn how to arrange elements, choose colours, and create eye-catching designs.
+- **Make It Stay Nice 😉**: Maintenance matters! Discover tips to keep your whiteboard organised, clutter-free, and visually appealing.
 - **Engage Others**: Collaboration is key! Whether you’re brainstorming with colleagues or teaching a class, we’ll cover strategies to involve everyone.
 - **Keyboard Shortcuts**: Need to speed things up? We’ve got some nifty shortcuts to boost your productivity.
 
-The Whiteboards on Alkemio utilize the open-source **Excalidraw API**. Kudos to their remarkable work!
+Alkemio's whiteboards use the open-source **Excalidraw API**, so the tools, menus and keyboard shortcuts inside a whiteboard come from Excalidraw. Everything works straight away in every whiteboard, there's nothing to set up. Kudos to the Excalidraw team for their remarkable work!
+
+{/* Maintainer note: client-web depends on @excalidraw-yjs/excalidraw (Alkemio's fork, 0.5.3 on master, checked 2026-10-05). No langCode is passed, so the editor's own menus show in English. */}
 
 **Ready to dive in? Here we go! ✨**
 
@@ -22,12 +24,12 @@ You might have noticed that the whiteboard has **2 main menus**:
 
 1. **Top Menu**: For selecting a tool. This menu always has the same items. Feel free to give them a try! 🖌️
 2. **Left Menu**: For editing elements. This menu is only visible when you select something on the screen. The items you’ll see depend on the element you selected. For example:
-   - **Rectangle**: Change stroke color, background color, fill type, etc.
-   - **Text**: Change stroke color, font size, font family, etc. 🎨
+   - **Rectangle**: Change stroke colour, background colour, fill type, etc.
+   - **Text**: Change stroke colour, font size, font family, etc. 🎨
 
 ### Text
 
-Although you can use the “text” tool, we recommend using the “Square” tool instead:
+Although you can use the “text” tool, we recommend using the “Rectangle” tool instead:
 
 1. Draw a rectangle.
 2. Double-click inside it.
@@ -35,15 +37,38 @@ Although you can use the “text” tool, we recommend using the “Square” to
 
 ### Arrows
 
-The **arrow tool** can be used 'standalone', or you can connect it to one (or two) shape(s). Once you select the arrow tool and hover over a shape, a transparent border will appear. Click here to connect the arrow. By attaching it, the arrow will stick to the shape, even when you move the latter. Arrows (and lines) are straight by default, but it is possible to add a curve. To do so, select the arrow, click on the circle in the center, and drag it up or down to create your curve. 🎯
+The **arrow tool** can be used 'standalone', or you can connect it to one (or two) shape(s). Once you select the arrow tool and hover over a shape, a transparent border will appear. Click here to connect the arrow. By attaching it, the arrow will stick to the shape, even when you move the latter. Arrows (and lines) are straight by default, but it is possible to add a curve. To do so, select the arrow, click on the circle in the centre, and drag it up or down to create your curve. 🎯
+
+### Flow diagrams
+
+Want a flow diagram, like the steps of a process? There are two ways to make one without drawing every box and arrow by hand.
+
+**Quickly, with the keyboard.** Select a shape, hold **CTRL** and press an arrow key. A new box appears in that direction, already connected with an arrow. Keep holding CTRL and press an arrow key again to add the next step, and let go when you're done.
+
+**From Mermaid code.** *Mermaid* is a common way of writing a complex diagram as text. If you have the code for your diagram, you can paste it directly into the Mermaid panel, and the diagram is drawn for you on the whiteboard:
+
+1. In the top menu, click **More tools** (the button at the far right), and under **Generate** choose **Mermaid to Excalidraw**.
+2. Paste your code into the left panel. The preview on the right shows your diagram. To change the code, change it where you wrote it and paste it in again.
+3. Click **Insert**.
+
+Once inserted, the diagram is **completely editable**: it's made of ordinary shapes, text and arrows, so you can move, resize, recolour, rename and add to it like anything else on your whiteboard.
+
+Not sure how to write Mermaid code? At the top of the **Mermaid to Excalidraw** window are links to Mermaid's website for the kinds of diagrams it can draw: **Flowchart**, **Sequence**, **Class** and **Entity Relationship**. Each page explains how to write the code for that kind of diagram, with examples you can copy and adapt.
+
+Mermaid code looks like this, for three steps connected by arrows:
+
+```
+flowchart LR
+  A[Idea] --> B[Plan] --> C[Do]
+```
 
 ### Other tools
 
 And there's more! Don't hesitate to explore all the tools in the tool menu and the various editing options in the edit menu. You can use different shapes, the pencil tool enables you to draw freehand, you can also upload images, and much more.
 
-### Library
+### Start from a template
 
-Alkemio has a **library** with many whiteboards that you can use. Click on the **"Find Template"** button next to the title in the top left of your screen.
+You don't have to start with an empty board. While you're editing a whiteboard, click **Find Template** next to its title, at the top left of your screen. You'll see your Space's whiteboard templates first, then whiteboard templates from the **Template Library**, Alkemio's library of templates shared by everyone on the platform. Pick one and its content is added to your whiteboard, next to whatever is already there; nothing on the board is removed.
 
 ## Make it look nice
 
@@ -55,37 +80,39 @@ Messy whiteboard? Try aligning the content. Quickly select all elements by dragg
 
 **Aligning elements on the go?** Try copying a block by selecting it, and then holding the **Alt-key** when you drag your mouse away. If you also hold the **Shift-key**, the element automatically aligns horizontally or vertically with the origin.
 
-### Using background colors & strokes
+### Using background colours & strokes
 
 - **Tip 1**: Do not use the striped fill behind text.
-- **Tip 2**: Make sure that there is enough contrast between the text and the background color.
+- **Tip 2**: Make sure that there is enough contrast between the text and the background colour.
 - **Tip 3**: Be careful with black text on a darker background; aside from the weak contrast, it just doesn’t really look nice.
-- **Tip 4**: Make a choice. Use a border or a background color, not both (unless you have a very good reason…)
+- **Tip 4**: Make a choice. Use a border or a background colour, not both (unless you have a very good reason…)
 
-#### Separating the border color from the text color
+#### Separating the border colour from the text colour
 
-To make the border color different from the text color, follow these steps:
+To make the border colour different from the text colour, follow these steps:
 
-1. Select the block and change the **stroke color** for the stroke.
+1. Select the block and change the **stroke colour** for the stroke.
 2. Double-click inside the block to select the text.
-3. Now select the right **stroke color** for the text. If you have the text selected, the border color of the block will not change.
+3. Now select the right **stroke colour** for the text. If you have the text selected, the border colour of the block will not change.
 4. Copy this block to use elsewhere so you don't have to repeat these steps.
 
 ## Make it stay nice
 
 ### Grouping elements
 
-If you have a nice structure in place, you don't want it to get mixed up when you or someone else changes (e.g.) some text. Select all the elements that you want to group together, right-click on your mouse, and choose **"Group Selection"**. These things now stay together. You can drag them around as a whole or edit content inside the group by clicking on the element a couple of times to get "inside" the group. 🧩
+If you have a nice structure in place, you don't want it to get mixed up when you or someone else changes (e.g.) some text. Select all the elements that you want to group together, right-click on your mouse, and choose **"Group selection"**. These things now stay together. You can drag them around as a whole or edit content inside the group by clicking on the element a couple of times to get "inside" the group. 🧩
 
 ### Locking elements
 
-When working with various elements on a whiteboard, mistakes are prone to happen. Especially background blocks get moved by accident all. the. time. To prevent this from happening, you can **lock** things that shouldn't be changed. Right-click the element and select **"Lock"** or use the keyboard shortcut: `CTRL + SHIFT + L`. Unlocking the element also goes very easy: right-click on it and choose **"Unlock"** or `CTRL + SHIFT + L`. Unlocking everything on the whiteboard can be done by right-clicking an empty place on the board and choosing **"Unlock All"**. Locking multiple elements? Consider grouping them first! This way, you can unlock everything at once, instead of having to unlock every item separately when you need to make a couple of changes. 🔒
+When working with various elements on a whiteboard, mistakes are prone to happen. Especially background blocks get moved by accident all. the. time. To prevent this from happening, you can **lock** things that shouldn't be changed. Right-click the element and select **"Lock"** or use the keyboard shortcut: `CTRL + SHIFT + L`. Unlocking the element also goes very easy: right-click on it and choose **"Unlock"** or `CTRL + SHIFT + L`. Unlocking everything on the whiteboard can be done by right-clicking an empty place on the board and choosing **"Unlock all"**. Locking multiple elements? Consider grouping them first! This way, you can unlock everything at once, instead of having to unlock every item separately when you need to make a couple of changes. 🔒
 
 ### Selecting multiple objects
 
 To select multiple objects that you want to group, lock, or move, you can do so by holding down the **SHIFT key** while clicking on each object. Another way to select multiple objects quickly is to **drag your mouse** around the objects. Make sure to encircle everything completely because if you miss even a small corner, the object won't be selected. *Please note that any items that are currently locked will not be included in this selection.* 🖱️
 
 ## Keyboard tips
+
+On a Mac, use **Cmd** wherever this page says CTRL, and **Option** for ALT.
 
 ### Navigation
 
@@ -95,24 +122,24 @@ Press the **space bar** of your keyboard to turn your mouse pointer into a littl
 
 Instead of copying and pasting, you can **duplicate** an element by selecting it, pressing the **ALT key**, and dragging it to the desired location. When duplicating elements while holding **SHIFT**, they will remain aligned horizontally or vertically with the original element.
 
-#### 📏 Quickly Scaling Text
+### 📏 Quickly Scaling Text
 
-Sometimes the font size is simply too big to nicely fit in your design. When this text is inside a shape and you don’t want to resize the shape, simply select all text in it (`CTRL+A`) and use the keyboard combination above.
+Sometimes the font size is simply too big to nicely fit in your design. When this text is inside a shape and you don’t want to resize the shape, simply select all text in it (`CTRL+A`) and press `CTRL+SHIFT+<` to make it smaller or `CTRL+SHIFT+>` to make it bigger.
 
-#### 🆙 Move Forward/Backward or to Front/Back
+### 🆙 Move Forward/Backward or to Front/Back
 
-Use your **CTRL key** together with the **square bracket keys** to move items forward or backward. You might need to click a couple of times before you get the right result, so often it is faster to move one of the objects completely to the front or back. When adding an object, simply put it to the background by clicking `CTRL+SHIFT+[`. This makes it very simple to later add a background to your board: just put it on top of everything and then use this keyboard shortcut.
+Use your **CTRL key** together with the **square bracket keys** to move items forward or backward. You might need to press a couple of times before you get the right result, so often it is faster to move one of the objects completely to the front or back. When adding an object, simply put it to the background by pressing `CTRL+SHIFT+[` (on a Mac: `Cmd+Option+[`). This makes it very simple to later add a background to your board: just put it on top of everything and then use this keyboard shortcut.
 
-#### 👥 Engaging Others
+## 👥 Engaging Others
 
-#### 🔒 Lock!
+### 🔒 Lock!
 
 Make sure to **lock all elements** that others shouldn’t be changing. Consider grouping them first, so it’s quicker to unlock parts of your whiteboard when you need to edit something.
 
-#### 📄 Prepare Text Blocks
+### 📄 Prepare Text Blocks
 
-During interactive sessions, consider adding text blocks with a placeholder, such as `""`, for people to copy and use. You can also use blocks in different colors and assign each color to a different person in advance. This way, you can easily distinguish who added what during the session.
+During interactive sessions, consider adding text blocks with a placeholder, such as `""`, for people to copy and use. You can also use blocks in different colours and assign each colour to a different person in advance. This way, you can easily distinguish who added what during the session.
 
-#### 🟪 Use Background Blocks
+### 🟪 Use Background Blocks
 
 Consider using blocks to break down multi-step processes or questions into manageable chunks.
