@@ -16,9 +16,9 @@
 #   6. US7-AS1/2/3 — live HTTP: 200 under the /documentation basePath, locale
 #                    redirect, NEXT_LOCALE honoured, pagefind index served
 #                    (the persisted D1/D2 regression)
-#   7. NODE_ENV=dev injection (four of five environments inject it via the
-#      alkemio-config ConfigMap and envFrom overrides Dockerfile ENV) does not
-#      degrade the standalone server
+#   7. The image's own runtime environment (Dockerfile ENV NODE_ENV=production,
+#      PORT, HOSTNAME) is what every cluster runs: the deployment manifest
+#      injects no envFrom, so nothing overrides it
 #   8. Emits IMAGE_DIGEST= / IMAGE_SIZE_BYTES= for mechanical evidence (US5-AS3)
 #
 # Usage: .docker/distroless-image-smoke.sh <image[:tag]>
@@ -121,11 +121,11 @@ FROM_COUNT="$(grep -cE '^[[:space:]]*FROM[[:space:]]' "$DOCKERFILE")"
 pass "all $FROM_COUNT FROM stage(s) are digest-pinned"
 
 # --- 6. US7-AS1/2/3: live behaviour (the persisted D1/D2 regression) -------
-# NODE_ENV=dev is injected by the alkemio-config ConfigMap in dev/test/sandbox/
-# acceptance, and `envFrom` overrides the Dockerfile ENV — so the harness runs
-# the container the way the cluster actually will.
+# The deployment manifest injects no envFrom, so the cluster runs the image's
+# own Dockerfile ENV (NODE_ENV=production). The harness runs it the same way,
+# with no -e override, so it tests the environment the cluster actually has.
 docker rm -f "$CONTAINER" >/dev/null 2>&1 || true
-docker run -d --name "$CONTAINER" -e NODE_ENV=dev -p "$HOST_PORT:3010" "$IMAGE" >/dev/null
+docker run -d --name "$CONTAINER" -p "$HOST_PORT:3010" "$IMAGE" >/dev/null
 B="http://localhost:$HOST_PORT"
 
 READY=""
@@ -136,7 +136,7 @@ for _ in $(seq 1 60); do
   sleep 1
 done
 [ -n "$READY" ] || { docker logs "$CONTAINER" >&2 || true; fail "container did not start listening on 3010"; }
-pass "container starts and listens on 3010 (with NODE_ENV=dev injected)"
+pass "container starts and listens on 3010 (image ENV, no override)"
 
 # 6a. basePath — 200 under /documentation, NOT merely on /.
 FINAL_CODE="$(curl -sL -o /dev/null -w '%{http_code}' "$B/documentation")"

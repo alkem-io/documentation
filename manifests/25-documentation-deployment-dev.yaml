@@ -80,11 +80,6 @@ spec:
             capabilities:
               drop:
                 - ALL
-          envFrom:
-            - secretRef:
-                name: alkemio-secrets
-            - configMapRef:
-                name: alkemio-config
           ports:
             - name: documentation
               containerPort: 3010
