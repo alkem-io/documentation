@@ -25,7 +25,7 @@ Want to show a video or other content from another website inside your Post? Rea
 
 ## Additional Content
 
-In the **Add to Post** part of the form you can add one extra piece of content to your post: a whiteboard, memo, document, call to action, media gallery or poll. After the post is created you can still remove it, but you can't swap it for a different kind.
+When you create a Post, you can add one extra piece of content to it under **Add to Post**: a whiteboard, memo, document, call to action, media gallery, poll or form. After the post is created you can still remove it, but you can't swap it for a different kind. A form is the exception: it stays with the post (see [Form](#form)).
 
 ### Whiteboard
 
@@ -33,7 +33,7 @@ A Whiteboard lets members **sketch, add notes and map out ideas together**, at t
 
 > In a free Space, one person can work on a whiteboard at a time. Want to work on it together at the same time? [Contact the team](/support).
 
-![Create a post with a whiteboard](/post-with-whiteboard.png)
+![A Post with a whiteboard](/post-with-whiteboard.png)
 
 Read more about using whiteboards on the [Whiteboard Page](/how-to/whiteboards)
 
@@ -86,6 +86,34 @@ When creating a poll, you can configure the following settings:
 
 ![Create a Post with a Poll](/post-with-poll.png)
 
+### Form
+
+A Form lets you ask members a set of questions and collect their answers in one place, for example to sign up for an event, gather dietary needs or receive requests that not everyone should read. Space admins can add a Form to a Post: you find it under **More** in **Add to Post**. Unlike other additional content, a Form can't be removed from the Post once it's created, and an existing Post can't be turned into a Form, so the responses can't get lost by accident. To remove a Form, delete the Post; the confirmation tells you how many responses will be deleted with it.
+
+Give the Form a title and description if you like, then add your questions, up to 50. For each question you pick an answer type: **Short text** for a single line (up to 512 characters), **Long text** for a longer answer (up to 2,048 characters), **Single choice** to choose one option, or **Multiple choice** to choose one or more. A choice question needs 2 to 20 options, each with a different text. Turn on **Required** for questions that must be answered. You can still edit the questions later, also once responses have come in, and even change a question's answer type: answers that were already given stay as they were.
+
+![Create a Post with a Form](/post-with-form.png)
+
+In **Form settings** you choose:
+- **Who can see the responses**: **Admins only**, the default, or **Space members**.
+- **Responses per person**: **One response per person**, the default, or **Several responses per person**. If you switch from several to one, everyone keeps the responses they already sent, but can only send a new one after withdrawing all of them.
+- **Open for responses**: turn this off to close the Form, and on again to reopen it. A closed Form accepts no new responses; the responses already sent stay.
+- **Show the form collapsed by default**: only the top of the Form, with its title and description, shows until someone opens it. Everyone can still expand or collapse it themselves.
+
+You can change all of these at any time.
+
+![Form settings](/form-settings.png)
+
+**Who can read the responses.** Responses are never anonymous: each one shows who sent it. With **Admins only**, the admins of the Space or Subspace can read every response; in a Subspace, the admins of the Space it belongs to can too. Everyone else sees only their own. With **Space members**, the members of the Space or Subspace where the Form is can read every response; in a Subspace, members of the parent Space who aren't members of the Subspace itself see only their own. **Space members** never means the public: visitors and people who aren't members never see other people's responses, not even in a public Space. Before sending, members see who will be able to read their answers, right next to the **Submit Form** button. You can change this setting at any time, and it always applies to all responses, including earlier ones. That's why Alkemio asks you to confirm before you switch from **Admins only** to **Space members**: members will then also read answers that were given when only admins could see them. For sensitive questions, keep **Admins only**. Responses are not contributions: they don't appear under **Contributions** or in the activity feed. If someone deletes their account, their responses stay, shown as from a **Deleted user**.
+
+![A Form as members see it](/form-fill-in.png)
+
+Members can fill in the Form once the Post is published, and click **Submit Form**. They can't edit a response afterwards, but they can take it back with **Withdraw**, even after the Form is closed. With one response per person, they can then send a new one. Everyone who can read all responses sees **View responses** at the top of the Form, with the number of responses. It opens an overview of all responses, where you can open each one to read it in full. Answers to a question you removed later are still shown, marked as a removed question. With **Export CSV** at the bottom of the overview you download all responses as a spreadsheet file, with one row per response: who sent it, when, and one column per question. Admins can also delete a response in the overview; members can't, even when they can read all responses.
+
+When someone sends a response, the admins of that Space or Subspace get a notification with a link to the Form; it never contains the answers. Admins of the parent Space aren't notified, and an admin who sends a response gets only the confirmation email below. Each admin chooses how they receive it in the profile menu under **My Account**, on the **Notifications** tab, under **Space Admin Notifications**, in the row **Receive a notification when someone submits a response to a Form in a Space you administer**. In-app, email and push are all on by default. The person who sent the response always gets an email confirming it was received and saying who can read it. It doesn't repeat the answers, and there's no setting to turn it off.
+
+You can save a Post with a Form as a template, with **Save as Template** in the Post's menu. The template keeps the title, description, questions and settings, but never the responses: a Post started from it begins with no responses. Space templates carry their Forms in the same way.
+
 ### Media Gallery
 
 A Media Gallery lets you share a curated collection of images within a Space or Subspace.
@@ -108,7 +136,7 @@ Space admins have two more options. **Contributors** shows the members of your c
 
 ### Comments
 Comments are on by default, so the community can reply to the post. This can be useful to start a discussion or ask for input.
-If the post is for information only and you don't want people to reply, open **More options** in the post form and turn off **Allow comments**.
+If the post is for information only and you don't want people to reply, open **More options** while creating the Post and turn off **Allow comments**.
 
 ### Reactions
 Members can react to a published post with an emoji: a heart, hugging face, clapping hands, light bulb, bullseye, check mark or rocket. Everyone has one reaction per post; pick another emoji to change it, or click your own to remove it. Click the reaction count to see who reacted.
@@ -117,7 +145,7 @@ Members can react to a published post with an emoji: a heart, hugging face, clap
 
 Besides comments, you can ask members to add something to your post, such as links, their own posts or whiteboards. These additions are called **contributions**, and they appear in the post under **Contributions**.
 
-You set this up in the **Responses** section of the post form. Choose one type: **Links & Files**, **Posts**, **Memos**, **Whiteboards**, **Documents** or a **Tasks board**. For every type you decide who can add: **Members can add** lets everyone in the community contribute, and **Admins can add** lets admins contribute. The type can't be changed after the post is created; if you need a different type, simply create a new post.
+You set this up in the **Responses** section when you create the Post. Choose one type: **Links & Files**, **Posts**, **Memos**, **Whiteboards**, **Documents** or a **Tasks board**. For every type you decide who can add: **Members can add** lets everyone in the community contribute, and **Admins can add** lets admins contribute. The type can't be changed after the post is created; if you need a different type, simply create a new post.
 
 ![Response options](/response-options.png)
 
