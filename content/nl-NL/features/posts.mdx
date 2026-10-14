@@ -91,6 +91,30 @@ Bij het aanmaken van een peiling kun je de volgende instellingen configureren:
 
 ![Maak een post met een peiling](/post-with-poll.png)
 
+### Formulier
+
+Met een Formulier stel je leden een reeks vragen en verzamel je hun antwoorden op één plek, bijvoorbeeld om je aan te melden voor een evenement, dieetwensen op te halen of verzoeken te ontvangen die niet iedereen mag lezen. Een ingevuld formulier heet een reactie. Space-beheerders kunnen een Formulier aan een Post toevoegen: je vindt het onder **Meer** bij **Toevoegen aan Post**. Anders dan bij andere aanvullende inhoud kun je een Formulier niet meer uit de Post verwijderen nadat die is aangemaakt, zodat de reacties niet per ongeluk verloren gaan.
+
+Geef het Formulier eventueel een titel en beschrijving en voeg dan je vragen toe. Per vraag kies je een antwoordtype: **Korte tekst** voor één regel, **Lange tekst** voor een langer antwoord, **Enkele keuze** om één optie te kiezen, of **Meerdere keuzes** om er één of meer te kiezen. Zet **Verplicht** aan bij vragen die beantwoord moeten worden. Je kunt de vragen later nog aanpassen; antwoorden die al gegeven zijn, blijven zoals ze waren.
+
+In **Formulierinstellingen** kies je:
+- **Wie kan de reacties zien**: **Alleen beheerders**, de standaardinstelling, of **Leden van de space**.
+- **Reacties per persoon**: **Eén reactie per persoon** of **Meerdere reacties per persoon**.
+- **Open voor reacties**: zet dit uit om het Formulier te sluiten, en weer aan om het te heropenen. Een gesloten Formulier accepteert geen nieuwe reacties.
+- **Formulier standaard ingeklapt tonen**: de vragen blijven ingeklapt tot iemand het Formulier openklapt.
+
+**Wie de reacties kan lezen.** Reacties zijn nooit anoniem: bij elke reactie staat wie hem heeft ingestuurd. Bij **Alleen beheerders** kunnen de beheerders van de Space of Subspace alle reacties lezen; in een Subspace kunnen de beheerders van de bovenliggende Space dat ook. Alle anderen zien alleen hun eigen reactie. Bij **Leden van de space** kunnen de leden van de Space of Subspace waar het Formulier staat alle reacties lezen. **Leden van de space** betekent nooit het publiek: bezoekers en mensen die geen lid zijn zien nooit de reacties van anderen, ook niet in een openbare Space. Voordat leden iets insturen, zien ze wie hun antwoorden kan lezen. Je kunt deze instelling altijd wijzigen, en ze geldt dan voor alle reacties, ook de eerdere. Daarom vraagt Alkemio je om bevestiging voordat je van **Alleen beheerders** overstapt naar **Leden van de space**: leden kunnen dan ook antwoorden lezen die zijn gegeven toen alleen beheerders ze konden zien. Kies bij gevoelige vragen voor **Alleen beheerders**.
+
+Leden vullen het Formulier in de Post in en klikken op **Formulier verzenden**. Een reactie kunnen ze achteraf niet bewerken, maar ze kunnen hem wel terugnemen met **Intrekken**, ook als het Formulier al gesloten is. Bij één reactie per persoon kunnen ze daarna een nieuwe insturen. Wie alle reacties mag lezen, ziet bovenaan het Formulier **Reacties bekijken** met het aantal reacties. Daarmee open je een overzicht van alle reacties, waarin je elke reactie volledig kunt openen. Beheerders kunnen daar ook een reactie verwijderen.
+
+Als iemand een reactie instuurt, krijgen de beheerders van die Space of Subspace een melding met een link naar het Formulier; de antwoorden zelf staan er nooit in. Elke beheerder kiest zelf hoe die de melding ontvangt: in het profielmenu onder **Mijn account**, op het tabblad **Meldingen**, in de regel over formulierreacties onder **Space-beheerdermeldingen**. In-app, e-mail en push staan standaard aan. Wie de reactie heeft ingestuurd, krijgt altijd een e-mail ter bevestiging, met daarin wie de reactie kan lezen.
+
+{/* Onderhoudsnotities (2026-10-14):
+    - Schermafbeelding toevoegen zodra die er is, bijv. ![Maak een post met een formulier](/post-with-form.png).
+    - CSV-export bewust weggelaten (verwacht in V1.1, server#6553). Let op: client-web v0.168.0 toont al een
+      knop "CSV exporteren" onderaan het reactie-overzicht. Werkt die op het scherm, voeg dan toe:
+      "Met **CSV exporteren** download je alle reacties als spreadsheetbestand." */}
+
 ### Mediagalerij
 
 Een Mediagalerij stelt je in staat om een samengestelde verzameling afbeeldingen te delen binnen een Space of Subspace.
