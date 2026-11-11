@@ -8,6 +8,33 @@ body.not-in-iframe {
     overflow-y: auto;
 }
 
+/* Embedded mode: the platform sizes the iframe to the document height this site
+   reports, and inside an iframe viewport units resolve to the iframe's own
+   height. An in-flow box sized from the viewport therefore keeps the document
+   taller than the iframe by whatever sits around that box (banner, navbar),
+   leaving a strip that touch browsers scroll inside the iframe despite
+   `overflow-y: hidden`. So when embedded, the page height must depend on the
+   content only. Standalone keeps the theme's viewport-relative sizing. */
+body:not(.not-in-iframe) article {
+    min-height: 0;
+}
+
+body:not(.not-in-iframe) .nextra-sidebar {
+    height: auto;
+}
+
+.not-found-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20rem;
+    text-align: center;
+}
+
+body.not-in-iframe .not-found-page {
+    min-height: 50vh;
+}
+
 /* Force pure white background */
 :root {
     --nextra-bg: 255 255 255 !important;
