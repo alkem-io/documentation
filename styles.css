@@ -31,10 +31,6 @@ body:not(.not-in-iframe) .nextra-sidebar {
     text-align: center;
 }
 
-body.not-in-iframe .not-found-page {
-    min-height: 50vh;
-}
-
 /* Force pure white background */
 :root {
     --nextra-bg: 255 255 255 !important;
