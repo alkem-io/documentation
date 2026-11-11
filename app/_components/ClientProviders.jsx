@@ -3,8 +3,6 @@
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 
-const HEIGHT_DIFFERENCE_THRESHOLD = 130
-
 const allowedOrigins = [
   'https://alkem.io',
   'https://dev-alkem.io',
@@ -52,7 +50,11 @@ export default function ClientProviders() {
     if (typeof document === 'undefined') return
     const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight
 
-    if (Math.abs(pageHeight - lastHeight.current) > HEIGHT_DIFFERENCE_THRESHOLD) {
+    // Report every change: an unreported growth, however small, leaves the
+    // iframe shorter than its document, and touch browsers scroll that strip
+    // inside the iframe. The embedded layout never sizes itself from the
+    // viewport (see styles.css), so a report cannot feed back into the height.
+    if (pageHeight !== lastHeight.current) {
       lastHeight.current = pageHeight
       clearTimeout(debounceTimeout.current)
       debounceTimeout.current = setTimeout(() => {
