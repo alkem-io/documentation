@@ -7,12 +7,14 @@ export default {
   'reuse-templates': { title: 'Hergebruik je werk via templates' },
   'collaboration-tools': { title: 'Gebruik de samenwerkingstools van Alkemio' },
   'template-packs': { title: 'Gebruik template packs van andere organisaties' },
+  'report-bug': { title: 'Meld een bug / signaleer een probleem' },
+  whiteboards: { title: 'Gebruik whiteboards' },
+  tutorials: { title: 'Tutorials' },
+  '-- your-account': { type: 'separator', title: 'Je account' },
   'change-email': { title: 'Wijzig je e-mailadres' },
   'change-password': { title: 'Wijzig je wachtwoord' },
   'connected-accounts': { title: 'Koppel of ontkoppel een inlogmethode' },
+  'two-step-verification': { title: 'Stel verificatie in twee stappen in' },
   'connect-mcp-client': { title: 'Koppel een MCP-client' },
-  'delete-account': { title: 'Verwijder je account' },
-  'report-bug': { title: 'Meld een bug / signaleer een probleem' },
-  whiteboards: { title: 'Gebruik whiteboards' },
-  tutorials: { title: 'Tutorials' }
+  'delete-account': { title: 'Verwijder je account' }
 }

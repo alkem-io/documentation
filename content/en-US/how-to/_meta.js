@@ -7,12 +7,14 @@ export default {
   'reuse-templates': { title: 'Reuse your work through templates' },
   'collaboration-tools': { title: "Use Alkemio's collaboration tools" },
   'template-packs': { title: 'Use template packs from other organisations' },
+  'report-bug': { title: 'Raise a bug / flag an issue' },
+  whiteboards: { title: 'Use whiteboards' },
+  tutorials: { title: 'Tutorials' },
+  '-- your-account': { type: 'separator', title: 'Your account' },
   'change-email': { title: 'Change your email address' },
   'change-password': { title: 'Change your password' },
   'connected-accounts': { title: 'Connect or disconnect a sign-in method' },
+  'two-step-verification': { title: 'Set up two-step verification' },
   'connect-mcp-client': { title: 'Connect an MCP client' },
-  'delete-account': { title: 'Delete your account' },
-  'report-bug': { title: 'Raise a bug / flag an issue' },
-  whiteboards: { title: 'Use whiteboards' },
-  tutorials: { title: 'Tutorials' }
+  'delete-account': { title: 'Delete your account' }
 }
